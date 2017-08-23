@@ -1,3 +1,1 @@
-# This is a test... sup bruh
-
-# Aaron Ferber is a reptilian
+# This is a test

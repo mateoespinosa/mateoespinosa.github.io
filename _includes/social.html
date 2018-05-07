@@ -8,7 +8,7 @@
 
 
 <ul style="display: inline-block; text-align: center;">
-  {%- if site.name -%}<li class="social-list"> Built in 2018 using <a href="https://www.jekyll.com">Jekyll</a>.</li>{%- endif -%}
+  {%- if site.name -%}<li class="social-list"> Built in 2018 using <a href="https://jekyllrb.com">Jekyll</a>.</li>{%- endif -%}
   {%- if site.dribbble_username -%}<li class="social-list"><a href="https://dribbble.com/{{ site.dribbble_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#dribbble' | relative_url }}"></use></svg> <span class="username">{{ site.dribbble_username| escape }}</span></a></li>{%- endif -%}
   {%- if site.facebook_username -%}<li class="social-list"><a href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use></svg> <span class="username">{{ site.facebook_username| escape }}</span></a></li>{%- endif -%}
   {%- if site.flickr_username -%}<li class="social-list"><a href="https://www.flickr.com/photos/{{ site.flickr_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#flickr' | relative_url }}"></use></svg> <span class="username">{{ site.flickr_username| escape }}</span></a></li>{%- endif -%}

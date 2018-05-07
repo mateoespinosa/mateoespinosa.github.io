@@ -6,6 +6,7 @@ github_username: mateoespinosa
 url: http://www.mateoespinosa.co
 email: 'mateoespinosaz2@gmail.com'
 ghrepo: https://github.com/mateoespinosa
+linkedin_username: mateoespinosa
 timezone: America/San_Francisco
 updated: 2018.05.05
 
@@ -57,10 +58,10 @@ defaults:
 navigation:
     - title: Home
       link: /
-    - title: Blog
-      link: /blog/
     - title: Contact
       link: /contact.html
+    - title: Blog
+      link: /blog/
 
 # And finally some on-the-works drafts
 collections:

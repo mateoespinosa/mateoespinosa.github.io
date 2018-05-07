@@ -1,0 +1,22 @@
+name: Mateo Espinosa
+author: Mateo Espinosa
+url: https://mateoespinosa.github.io
+baseurl: ""
+github_username:  mateoespinosa
+title: Mateo Espinosa
+timezone: America/San_Francisco 
+  
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+defaults:
+    -
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            "default"
+

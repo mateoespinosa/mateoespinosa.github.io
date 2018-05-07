@@ -1,22 +1,69 @@
 name: Mateo Espinosa
 author: Mateo Espinosa
-url: https://mateoespinosa.github.io
-baseurl: ""
-github_username:  mateoespinosa
 title: Mateo Espinosa
-timezone: America/San_Francisco 
-  
+baseurl: ""
+github_username: mateoespinosa
+url: http://www.mateoespinosa.co
+email: 'mateoespinosaz2@gmail.com'
+ghrepo: https://github.com/mateoespinosa
+timezone: America/San_Francisco
+updated: 2018.05.05
+
+lsi: false
+safe: true
+incremental: true
+
+
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
 
-defaults:
-    -
-        scope:
-            path: ""
-            type: "posts"
-        values:
-            "default"
+kramdown:
+  input: GFM
+  hard_wrap: false
+  enable_coderay: false
+  auto_ids: true
+  entity_output: symbolic
+  math_engine: katex
+highlighter: rouge
 
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - .gitignore
+
+permalink: /blog/:year/:month/:title.html
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: drafts
+    values:
+      layout: post
+  - scope:
+      type: pages
+    values:
+      permalink: /:path/:basename:output_ext
+
+navigation:
+    - title: Home
+      link: /
+    - title: Blog
+      link: /blog/
+    - title: Contact
+      link: /contact.html
+
+# And finally some on-the-works drafts
+collections:
+  drafts:
+    output: true
+    permalink: /blog/drafts/:slug.html

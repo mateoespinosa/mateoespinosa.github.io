@@ -9,6 +9,7 @@ ghrepo: https://github.com/mateoespinosa
 linkedin_username: mateoespinosa
 timezone: America/San_Francisco
 updated: 2018.05.05
+production: true
 
 lsi: false
 safe: true

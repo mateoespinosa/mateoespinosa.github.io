@@ -1,0 +1,39 @@
+---
+layout: single
+title: "Hello World and Bizarre Mathematics"
+excerpt: "Welcome to my blog. Here is something weird for you..."
+date: 2019-01-15 13:00:00 -0600
+categories:
+  - random
+tags:
+  - meta-blogging
+  - mathematics
+comments: true
+classes: wide
+---
+
+Hello there! So I have decided to start my own blog. Not that there are not enough blogs out there, but boredom and some project ideas got me thinking that it would be nice to have a place where I can share what's on my mind these days. Even if no ones reads them, I think there is definitely a good reason to just blab around every now and then.
+
+I intend to use this space for sharing random thoughts ranging from computer science, math, linguistics, and physics related ideas to commentary on current events and politics. I've wanted to do something like this for a long time now, and finally got some time to do it. So hopefully this blog will make it past this first post and survive my laziness. If not, then I hope at least this leftover and lonely post entrained you at for a bit.
+
+As far as why I chose an oddly named, though very interesting, [mathematical theorem](https://en.wikipedia.org/wiki/Hairy_ball_theorem) as the name of my blog: I wished I had a deeply rooted philosophical reason for it. Like some anecdote of what this means to me and my education or how I read about topology while dreaming after falling asleep reading about topology. But to be honest the rationale behind the namesake of this blog is pretty lacking: I chose it because I have always liked the name of that theorem. Back in the day I thought it was funny. Now it is it more like "meh", but still holds a special place as my "go-to" name for a place holder (right there next to "0xdeadbeef"). Nevertheless, don't let this discourage from looking into the result the theorem describes. The theorem is itself very interesting and would recommend everyone to take a look at it and its applications in physics and meteorology (hopefully will make a post later on about it).
+However, just for the sake of completeness, I will claim that the true reason behind naming a blog after this theorem is that its Wikipedia page has this picture in it:
+
+![Hairy Ball Theorem](https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Baby_hairy_head_DSCN2483.jpg/440px-Baby_hairy_head_DSCN2483.jpg){: .align-center}
+
+If that isn't gold, then I don't know what is. This was slightly better than the [ham sandwich theorem](https://en.wikipedia.org/wiki/Ham_sandwich_theorem) whose Wikipedia article literally has a picture of, surprise surprise, a ham sandwich. In case, you know, you've never seen one or it's been a while since you had one.
+While writing what I intended to be a very brief "hello world" sort-of post, I got sucked up into looking up other oddly named mathematical results. And honestly, what a reveling and enriching detour this has been. Completely worth the past two hours of random walks in Wikipedia. Found out that there's the ["chicken McNugget theorem"](https://artofproblemsolving.com/wiki/index.php/Chicken_McNugget_Theorem), in case you ever wondered what is the largest amount McNuggets you need to order for McDonalds to be unable to sell them to you without breaking up a pack. The ["law of the unconscious statistician"](https://en.wikipedia.org/wiki/Law_of_the_unconscious_statistician) describes a well-held mantra amongst statisticians, on finding out the expected value of a function of random variable, that apparently it seems so obvious they inherently assume it to be true.
+
+Then there's the ["infinity monkey theorem"](https://en.wikipedia.org/wiki/Infinite_monkey_theorem) which, although it sounds like something out of a Marvel comic book, it simply says that given enough time, a monkey, and a typewriter, the monkey could almost surely type the complete works of Shakespeare. Not sure whether would be harder to find a monkey that would non-stop type given a typewriter without doing, you know, normal-monkey-stuff or to find a typewriter that actually works today. The ["no-hair theorem"](https://en.wikipedia.org/wiki/No-hair_theorem) points out an interesting physics result on what information is truly enough to characterize things occurring in a black hole.
+
+I think the highlight of this journey was, however, this little corner of unfortunate accidents rooting from the names of the result's authors. The king of this realm has to be the ["Cox-Zucker machine"](https://en.wikipedia.org/wiki/Cox%E2%80%93Zucker_machine). This algorithm was apparently not named like that by the authors (as one would expect) but by a guy named Charles Schwartz who coined the term in a paper five years later. I have so many questions for the reasons behind his naming choice. A second close has to be the ["Tits alternative theorem"](https://en.wikipedia.org/wiki/Tits_alternative). Like just why. There probably had to be a better adjective to follow this last name than "alternative". And the thing is Belgium-born Monsieur [Jacques Tits](https://en.wikipedia.org/wiki/Jacques_Tits) has been an amazingly prolific mathematician during his lifetime. Which means, lots of things bear his name. There are those [Tits buildings](https://en.wikipedia.org/wiki/Building_(mathematics)) and then we cannot forget about the [Tits group](https://en.wikipedia.org/wiki/Tits_group), both of which you would certainty not expect people talking about in a mathematics lecture hall. And thinking that before this I always thought the infamous ["Wiener processes"](https://en.wikipedia.org/wiki/Wiener_process) were already too much of an unfortunate result of naming conventions. How little did I know.
+
+
+---
+
+
+If you are interested in knowing how this website was built, I will include the [Jekyll](https://jekyllrb.com/) source code in my [GitHub](https://github.com/mateoespinosa/mateoespinosa.github.io). Jekyll is a pretty widely used static-site generator; especially for academic blogs. Although there is some sort of a learning curve at the start, it is pretty impressive what you can do with it once you manage to pass that initial warm-up stage. Static-site generators are a truly amazing idea. I really wished I knew of them back in the days of struggling with handwritten CSS and HTML always doing the opposite I wanted them to do.
+
+For now, this website is being build with a Jekyll theme called [minimal mistakes](https://github.com/mmistakes/minimal-mistakes). It is very flexible and offers a tremendous amount of options (plus relatively good docs), so would recommend it if you are planning on exploring using Jekyll as a base for your website. It certainty deserves people's attention. Obviously, feel free to use any of my own personal code as you wish in your own projects without asking. Mi casa es tu casa.
+
+That's it for today. Welcome to my blog and I hope you enjoy going over my random thoughts in the future! More posts will come soon (I hope...)

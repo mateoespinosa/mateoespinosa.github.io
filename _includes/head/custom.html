@@ -10,4 +10,10 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+{% if site.posts.first.googlewebfonts %}
+  <link href='http://fonts.googleapis.com/css?family={{ site.posts.first.googlewebfonts }}'>
+{% elsif page.googlewebfonts %}
+  <link href='http://fonts.googleapis.com/css?family={{ page.googlewebfonts }}'>
+{% endif %}
+
 <!-- end custom head snippets -->

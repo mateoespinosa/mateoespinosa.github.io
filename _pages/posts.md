@@ -3,6 +3,7 @@ title: "Posts"
 permalink: /posts/
 layout: posts
 author_profile: true
+classes: wide
 header:
   overlay_image: /assets/images/panoramas/bay.jpg
   image_description: "San Francisco Bay, California, USA"

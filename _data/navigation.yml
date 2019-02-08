@@ -1,0 +1,11 @@
+# main links
+main:
+  - title: "About"
+    url: /about/
+    description: "About myself"
+  - title: "Posts"
+    url: /posts/
+    description: "Random thoughts"
+  - title: "Contact"
+    url: /contact/
+    descrption: "Contact"

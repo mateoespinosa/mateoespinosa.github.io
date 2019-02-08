@@ -26,14 +26,12 @@ gem "github-pages", group: :jekyll_plugins
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # If you have any plugins, put them here!
-# algolia support
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-paginate"
   gem "jekyll-include-cache"
-  gem "jekyll-algolia"
 end
 
 gem 'jekyll-archives'

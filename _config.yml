@@ -26,8 +26,8 @@ description              : "Random thoughts and posts on almost-random situation
 url                      : "https://mateoespinosa.me"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "mateoespinosa/mateoespinosa.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "assets/images/hbt_logo.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "assets/images/hbt_logo.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+teaser                   : "assets/images/hbt_logo_4.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "assets/images/hbt_logo_4.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : "the hairy ball theorem" # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 200
@@ -97,7 +97,7 @@ author:
 
 #Site header
 header:
-  teaser: "assets/images/hbt_logo.png"
+  teaser: "assets/images/hbt_logo_4.png"
 
 # Site Footer
 footer:

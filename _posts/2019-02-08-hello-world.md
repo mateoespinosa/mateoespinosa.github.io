@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "On Bizarre Mathematics"
-excerpt: "Welcome to my blog. Here is something weird for you..."
+excerpt: "Welcome to my blog! Here is something weird for you..."
 date: 2019-02-08 13:00:00 -0600
 categories:
   - random

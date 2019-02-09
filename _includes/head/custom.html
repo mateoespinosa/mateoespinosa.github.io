@@ -10,6 +10,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
+<!-- Special fonts  -->
+
 <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -17,10 +19,22 @@
 <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+<!-- Font importer per site -->
 {% if site.posts.first.googlewebfonts %}
   <link href='http://fonts.googleapis.com/css?family={{ site.posts.first.googlewebfonts }}'>
 {% elsif page.googlewebfonts %}
   <link href='http://fonts.googleapis.com/css?family={{ page.googlewebfonts }}'>
 {% endif %}
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118912776-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118912776-1');
+</script>
 
 <!-- end custom head snippets -->

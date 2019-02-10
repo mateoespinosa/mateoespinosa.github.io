@@ -1,6 +1,6 @@
 ---
-title: "Posts"
-permalink: /posts/
+title: "Blog"
+permalink: /blog/
 layout: posts
 author_profile: true
 classes: wide
@@ -9,4 +9,4 @@ header:
   image_description: "San Francisco Bay, California, USA"
 ---
 
-Random thoughts. Weird ideas. As a fair warning: many of the things in here may make no sense. Happy reading!
+Random thoughts, weird ideas, and a bit of none of those. As a fair warning: many of the things in here may make no sense. Happy reading!

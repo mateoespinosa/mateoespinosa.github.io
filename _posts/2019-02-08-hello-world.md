@@ -15,6 +15,10 @@ style: |
   #page-title {
     font-family: 'Major Mono Display', monospace;
   }
+header:
+  teaser: /assets/images/hbt_logo_4.png
+  overlay_image: /assets/images/hbt_logo_4_big.png
+  show_overlay_excerpt: false
 ---
 
 Hello there! So I have decided to start my own blog. Not that there are not enough blogs out there, but boredom and some project ideas got me thinking that it would be nice to have a place where I can share what's on my mind these days. Even if no ones reads them, I think there is definitely a good reason to just blab around every now and then.

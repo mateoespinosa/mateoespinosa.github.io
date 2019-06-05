@@ -136,6 +136,11 @@ However, we only have $$ 2^n - 1$$ programs of length less than $$ n $$ but ther
 
 This seemingly simple statement is the heart of a beautiful and useful proof method called the "incompressibility method". So let's try and make some use of it to see how Kolmogorov complexity can be applied in practice.
 
+This has been a lot to take in, so here is a kitty picture for you to relax for a bit before moving forward:
+![Kitty cat](/assets/images/kitty.png){: .align-center}
+
+Ok, let's keep going.
+
 ## Incompressibility Method
 
 The incompressibility method is a proof method for showing that something holds by considering how a certain description scheme may act on Kolmogorov random strings and reach a contradiction with this result. The key of power of this method is the following: we can show some general property by just considering one and only one object which happens to be incompressible (i.e. its own shortest description). The aim of this is then to show that if an object is incompressible, then some assumptions we are making may end up in an description that is actually shorter than the object itself. This will hence break the incompressibility of the object and will allow us to conclude that the original assumption must be false.

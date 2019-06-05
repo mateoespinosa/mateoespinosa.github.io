@@ -19,8 +19,9 @@ style: |
   }
 
 toc: true
-toc_sticky: true
 toc_label: Dat Table of Contents
+toc_icon: "sitemap"
+toc_sticky: false
 header:
   teaser: https://upload.wikimedia.org/wikipedia/commons/d/d4/Mandelpart2_red.png
 ---

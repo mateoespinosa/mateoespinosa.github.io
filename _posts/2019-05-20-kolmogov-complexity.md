@@ -30,7 +30,7 @@ header:
 
 [Andrey Kolmogorov](https://en.wikipedia.org/wiki/Andrey_Kolmogorov) is far from being an unknown name in most fields of intellectual inquiry. Mostly known for establishing the foundations of probability theory (the unforgettable [Kolmogorov Axioms](https://en.wikipedia.org/wiki/Probability_axioms)), the list of things named after him is quite astonishing: [Kolmogorov space](https://en.wikipedia.org/wiki/Kolmogorov_space), [Kolmogorov equations](https://en.wikipedia.org/wiki/Kolmogorov_equations), [Kolmogorov Integral](https://en.wikipedia.org/wiki/Kolmogorov_integral), [Kolmogorov-Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test), and so many more. This stands in a blunt contrast with the little we tend to hear about Kolmogorov and his life compared to other mathematicians/scientists of him same "caliber" (just look at how relatively short his Wikipedia biography is). Because of this, I wanted to spend some time discussing a topic which unfortunately usually escapes most undergraduate mathematics/computer science curricula: Kolmogorv Complexity.
 
-This is a fascinating topic lying on the intersection of the theory of computation, information theory, and probability theory. Its aim is a simple yet astonishingly rich one: to formalize the notion of describing how "complex" a given object is through a mechanism that depends only on the intrinsic properties of the object itself. Kolmogorov complexity approaches this problem by establish a complete mechanism for describing the intrinsic complexity of objects based on the following surprising and non-trivial result: one can think of the length of the shortest program (in bits) that generates an object as a measurement of the intrinsic complexity of that object. In other words: the shortest program that generates an object tells you how much information that object really contains.
+This is a fascinating topic lying on the intersection of the theory of computation, information theory, and probability theory. Its aim is a simple yet astonishingly rich one: to formalize the notion of describing how "complex" a given object is through a mechanism that depends only on the intrinsic properties of the object itself. Kolmogorov complexity approaches this problem by establishing a complete mechanism for describing the intrinsic complexity of objects based on the following surprising result: one can think of the length of the shortest program (in bits) that generates an object as a measurement of the intrinsic complexity of that object. In other words: the shortest program that generates an object tells you how much information that object really contains.
 
 For example, the string `"4242424242424242"` seems to have some sort of repetitive pattern that is missing in the string `"7134618915756138"`. The former has some structure whereas the latter seems completely random (and it kinda is, I just hit my hand against my keys to generate it). Now let's think about the length of, say, a Python program that could generate the first string and one that can generate the second string.
 
@@ -104,6 +104,7 @@ Let $$ p_O $$ be a minimal OCaml program which generates string $$ x $$ (i.e. $$
 
 Using Python program $$ I_{P \leftarrow O} $$ we should be able to run OCaml program $$ p_O $$ and generate object $$ x $$ out of it. All we need to do is store OCaml program $$ p_O $$ as some sort of static data in a "wrapper" Python program $$ W $$ that calls the interpreter $$ I_{P \leftarrow O} $$ internally using $$ p_O $$ as an input and returns the result of the run. The length of Python program $$ W $$ will then be the length of the interpreter program plus the length of the static OCaml program $$ p_O $$ which is stored as data. Because OCaml program $$ p_O $$ generates object $$ x $$, this means that we have constructed a Python program $$ W $$ of length $$ \| I_{P \leftarrow O} \| + \| p_O \| $$ which also generates object $$ x $$.
 
+
 By the definition of Kolmogorov complexity, such a program $$ W $$ has to be of length greater than or equal to the Kolmogorov complexity of $$ x $$ using Python programs as descriptions. Formally speaking this means:
 
 $$
@@ -137,6 +138,7 @@ However, we only have $$ 2^n - 1$$ programs of length less than $$ n $$ but ther
 This seemingly simple statement is the heart of a beautiful and useful proof method called the "incompressibility method". So let's try and make some use of it to see how Kolmogorov complexity can be applied in practice.
 
 However, before moving to the next section, all of this has been a lot to take in so here is a kitty picture for you to relax for a bit before moving forward:
+
 ![Kitty cat](/assets/images/kitty.png){: .align-center}
 
 Ok, now let's keep going.

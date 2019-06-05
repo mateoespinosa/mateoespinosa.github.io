@@ -181,7 +181,7 @@ n = p_1^{e_1} p_2^{e_2} p_3^{e_3} \cdots p_T^{e_T} &\geq p_i^{e_i} \\
 \end{align*}
 $$
 
-Which is a clear contradiction as $$ n $$ is clearly not more than itself. Note that the last line came from the fact that $$ p_i \geq 2 $$ by definition of a prime number.
+Which is a contradiction as $$ n $$ is clearly not more than itself. Note that the last line came from the fact that $$ p_i \geq 2 $$ by definition of a prime number.
 
 What this implies is that we could describe any natural number $$ n $$ by concatenating the binary encodings for all the exponents used in its prime decomposition. Because all of these exponents are less than $$ \log_2 n $$, we would need at most $$ \log_2 \log_2 n $$ binary digits to encode each of the exponents of its prime decomposition. Therefore, we can describe $$ n $$ with a binary string of length $$ T \log_2 \log_2 n $$ by simply concatenating the binary encodings of all of its prime-decomposition exponents.
 
@@ -229,13 +229,13 @@ $$
 k \leq 1 + c_E + (T + 1)\log_2 \log_2 m
 $$
 
-Because $$ m $$ can be described using $$ k $$ bits only, its must be the case that $$ m \leq 2^{k + 1} $$ (otherwise we would run out of bits). Using this in our expression above we get:
+Because $$ m $$ can be described using $$ k $$ bits only, it must be the case that $$ m \leq 2^{k + 1} $$ (otherwise we would run out of bits). Using this in our expression above we get:
 
 $$
 k \leq 1 + c_E + (T + 1)\log_2 (k + 1)
 $$
 
-We finish our proof bu noticing that the LHS of this inequality will grow much faster than the RHS of this inequality when looked as functions of $$ k $$. Therefore, for large enough $$ k $$ (i.e. $$ k >> T\cdot c_E $$), it must be the case that this inequality will not longer hold. And because there must be random strings of every length, we must be able to find such a $$ k $$ if we just keep looking for large enough numbers. This means that for large enough $$ k $$ we will be able to compress all random strings... a clear catastrophe in this perfectly ordered world. Therefore, we have reached a contradiction and it must be the case that our initial assumption, that there are only a finite number primes, is false.  $$ \blacksquare $$
+We finish our proof by noticing that the LHS of this inequality will grow much faster than the RHS of this inequality when looked as functions of $$ k $$. Therefore, for large enough $$ k $$ (i.e. $$ k >> T\cdot c_E $$), it must be the case that this inequality will not longer hold. And because there must be random strings of every length, we must be able to find such a $$ k $$ if we just keep looking for large enough numbers. This means that for large enough $$ k $$ we will be able to compress all random strings... a clear catastrophe in this perfectly ordered world. Therefore, we have reached a contradiction and it must be the case that our initial assumption, that there are only a finite number primes, is false.  $$ \blacksquare $$
 
 ## Further Reading
 

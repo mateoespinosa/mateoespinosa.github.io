@@ -48,7 +48,7 @@ def main():
     return "7134618915756138"
 {% endhighlight %}
 
-It seems as if the shortest program we can think of to generate the second string is not doing anything "fancier" than returning the string itself. This gives us some sort of notion of what a truly random object is: if we cannot represent a object with a program shorter than the object itself, then this object must be "random" (or commonly called **Kolmogorov random**) as it seems to have no real, or at least "discoverable", structure. It rather seems incompressible. In our example above, even though both strings are of the same length, one could be compressed with a shorter program than the string itself whereas the other one is **its own shortest description**. As it turn out, most strings we can think of end up being "random" using this notion of randomness.
+It seems as if the shortest program we can think of to generate the second string is not doing anything "fancier" than returning the string itself. This gives us some sort of notion of what a truly random object is: if we cannot represent an object with a program shorter than the object itself, then this object must be "random" (or commonly called **Kolmogorov random**) as it seems to have no real, or at least "discoverable", structure. It rather seems incompressible. In our example above, even though both strings are of the same length, one could be compressed with a shorter program than the string itself whereas the other one is **its own shortest description**. As it turn out, most strings we can think of end up being "random" using this notion of randomness.
 
 
 At first sight, the idea of thinking of the complexity of an object as the shortest program that can generate it sounds like madness: how is this not dependent on the language we use to describe such program? Wouldn't some languages favor some objects with short descriptions over others? For example empirical languages may favor numerical computations over functional languages. However, as it turns out, this notion of complexity can only change within a constant value when using some language over another language. Furthermore this constant value is independent on the object itself and rather just dependent on the two languages we are considering. How can this be true? More on that later.
@@ -129,7 +129,7 @@ Finally, I want to introduce a very quick result on the existence of infinitely 
 
 *Proof:*
 
-We proceed with a simple counting argument. For the sake of contradiction, assume that for a given $$ n \in \mathbb{N} $$ there does not exist a binary string $$ x $$ with length $$ n $$ such that $$ C(x) \geq n $$. That is: for all binary strings $$ x $$, we must have that $$ C(x) < n $$. Intuitively what this means is that for all strings $$ x $$ there must be program $$ p_x $$ describing it such that $$ \| p_x \| < n $$ (i.e. there is always some structure in $$ x $$ which allow us to compress it somehow).
+We proceed with a simple counting argument. For the sake of contradiction, assume that for a given $$ n \in \mathbb{N} $$ there does not exist a binary string $$ x $$ with length $$ n $$ such that $$ C(x) \geq n $$. That is: for all binary strings $$ x $$, we must have that $$ C(x) < n $$. Intuitively what this means is that for all strings $$ x $$ there must be a program $$ p_x $$ describing it such that $$ \| p_x \| < n $$ (i.e. there is always some structure in $$ x $$ which allow us to compress it somehow).
 
 However, we only have $$ 2^n - 1$$ programs of length less than $$ n $$ but there are $$ 2^n $$ binary strings of length $$ n $$. By the [pigeonhole principle](https://en.wikipedia.org/wiki/Pigeonhole_principle), this means that two or more **different** binary strings must be described with the same program. This is obviously a contradiction as it would imply that the same program must generate two or more different binary strings as outputs. Therefore we can conclude that our initial assumption is false and the statement we wanted to show must hold.
 
@@ -163,7 +163,7 @@ In this section we will attempt to provide another proof for this statement usin
 
 *Proof:*
 
-For the sake of contradiction, assume that we have a finite number of primes $$ p_1, p_2, \dots, p_T$$. We will attempt to prove the statement above by constructing some effectively reconstructible description of number using the finiteness of primes. We will then show that this description, while fully generalizable and effectively constructible, will be compact enough to even compress an incompressible (read Kolmogorov random) string. A big no-no which would imply that our initial assumption on the finiteness of primes was wrong.
+For the sake of contradiction, assume that we have a finite number of primes $$ p_1, p_2, \dots, p_T$$. We will attempt to prove the statement above by constructing some effectively reconstructible description of numbers using the finiteness of primes. We will then show that this description, while fully generalizable and effectively constructible, will be compact enough to even compress an incompressible (read Kolmogorov random) string. A big no-no which would imply that our initial assumption on the finiteness of primes was wrong.
 
 So with that goal in mind, let's think about how one such description mechanism could be constructed. Assume, without loss of generality, that we want to describe the number $$n \in \mathbb{N}^+$$ using binary strings formed by zeros and ones only. From the [fundamental theorem of arithmetic](https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic), we know that $$ n $$ can be written as a product of powers of primes. This means that we can express $$ n $$ as:
 
@@ -183,7 +183,7 @@ $$
 
 Which is a contradiction as $$ n $$ is clearly not more than itself. Note that the last line came from the fact that $$ p_i \geq 2 $$ by definition of a prime number.
 
-What this implies is that we could describe any natural number $$ n $$ by concatenating the binary encodings for all the exponents used in its prime decomposition. Because all of these exponents are less than $$ \log_2 n $$, we would need at most $$ \log_2 \log_2 n $$ binary digits to encode each of the exponents of its prime decomposition. Therefore, we can describe $$ n $$ with a binary string of length $$ T \log_2 \log_2 n $$ by simply concatenating the binary encodings of all of its prime-decomposition exponents.
+What this implies is that we could describe any natural number $$ n $$ by concatenating the binary encodings for all the exponents used in its prime decomposition. Because all of these exponents are less than $$ \log_2 n $$, we would need at most $$ \log_2 \log_2 n $$ binary digits to encode any of the exponents of its prime decomposition. Therefore, we can describe $$ n $$ with a binary string of length $$ T \log_2 \log_2 n $$ by simply concatenating the binary encodings of all of its prime-decomposition exponents.
 
 For example, if we assume we only have $$ T = 3 $$ primes (namely $$ 2 $$, $$ 3 $$, and $$ 5 $$) then the number $$ 360 = 2^3 \cdot 3^2 \cdot 5^1 $$ can be encoded using the string
 
@@ -203,7 +203,7 @@ $$
 \textbf{11110}\color{green}{0011}\color{blue}{0010}\color{red}{0001}
 $$
 
-Using our complete description, the total number of bits we will require to describe any positive natural number $$ n $$ using this mechanism, call this number $$ l(n) $$, will be given by:
+Using our complete description, the total number of bits we will require to describe any positive natural number $$ n $$, call this number $$ l(n) $$, will be given by:
 
 $$
 \begin{align*}
@@ -221,7 +221,7 @@ $$
 k \leq C(m) \leq C_E(m) + c_E \leq l(m) + c_E
 $$
 
-Note that here we could only use the invariance theorem because our description mechanism is technically speaking a mapping which can be effectively computed: one could write a simple algorithm to turn natural numbers into binary strings using this description mechanism and also recover natural numbers from their description in a unique and deterministic fashion. Think of it as this: if you can write a C program which can generate the source number from its description, then it is a computable function.
+Note that here we could only use the invariance theorem because our description mechanism is technically speaking a mapping which can be effectively computed: one could write a simple algorithm to turn natural numbers into binary strings using this description mechanism and also recover natural numbers from their description in a unique and deterministic fashion. Think of it as this: if you can write a C program which can generate the source number from its description, and the description alone, then it is a computable function.
 
 Now, expanding $$ l(m) $$ with the length of our encodings we found above, we get:
 
@@ -239,7 +239,7 @@ We finish our proof by noticing that the LHS of this inequality will grow much f
 
 ## Further Reading
 
-I am planning on making at least one more post on the topic of Kolmogorov complexity as this post served mostly as an introductory survey and barely touched the surface of what this area is capable of. I originally intended to make a short post but as you can probably tell it got really out of hands, so I will provide some more insights on this subject in another post. If in the meantime you want to learn more about it, here are a few references which I found very useful while writing this post:
+I am planning on making at least one more post on the topic of Kolmogorov complexity as this post served mostly as an introductory survey and barely touched the surface of what this area is capable of. I originally intended to make a short post but as you can probably tell it got really out of hand, so I will provide some more insights on this subject in another post. If in the meantime you want to learn more about it, here are a few references which I found very useful while writing this post:
 - [An Introduction to Kolmogorov Complexity and its Applications](https://www.amazon.com/Introduction-Kolmogorov-Complexity-Applications-Computer/dp/0387339981) by Ming Li and Paul Vitányi: it is my understanding that this is the standard textbook for this subject. It is very complete and has a vast number of different sections on applications of Kolmogorov complexity. My only warning is that it may require a strong mathematical background so if you are rusty make sure to go through the entire first chapter on the required background.
 - [Kolmogorov Complexity survey](https://people.cs.uchicago.edu/~fortnow/papers/kaikoura.pdf) by Lance Fortnow: useful if you already know something about the subject as it jumps immediately into the results. Still shows a lot of very interesting results in a very concise manner.
 

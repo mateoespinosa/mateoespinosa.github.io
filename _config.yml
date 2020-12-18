@@ -22,7 +22,7 @@ title_separator          : "|"
 name                     : "Mateo Espinosa"
 ghrepo                   : "https://github.com/mateoespinosa"
 linkedin_username        : "mateoespinosa"
-description              : "Random thoughts and posts on almost-random situations."
+description              : "Random thoughts and posts on pseudorandom situations."
 url                      : "https://hairyballtheorem.com"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "mateoespinosa/mateoespinosa.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -53,8 +53,9 @@ yandex_site_verification :
 naver_site_verification  :
 
 # Social Sharing
+google_scholar           : 4ikoEiMAAAAJ
 twitter:
-  username               :
+  username               : mateoespinosaz
 facebook:
   username               :
   app_id                 :
@@ -78,11 +79,14 @@ analytics:
 # Site Author
 author:
   name             : "Mateo Espinosa"
-  avatar           : "assets/images/me.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Derpy derpy."
+  avatar           : "assets/images/me.png"
+  bio              : "Machine Learning @ University of Cambridge"
   location         : "San Francisco Bay Area"
   email            : "mateoespinosaz2@gmail.com"
   links:
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar"
+      url: "https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mateoespinosa"
@@ -97,6 +101,9 @@ header:
 # Site Footer
 footer:
   links:
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar"
+      url: "https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mateoespinosa"

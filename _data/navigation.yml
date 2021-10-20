@@ -6,6 +6,9 @@ main:
   - title: "Blog"
     url: /blog/
     description: "Random thoughts"
+  - title: "Photography"
+    url: /photography/
+    description: "Flip-phone pictures"
   - title: "Contact"
     url: /contact/
     descrption: "Contact"

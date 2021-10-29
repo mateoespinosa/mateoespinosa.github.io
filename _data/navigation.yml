@@ -3,6 +3,9 @@ main:
   - title: "About"
     url: /about/
     description: "About myself"
+  - title: "Research"
+    url: /research/
+    description: "Gossip from the lab"
   - title: "Blog"
     url: /blog/
     description: "Random thoughts"

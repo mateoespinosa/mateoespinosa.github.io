@@ -80,7 +80,7 @@ analytics:
 author:
   name             : "Mateo Espinosa"
   avatar           : "assets/images/me.png"
-  bio              : "Machine Learning @ University of Cambridge"
+  bio              : "Machine Learning PhD Candidate @ University of Cambridge"
   location         : "Cambridge, UK"
   email            : "mateoespinosaz2@gmail.com"
   links:
@@ -179,7 +179,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: "America/San_Francisco" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: "Europe/London" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)

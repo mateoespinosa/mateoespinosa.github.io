@@ -75,6 +75,10 @@ style: |
     .button-video {
         background-color: #09ff82;
     }
+
+    .button-poster {
+        background-color: #EB7793;
+    }
 ---
 
 My current research interests roughly lie on the intersection of machine
@@ -104,8 +108,11 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 and diagnosis (XAI4Debugging@NeurIPS), 2021*  
 **Mateo Espinosa Zarlenga**, Zohreh Shams, Mateja Jamnik.  
 <div style="text-align: center;">
-    <a style="text-decoration: none;" target="_blank" href="404.html" class="custom-button button-paper">Paper</a>
+    <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2111.12628" class="custom-button button-paper">Paper</a>
     <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/remix" class="custom-button button-code">Code</a>
+    <a style="text-decoration: none;" target="_blank" href="/assets/presentations/eclaire_neurips_slides.pptx" class="custom-button button-slides">Slides</a>
+    <a style="text-decoration: none;" target="_blank" href="https://recorder-v3.slideslive.com/?share=53024&s=54899581-1d7e-416e-b3df-8e7824fce7ba" class="custom-button button-video">Talk</a>
+    <a style="text-decoration: none;" target="_blank" href="/assets/posters/eclaire_poster.png" class="custom-button button-poster">Poster</a>
 </div>
 
 

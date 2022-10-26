@@ -13,6 +13,7 @@ source "https://rubygems.org"
 # Minimal mistakes theme
 gem "minimal-mistakes-jekyll"
 gem 'jekyll-remote-theme'
+gem 'octopress', '~> 3.0'
 
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?

@@ -81,7 +81,7 @@ style: |
     }
 
     .button-blog {
-        background-color: #EF7793;
+        background-color: #FFF480;
     }
 
 
@@ -149,32 +149,80 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 <div class="paper-row">
     <div class="paper-container">
         <div class="image-col-left">
-            <img class="paper-thumbnail" src="/assets/images/thumbnails/cem_thumbnail.png" alt="CEM Architecture">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/quality_thumbnail.png" alt="Metrics visual abstract">
         </div>
         <div class="authors-col-left">
             <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2301.10367">
+                Towards Robust Metrics For Concept Representation Evaluation
+                </a>
+            </div>
+            <div>
+                <p><b>Association for the Advancement of Artificial Intelligence Conference on Artificial Intelligence (AAAI) as an oral presentation, 2023</b></p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b><sup>*</sup>,
+                    <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a><sup>*</sup>,
+                    <a href="https://zohrehshams.com">Zohreh Shams</a><sup>*</sup>,
+                    <a href="https://scholar.google.com/citations?user=MSFAgbkAAAAJ&hl=en">Dmitry Kazhdan</a>,
+                    <a href="https://umangsbhatt.github.io">Umang Bhatt</a>,
+                    <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2301.10367" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/concept-quality" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/concept-quality/blob/main/media/slides.pptx" class="custom-button button-slides">Slides</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/concept-quality/blob/main/media/poster.pdf" class="custom-button button-poster">Poster</a>
+    </div>
+</div>
+
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="authors-col-right">
+            <div>
                 <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2209.09056">
-                Concept Embedding Models
+                Concept Embedding Models: Beyond the Accuracy-Explainability Trade-Off
                 </a>
             </div>
             <div>
                 <p><b>Conference on Neural Information Processing Systems (NeurIPS), 2022</b></p>
-                <p><b>Mateo Espinosa Zarlenga</b><sup>*</sup>, Pietro Barbiero<sup>*</sup>, Gabriele Ciravegna, Giuseppe Marra,
-                Francesco Giannini, Michelangelo Diligenti, Zohreh Shams, Frederic Precioso,
-                Stefano Melacci, Adrian Weller, Pietro Lio, Mateja Jamnik.</p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b><sup>*</sup>,
+                    <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a><sup>*</sup>,
+                    <a href="https://sailab.diism.unisi.it/people/gabriele-ciravegna/">Gabriele Ciravegna</a>,
+                    <a href="https://www.giuseppemarra.com/">Giuseppe Marra</a>,
+                    <a href="https://scholar.google.com/citations?user=KT3SRqgAAAAJ&hl=en">Francesco Giannini</a>,
+                    <a href="https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en">Michelangelo Diligenti</a>,
+                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
+                    <a href="https://www.i3s.unice.fr/~precioso/">Frederic Precioso</a>,
+                    <a href="https://scholar.google.com/citations?user=_HHu1MQAAAAJ&hl=en">Stefano Melacci</a>,
+                    <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
+                    <a href="https://www.cl.cam.ac.uk/~pl219/">Pietro Lio</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>.
+            </p>
             </div>
+        </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/cem_thumbnail.png" alt="CEM Main Results">
         </div>
     </div>
     <div style="text-align: center;">
         <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2209.09056" class="custom-button button-paper">Paper</a>
         <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/cem" class="custom-button button-code">Code</a>
         <a style="text-decoration: none;" target="_blank" href="/assets/presentations/cem_neurips_2022_slides.pptx" class="custom-button button-slides">Slides</a>
+        <a style="text-decoration: none;" target="_blank" href="/assets/posters/eclaire_poster.png" class="custom-button button-poster">Poster</a>
         <a style="text-decoration: none;" target="_blank" href="https://towardsdatascience.com/concept-embedding-models-beyond-the-accuracy-explainability-trade-off-f7ba02f28fad" class="custom-button button-blog">Blog</a>
     </div>
 </div>
 <div class="paper-row">
     <div class="paper-container">
-        <div class="authors-col-right">
+        <div class="image-col-left">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/microservices.png" alt="Microservices">
+        </div>
+        <div class="authors-col-left">
             <div>
                 <a style="color:navy; font-weight: bold;" target="_blank" href="https://dl.acm.org/doi/10.1145/3297858.3304013">
                 An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud & Edge Systems
@@ -182,11 +230,33 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
             </div>
             <div>
                 <p><b>The 24th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS), 2019</b></p>
-                <p>Yu Gan, Yanqi Zhang, Dailun Cheng, Ankitha Shetty, Priyal Rathi, Nayan Katarki, Ariana Bruno, Justin Hu, Brian Ritchken, Brendon Jackson, Kelvin Hu, Meghna Pancholi, Yuan He, Brett Clancy, Chris Colen, Fukang Wen, Catherine Leung, Siyuan Wang, Leon Zaruvinsky, <b>Mateo Espinosa Zarlenga</b>, Rick Lin, Zhongling Liu, Jake Padilla, Christina Delimitrou.</p>
+                <p>
+                    Yu Gan,
+                    Yanqi Zhang,
+                    Dailun Cheng,
+                    Ankitha Shetty,
+                    Priyal Rathi,
+                    Nayan Katarki,
+                    Ariana Bruno,
+                    Justin Hu,
+                    Brian Ritchken,
+                    Brendon Jackson,
+                    Kelvin Hu,
+                    Meghna Pancholi,
+                    Yuan He,
+                    Brett Clancy,
+                    Chris Colen,
+                    Fukang Wen,
+                    Catherine Leung,
+                    Siyuan Wang,
+                    Leon Zaruvinsky,
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    Rick Lin,
+                    Zhongling Liu,
+                    Jake Padilla,
+                    Christina Delimitrou.
+                </p>
             </div>
-        </div>
-        <div class="image-col-right">
-            <img class="paper-thumbnail" src="/assets/images/thumbnails/microservices.png" alt="Microservices">
         </div>
     </div>
     <div style="text-align: center;">
@@ -212,8 +282,12 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
                 </a>
             </div>
             <div>
-                <p><b>1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS), 2021</b></p>
-                <p><b>Mateo Espinosa Zarlenga</b>, Zohreh Shams, Mateja Jamnik.</p>
+                <p><b>1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS) as a spotlight presentation, 2021</b></p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>.
+                </p>
             </div>
         </div>
     </div>
@@ -221,7 +295,6 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
         <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2111.12628" class="custom-button button-paper">Paper</a>
     <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/remix" class="custom-button button-code">Code</a>
     <a style="text-decoration: none;" target="_blank" href="/assets/presentations/eclaire_neurips_slides.pptx" class="custom-button button-slides">Slides</a>
-    <a style="text-decoration: none;" target="_blank" href="https://recorder-v3.slideslive.com/?share=53024&s=54899581-1d7e-416e-b3df-8e7824fce7ba" class="custom-button button-video">Talk</a>
     <a style="text-decoration: none;" target="_blank" href="/assets/posters/eclaire_poster.png" class="custom-button button-poster">Poster</a>
     </div>
 </div>
@@ -243,7 +316,32 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
             </div>
             <div>
                 <p><b>IEEE Micro, 2020</b></p>
-                <p>Yu Gan, Yanqi Zhang, Dailun Cheng, Ankitha Shetty, Priyal Rathi, Nayan Katarki, Ariana Bruno, Justin Hu, Brian Ritchken, Brendon Jackson, Kelvin Hu, Meghna Pancholi, Yuan He, Brett Clancy, Chris Colen, Fukang Wen, Catherine Leung, Siyuan Wang, Leon Zaruvinsky, <b>Mateo Espinosa Zarlenga</b>, Rick Lin, Zhongling Liu, Jake Padilla, Christina Delimitrou.</p>
+                <p>
+                    Yu Gan,
+                    Yanqi Zhang,
+                    Dailun Cheng,
+                    Ankitha Shetty,
+                    Priyal Rathi,
+                    Nayan Katarki,
+                    Ariana Bruno,
+                    Justin Hu,
+                    Brian Ritchken,
+                    Brendon Jackson,
+                    Kelvin Hu,
+                    Meghna Pancholi,
+                    Yuan He,
+                    Brett Clancy,
+                    Chris Colen,
+                    Fukang Wen,
+                    Catherine Leung,
+                    Siyuan Wang,
+                    Leon Zaruvinsky,
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    Rick Lin,
+                    Zhongling Liu,
+                    Jake Padilla,
+                    Christina Delimitrou.
+                </p>
             </div>
         </div>
     </div>

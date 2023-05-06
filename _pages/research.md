@@ -149,6 +149,69 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 <div class="paper-row">
     <div class="paper-container">
         <div class="image-col-left">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/dcr_thumbnail.png" alt="DCR visual abstract">
+        </div>
+        <div class="authors-col-left">
+            <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2304.14068">
+                Interpretable Neural-Symbolic Concept Reasoning
+                </a>
+            </div>
+            <div>
+                <p><b>To be presented at the International Conference On Machine Learning (ICML), 2023</b></p>
+                <p>
+                    <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a>,
+                    <a href="https://sailab.diism.unisi.it/people/gabriele-ciravegna/">Gabriele Ciravegna</a>,
+                    <a href="https://scholar.google.com/citations?user=KT3SRqgAAAAJ&hl=en">Francesco Giannini</a>,
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://caraml-group.github.io/author/lucie-charlotte-magister/">Lucie Charlotte Magister</a>,
+                    <a href="https://scholar.google.it/citations?user=M1t5hwYAAAAJ&hl=en">Alberto Tonda</a>,
+                    <a href="https://www.cl.cam.ac.uk/~pl219/">Pietro Lio</a>,
+                    <a href="https://www.i3s.unice.fr/~precioso/">Frederic Precioso</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
+                    <a href="https://www.giuseppemarra.com/">Giuseppe Marra</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2304.14068" class="custom-button button-paper">Paper</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="authors-col-right">
+            <div>
+                <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2303.12872">
+                Human Uncertainty in Concept-Based AI Systems
+                </a>
+            </div>
+                <p><b>To be presented at the AAAI/ACM Conference on AI, Ethics, and Society (AIES), 2023</b></p>
+                <p>
+                    <a href="https://collinskatie.github.io/">Katherine M. Collins</a>,
+                    <a href="https://matthewbarker.me/">Matthew Barker</a><sup>*</sup>,
+                    <b>Mateo Espinosa Zarlenga</b><sup>*</sup>,
+                    <a href="https://naveenraman.com/">Naveen Raman</a><sup>*</sup>,
+                    <a href="https://umangsbhatt.github.io">Umang Bhatt</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
+                    <a href="https://ilia10000.github.io/">Ilia Sucholutsky</a>,
+                    <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
+                    <a href="https://dj-research.netlify.app/">Krishnamurthy (DJ) Dvijotham</a>
+                </p>
+            </div>
+        </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/concept_uncertainty_thumbnail.png" alt="Concept uncertainty visual abstract">
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2303.12872" class="custom-button button-paper">Paper</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="image-col-left">
             <img class="paper-thumbnail" src="/assets/images/thumbnails/quality_thumbnail.png" alt="Metrics visual abstract">
         </div>
         <div class="authors-col-left">

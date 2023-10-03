@@ -148,6 +148,35 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 
 <div class="paper-row">
     <div class="paper-container">
+        <div class="image-col-left">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/intcem_thumbnail.png" alt="IntCEM architecture">
+        </div>
+        <div class="authors-col-left">
+            <div>
+                <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2309.16928">
+                Learning to Receive Help: Intervention-Aware Concept Embedding Models
+                </a>
+                </div>
+                <p><b>Spotlight paper at the conference on Neural Information Processing Systems (NeurIPS), 2023</b></p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://collinskatie.github.io/">Katherine M. Collins</a>,
+                    <a href="https://dj-research.netlify.app/">Krishnamurthy (DJ) Dvijotham</a>,
+                    <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
+                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2309.16928" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/cem" class="custom-button button-code">Code</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
         <div class="authors-col-right">
             <div>
                 <a style="color:navy; font-weight: bold;" target="_blank" href="https://openreview.net/pdf?id=TIsrnWpjQ0">
@@ -174,7 +203,7 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
         <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/tabcbm" class="custom-button button-code">Code</a>
         <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/tabcbm/blob/main/media/poster.pdf" class="custom-button button-poster">Poster</a>
     </div>
-    </div>
+</div>
 <div class="paper-row">
     <div class="paper-container">
         <div class="image-col-left">
@@ -216,7 +245,7 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
                 Human Uncertainty in Concept-Based AI Systems
                 </a>
             </div>
-                <p><b>To be presented at the AAAI/ACM Conference on AI, Ethics, and Society (AIES), 2023</b></p>
+                <p><b>AAAI/ACM Conference on AI, Ethics, and Society (AIES), 2023</b></p>
                 <p>
                     <a href="https://collinskatie.github.io/">Katherine M. Collins</a>,
                     <a href="https://matthewbarker.me/">Matthew Barker</a><sup>*</sup>,

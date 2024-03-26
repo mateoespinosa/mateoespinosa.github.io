@@ -148,10 +148,7 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 
 <div class="paper-row">
     <div class="paper-container">
-        <div class="image-col-left">
-            <img class="paper-thumbnail" src="/assets/images/thumbnails/intcem_thumbnail.png" alt="IntCEM architecture">
-        </div>
-        <div class="authors-col-left">
+        <div class="authors-col-right">
             <div>
                 <div>
                 <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2309.16928">
@@ -169,39 +166,13 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
                 </p>
             </div>
         </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/intcem_thumbnail.png" alt="IntCEM architecture">
+        </div>
     </div>
     <div style="text-align: center;">
         <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2309.16928" class="custom-button button-paper">Paper</a>
         <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/cem" class="custom-button button-code">Code</a>
-    </div>
-</div>
-<div class="paper-row">
-    <div class="paper-container">
-        <div class="authors-col-right">
-            <div>
-                <a style="color:navy; font-weight: bold;" target="_blank" href="https://openreview.net/pdf?id=TIsrnWpjQ0">
-                TabCBM: Concept-based Interpretable Neural Networks for Tabular Data
-                </a>
-            </div>
-            <div>
-                <p><b>Transactions of Machine Learning Research (TMLR), 2023. Also appeared at ICML's Workshop on Interpretable Machine Learning in Healthcare, 2023.</b></p>
-                <p>
-                    <b>Mateo Espinosa Zarlenga</b>,
-                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
-                    <a href="https://www.physbiol.cam.ac.uk/staff/michael-nelson">Michael Edward Nelson</a>,
-                    <a href="https://beenkim.github.io/">Been Kim</a><sup>*</sup>,
-                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a><sup>*</sup>
-                </p>
-            </div>
-        </div>
-        <div class="image-col-right">
-            <img class="paper-thumbnail" style="max-width: 120%;" src="/assets/images/thumbnails/tabcbm_thumbnail.png" alt="TabCBM visual abstract">
-        </div>
-    </div>
-    <div style="text-align: center;">
-        <a style="text-decoration: none;" target="_blank" href="https://openreview.net/forum?id=TIsrnWpjQ0" class="custom-button button-paper">Paper</a>
-        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/tabcbm" class="custom-button button-code">Code</a>
-        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/tabcbm/blob/main/media/poster.pdf" class="custom-button button-poster">Poster</a>
     </div>
 </div>
 <div class="paper-row">
@@ -388,42 +359,37 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 
 -----
 
-
-### Workshop Publications (Refereed)
+### Journal Publications (Refereed and Archived)
 
 <div class="paper-row">
     <div class="paper-container">
-        <div class="image-col-left">
-            <img class="paper-thumbnail" src="/assets/images/thumbnails/eclaire_thumbnail.png" alt="ECLAIRE">
-        </div>
-        <div class="authors-col-left">
+        <div class="authors-col-right">
             <div>
-                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2111.12628">
-                    Efficient Decompositional Rule Extraction for Deep Neural Networks
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://openreview.net/pdf?id=TIsrnWpjQ0">
+                TabCBM: Concept-based Interpretable Neural Networks for Tabular Data
                 </a>
             </div>
             <div>
-                <p><b>1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS) as a spotlight presentation, 2021</b></p>
+                <p><b>Transactions of Machine Learning Research (TMLR), 2023. Also appeared at ICML's Workshop on Interpretable Machine Learning in Healthcare, 2023.</b></p>
                 <p>
                     <b>Mateo Espinosa Zarlenga</b>,
                     <a href="https://zohrehshams.com">Zohreh Shams</a>,
-                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>.
+                    <a href="https://www.physbiol.cam.ac.uk/staff/michael-nelson">Michael Edward Nelson</a>,
+                    <a href="https://beenkim.github.io/">Been Kim</a><sup>*</sup>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a><sup>*</sup>
                 </p>
             </div>
         </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" style="max-width: 120%;" src="/assets/images/thumbnails/tabcbm_thumbnail.png" alt="TabCBM visual abstract">
+        </div>
     </div>
     <div style="text-align: center;">
-        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2111.12628" class="custom-button button-paper">Paper</a>
-        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/remix" class="custom-button button-code">Code</a>
-        <a style="text-decoration: none;" target="_blank" href="/assets/presentations/eclaire_neurips_slides.pptx" class="custom-button button-slides">Slides</a>
-        <a style="text-decoration: none;" target="_blank" href="/assets/posters/eclaire_poster.png" class="custom-button button-poster">Poster</a>
+        <a style="text-decoration: none;" target="_blank" href="https://openreview.net/forum?id=TIsrnWpjQ0" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/tabcbm" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/tabcbm/blob/main/media/poster.pdf" class="custom-button button-poster">Poster</a>
     </div>
 </div>
-
------
-
-### Journal Publications (Refereed and Archived)
-
 <div class="paper-row">
     <div class="paper-container">
         <div class="image-col-left">
@@ -472,5 +438,65 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
     </div>
 </div>
 
+
+-----
+
+
+### Workshop Publications (Refereed)
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="authors-col-right">
+            <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/pdf/2401.01259.pdf">
+                Do Concept Bottleneck Models Obey Locality?
+                </a>
+            </div>
+            <div>
+                <p><b>"<a href="https://xai-in-action.github.io/">XAI in Action: Past, Present, and Future Applications</a>" Workshop @ NeurIPS 2023</b></p>
+                <p>
+                    <a href="https://naveenraman.com/">Naveen Raman</a>,
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://sites.google.com/view/juyeonheo/%ED%99%88">Juyeon Heo</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
+                </p>
+            </div>
+        </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" style="max-width: 120%;" src="/assets/images/thumbnails/cbm_locality_thumbnail.png" alt="CBM locality visual abstract">
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/pdf/2401.01259.pdf" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/naveenr414/Spurious-Concepts" class="custom-button button-code">Code</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="image-col-left">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/eclaire_thumbnail.png" alt="ECLAIRE">
+        </div>
+        <div class="authors-col-left">
+            <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2111.12628">
+                    Efficient Decompositional Rule Extraction for Deep Neural Networks
+                </a>
+            </div>
+            <div>
+                <p><b>1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS) as a spotlight presentation, 2021</b></p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2111.12628" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/remix" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="/assets/presentations/eclaire_neurips_slides.pptx" class="custom-button button-slides">Slides</a>
+        <a style="text-decoration: none;" target="_blank" href="/assets/posters/eclaire_poster.png" class="custom-button button-poster">Poster</a>
+    </div>
+</div>
 
 -----

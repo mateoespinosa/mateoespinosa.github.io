@@ -148,6 +148,33 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 
 <div class="paper-row">
     <div class="paper-container">
+        <div class="image-col-left">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/inter_concept_thumbnail.png" alt="Inter-Concept Relationships visual abstract">
+        </div>
+        <div class="authors-col-left">
+            <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2405.18217">
+                Understanding Inter-Concept Relationships in Concept-Based Models
+                </a>
+            </div>
+            <div>
+                <p><b>International Conference On Machine Learning (ICML), 2024.</b></p>
+                <p>
+                    <a href="https://naveenraman.com/">Naveen Raman</a>,
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2405.18217" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/naveenr414/Concept-Learning" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="https://www.youtube.com/watch?v=qj_G4UQtyLY" class="custom-button button-video">Video</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
         <div class="authors-col-right">
             <div>
                 <div>

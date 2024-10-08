@@ -148,6 +148,37 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 
 <div class="paper-row">
     <div class="paper-container">
+        <div class="authors-col-right">
+            <div>
+                <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2409.17691">
+                Efficient Bias Mitigation Without Privileged Information
+                </a>
+                </div>
+                <p><b>Oral and Best Paper Candidate (within top 15 papers out of 8,500+ submissions) at the 18th European Conference on Computer Vision (ECCV), 2024</b></p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://swamiviv.github.io/">Swami Sankaranarayanan</a>,
+                    <a href="https://ai.sony/people/Jerone-Andrews/">Jerone T. A. Andrews</a>,
+                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
+                    <a href="https://ai.sony/people/Alice-Xiang/">Alice Xiang</a>
+                </p>
+            </div>
+        </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/tab_thumbnail.png" alt="TAB architecture">
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2409.17691" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/SonyResearch/tab_bias_mitigation" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="https://eccv.ecva.net/media/eccv-2024/Slides/491.pdf" class="custom-button button-slides">Slides</a>
+        <a style="text-decoration: none;" target="_blank" href="https://eccv.ecva.net/media/PosterPDFs/ECCV%202024/491.png?t=1728382129.9790785" class="custom-button button-poster">Poster</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
         <div class="image-col-left">
             <img class="paper-thumbnail" src="/assets/images/thumbnails/inter_concept_thumbnail.png" alt="Inter-Concept Relationships visual abstract">
         </div>

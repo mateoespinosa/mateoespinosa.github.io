@@ -126,14 +126,14 @@ style: |
     }
 ---
 
-My current research interests roughly lie on the intersection of machine
-learning, algorithmic design, and AI applications in healthcare. More
-specifically, I am interested in (1) the design of learning algorithms that are
-able to construct explanations for their predictions in terms of high-level
-concepts and (2) the broad applications that said algorithms may have in
-scenarios where transparency is not an option (such as in healthcare). For some
-more details on the general direction of my research, please refer to my
-[Gates Cambridge scholar profile](https://www.gatescambridge.org/biography/18457/).
+My current research interests roughly lie on the intersection of **explainable AI**,
+**representation learning**, and **human-in-the-loop AI**. More
+specifically, I am interested in (1) the design of powerful models that can
+construct explanations for their predictions in terms of high-level
+*"concepts"* and (2) the broad applications that these architectures may have in
+scenarios where experts can interact with the models at
+test time. For some more details on the general direction of my research, please
+refer to my [Gates Cambridge scholar profile](https://www.gatescambridge.org/biography/18457/).
 
 
 Below you can find a list of some of my publications, including their respective

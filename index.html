@@ -6,6 +6,27 @@ header:
   overlay_image: /assets/images/panoramas/yellowstone_4.jpg
   image_description: "Yellowstone National Park, USA"
 ---
+<style>
+  .recent-news-container {
+    max-height: 300px;   /* adjust to whatever height you prefer */
+    overflow-y: auto;    /* vertical scrollbar when content overflows */
+    overflow-x: hidden;  /* hide horizontal scroll */
+    border: 1px solid #ddd;  /* optional: border around the box */
+    padding-right: 5px;      /* optional: avoid scrollbar overlap */
+  }
+
+  /* Optional: make the scrollbar look nicer (works in most browsers) */
+  .recent-news-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  .recent-news-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  .recent-news-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+</style>
 
 <p style="text-align: justify">
 Welcome to my site! I am a computer scientist and student from the gorgeous and
@@ -38,100 +59,110 @@ you!
 
 
 <h3 class="archive__subtitle">Recent News</h3>
-<table class='recent-news'>
-  <col width="25%">
-  <col width="75%">
-  <tr>
-    <td valign="top" class="news-date"><b>[Feburary 2025]</b></td>
-    <td>I will be co-presenting a tutorial on <a href="https://conceptlearning.github.io/">Concept-based Interpretable Deep Learning</a> at <a href="https://aaai.org/conference/aaai/aaai-25/">AAAI 2025</a>. Come by if you are around!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[January 2025]</b></td>
-    <td>We started a new online <a href="https://pyc-team.github.io/pyc-book/intro.html">blog series</a> and library (<a href="https://github.com/pyc-team/pytorch_concepts">PyC</a>) on Concept Learning. Check it out <a href="https://pyc-team.github.io/pyc-book/intro.html">here</a>!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[January 2025]</b></td>
-    <td>Our <a href="https://openreview.net/pdf?id=lmKJ1b6PaL">work on Causal Concept Graph Models</a>, lead by my amazing collaborators Gabriele Dominici and Pietro Barbiero, was <b>accepted at <a href="https://iclr.cc/Conferences/2025">ICLR 2025</a></b>!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[October 2024]</b></td>
-    <td>Our work on <a href="https://arxiv.org/abs/2409.17691">unsupervised bias mitigation</a> was accepted at <a href="https://eccv2024.ecva.net/Conferences/2024">ECCV 2024</a> as an <b>oral</b> and <b>nominated as Best Paper</b> (within the top 15 papers)!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[August 2024]</b></td>
-    <td>Our workshop on <a href="https://human-interpretable-ai.github.io/">Human-Interpretable AI</a> was accepted at <a href="https://kdd2024.kdd.org/">KDD 2024</a>.</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[July 2024]</b></td>
-    <td><a href="https://arxiv.org/abs/2405.18217">One paper accepted</a> at <a href="https://icml.cc/Conferences/2024">ICML 2024</a> where I will also be a co-organizer of the <a href="https://www.latinxinai.org/icml-2024">LatinX in AI (LXAI) Affinity Workshop</a>.</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[January 2024]</b></td>
-    <td>Joined <a href="https://www.turing.ac.uk/">The Alan Turing Institute</a> as a <a href="https://www.turing.ac.uk/people/enrichment-students/mateo-espinosa-zarlenga">PhD enrichment student</a>.</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[October 2023]</b></td>
-    <td>Joined <a href="https://ai.sony/">Sony AI</a>'s <a href="https://ai.sony/projects/ai-ethics/">AI Ethics</a> team as a research intern.</td>
-  </tr>
-  <tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[September 2023]</b></td>
-    <td>Our Intervention-aware Concept Embedding Model (IntCEM) <a href="https://arxiv.org/abs/2309.16928">paper</a> was accepted at <a href="https://nips.cc/virtual/2023/index.html">NeurIPS 2023</a> as a <b>spotlight</b> (top ~3.06% of papers)!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[July 2023]</b></td>
-    <td>Our Tabular Concept Bottleneck Model (TabCBM) <a href="https://openreview.net/forum?id=TIsrnWpjQ0">paper</a> was accepted at <a href="https://jmlr.org/tmlr/">Transactions of Machine Learning Research (TMLR)</a> and at ICML's <a href="https://sites.google.com/view/imlh2023/home">3rd Workshop on Interpretable Machine Learning in Healthcare (IMLH)</a></td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[April 2023]</b></td>
-    <td>Our Deep Concept Reasoner (DCR) <a href="https://arxiv.org/abs/2304.14068">paper</a> was accepted at <a href="https://icml.cc/Conferences/2023">ICML 2023</a> and at ICML's <a href="https://differentiable.xyz/">Differentiable Almost Everything Workshop</a>!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[March 2023]</b></td>
-    <td>Our <a href="https://arxiv.org/abs/2303.12872">paper</a> on the effect of uncertainty for concept interventions was accepted at the <a href="https://icml.cc/Conferences/2023">AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2023</a>!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[November 2022]</b></td>
-    <td>Our <a href="https://arxiv.org/abs/2301.10367">paper</a> on metrics for measuring concept quality and leakage was accepted at <a href="https://aaai-23.aaai.org/">AAAI 2023</a> as a <b>spotlight presentation</b>!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[September 2022]</b></td>
-    <td>Our Concept Embedding Model (CEM) <a href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/867c06823281e506e8059f5c13a57f75-Abstract-Conference.html">paper</a> was accepted at <a href="https://nips.cc/virtual/2022/index.html">NeurIPS 2022</a>!</td>
-  </tr>
-  <tr>
-    <td valign="top" class="news-date"><b>[December 2021]</b></td>
-    <td>My <a href="https://arxiv.org/abs/2111.12628">MPhil thesis work</a> was accepted at NeurIPS's Workshop on <a href="https://xai4debugging.github.io/">eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS)</a> as a <b>spotlight presentation</b>!</td>
-  </tr>
-  <tr>
-    <td valign="top"><strong>[June 2021]</strong></td>
-    <td>Awarded <a href="https://www.gatescambridge.org/">Gates Cambridge scholarship</a> to study for a Computer Science PhD under the supervision of Professor Mateja Jamnik.</td>
-  </tr>
-  <!-- <tr>
-    <td valign="top"><strong>[June 2021]</strong></td>
-    <td>Graduated from my MPhil in Advanced Computer Science with <b>distinction</b>.</td>
-  </tr> -->
-  <!-- <tr>
-    <td valign="top"><strong>[October 2020]</strong></td>
-    <td>Amid the COVID-19 pandemic, I moved to Cambridge, UK for an MPhil in Advanced Computer Science at Cambridge's <a href="https://www.cst.cam.ac.uk/">Computer Laboratory</a>.</td>
-  </tr>
-  <tr>
-    <td valign="top"><strong>[July 2017]</strong></td>
-    <td>Joined <a href="https://www.cerebras.net/">Cerebras Systems</a> as an early Machine Learning Engineer.</td>
-  </tr> -->
-  <!-- <tr>
-    <td valign="top"><strong>[June 2017]</strong></td>
-    <td>Completed my MEng in Computer Science from <a href="https://www.cornell.edu/">Cornell University</a> graduating with the <b>highest GPA of the cohort</b>.</td>
-  </tr> -->
-  <!-- <tr>
-    <td valign="top"><strong>[January 2017]</strong></td>
-    <td>Joined Kirstin Petersen's <a href="https://cei.ece.cornell.edu/members/kirstin-h-petersen/">Collective Embodied Intelligence Laboratory</a> at Cornell University for a semester-long research project.</td>
-  </tr>
-  <tr>
-    <td valign="top"><strong>[January 2017]</strong></td>
-    <td>Joined Christina Delimitrou's <a href="https://www.csl.cornell.edu/~delimitrou/">Computer System Laboratory</a> at Cornell University for a semester-long research project.</td>
-  </tr> -->
-  <!-- <tr>
-    <td valign="top"><strong>[December 2016]</strong></td>
-    <td>Completed my BA in Computer Science from <a href="https://www.cornell.edu/">Cornell University</a>.</td>
-  </tr> -->
+  <div class="recent-news-container">
+    <table class='recent-news'>
+      <col width="25%">
+      <col width="75%">
+      <tr>
+        <td valign="top" class="news-date"><b>[August 2025]</b></td>
+        <td>Pietro Barbiero and I will be giving a talk on "Foundations of Interpretable Models" at the <a href="https://luma.com/pqzv80yd">Neuro-Symbolic AI Summer School</a>. This talk will be based on <a href="https://arxiv.org/abs/2508.00545">this paper</a>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[July 2025]</b></td>
+        <td>I will be in Vancouver for ICML 2025 presenting two papers [<a href="https://arxiv.org/abs/2504.17921">1</a>, <a href="https://arxiv.org/abs/2504.18026">2</a>]!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[Feburary 2025]</b></td>
+        <td>I will be co-presenting a tutorial on <a href="https://conceptlearning.github.io/">Concept-based Interpretable Deep Learning</a> at <a href="https://aaai.org/conference/aaai/aaai-25/">AAAI 2025</a>. Come by if you are around!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[January 2025]</b></td>
+        <td>We started a new online <a href="https://pyc-team.github.io/pyc-book/intro.html">blog series</a> and library (<a href="https://github.com/pyc-team/pytorch_concepts">PyC</a>) on Concept Learning. Check it out <a href="https://pyc-team.github.io/pyc-book/intro.html">here</a>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[January 2025]</b></td>
+        <td>Our <a href="https://openreview.net/pdf?id=lmKJ1b6PaL">work on Causal Concept Graph Models</a>, lead by my amazing collaborators Gabriele Dominici and Pietro Barbiero, was <b>accepted at <a href="https://iclr.cc/Conferences/2025">ICLR 2025</a></b>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[October 2024]</b></td>
+        <td>Our work on <a href="https://arxiv.org/abs/2409.17691">unsupervised bias mitigation</a> was accepted at <a href="https://eccv2024.ecva.net/Conferences/2024">ECCV 2024</a> as an <b>oral</b> and <b>nominated as Best Paper</b> (within the top 15 papers)!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[August 2024]</b></td>
+        <td>Our workshop on <a href="https://human-interpretable-ai.github.io/">Human-Interpretable AI</a> was accepted at <a href="https://kdd2024.kdd.org/">KDD 2024</a>.</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[July 2024]</b></td>
+        <td><a href="https://arxiv.org/abs/2405.18217">One paper accepted</a> at <a href="https://icml.cc/Conferences/2024">ICML 2024</a> where I will also be a co-organizer of the <a href="https://www.latinxinai.org/icml-2024">LatinX in AI (LXAI) Affinity Workshop</a>.</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[January 2024]</b></td>
+        <td>Joined <a href="https://www.turing.ac.uk/">The Alan Turing Institute</a> as a <a href="https://www.turing.ac.uk/people/enrichment-students/mateo-espinosa-zarlenga">PhD enrichment student</a>.</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[October 2023]</b></td>
+        <td>Joined <a href="https://ai.sony/">Sony AI</a>'s <a href="https://ai.sony/projects/ai-ethics/">AI Ethics</a> team as a research intern.</td>
+      </tr>
+      <tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[September 2023]</b></td>
+        <td>Our Intervention-aware Concept Embedding Model (IntCEM) <a href="https://arxiv.org/abs/2309.16928">paper</a> was accepted at <a href="https://nips.cc/virtual/2023/index.html">NeurIPS 2023</a> as a <b>spotlight</b> (top ~3.06% of papers)!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[July 2023]</b></td>
+        <td>Our Tabular Concept Bottleneck Model (TabCBM) <a href="https://openreview.net/forum?id=TIsrnWpjQ0">paper</a> was accepted at <a href="https://jmlr.org/tmlr/">Transactions of Machine Learning Research (TMLR)</a> and at ICML's <a href="https://sites.google.com/view/imlh2023/home">3rd Workshop on Interpretable Machine Learning in Healthcare (IMLH)</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[April 2023]</b></td>
+        <td>Our Deep Concept Reasoner (DCR) <a href="https://arxiv.org/abs/2304.14068">paper</a> was accepted at <a href="https://icml.cc/Conferences/2023">ICML 2023</a> and at ICML's <a href="https://differentiable.xyz/">Differentiable Almost Everything Workshop</a>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[March 2023]</b></td>
+        <td>Our <a href="https://arxiv.org/abs/2303.12872">paper</a> on the effect of uncertainty for concept interventions was accepted at the <a href="https://icml.cc/Conferences/2023">AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2023</a>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[November 2022]</b></td>
+        <td>Our <a href="https://arxiv.org/abs/2301.10367">paper</a> on metrics for measuring concept quality and leakage was accepted at <a href="https://aaai-23.aaai.org/">AAAI 2023</a> as a <b>spotlight presentation</b>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[September 2022]</b></td>
+        <td>Our Concept Embedding Model (CEM) <a href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/867c06823281e506e8059f5c13a57f75-Abstract-Conference.html">paper</a> was accepted at <a href="https://nips.cc/virtual/2022/index.html">NeurIPS 2022</a>!</td>
+      </tr>
+      <tr>
+        <td valign="top" class="news-date"><b>[December 2021]</b></td>
+        <td>My <a href="https://arxiv.org/abs/2111.12628">MPhil thesis work</a> was accepted at NeurIPS's Workshop on <a href="https://xai4debugging.github.io/">eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS)</a> as a <b>spotlight presentation</b>!</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>[June 2021]</strong></td>
+        <td>Awarded <a href="https://www.gatescambridge.org/">Gates Cambridge scholarship</a> to study for a Computer Science PhD under the supervision of Professor Mateja Jamnik.</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>[June 2021]</strong></td>
+        <td>Graduated from my MPhil in Advanced Computer Science with <b>distinction</b>.</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>[October 2020]</strong></td>
+        <td>Amid the COVID-19 pandemic, I moved to Cambridge, UK for an MPhil in Advanced Computer Science at Cambridge's <a href="https://www.cst.cam.ac.uk/">Computer Laboratory</a>.</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>[July 2017]</strong></td>
+        <td>Joined <a href="https://www.cerebras.net/">Cerebras Systems</a> as an early Machine Learning Engineer.</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>[June 2017]</strong></td>
+        <td>Completed my MEng in Computer Science from <a href="https://www.cornell.edu/">Cornell University</a> graduating with the <b>highest GPA of the cohort</b>.</td>
+      </tr>
+      <!-- <tr>
+        <td valign="top"><strong>[January 2017]</strong></td>
+        <td>Joined Kirstin Petersen's <a href="https://cei.ece.cornell.edu/members/kirstin-h-petersen/">Collective Embodied Intelligence Laboratory</a> at Cornell University for a semester-long research project.</td>
+      </tr>
+      <tr>
+        <td valign="top"><strong>[January 2017]</strong></td>
+        <td>Joined Christina Delimitrou's <a href="https://www.csl.cornell.edu/~delimitrou/">Computer System Laboratory</a> at Cornell University for a semester-long research project.</td>
+      </tr> -->
+      <tr>
+        <td valign="top"><strong>[December 2016]</strong></td>
+        <td>Completed my BA in Computer Science from <a href="https://www.cornell.edu/">Cornell University</a>.</td>
+      </tr>
 </table>
+</div>

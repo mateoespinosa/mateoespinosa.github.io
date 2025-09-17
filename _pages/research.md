@@ -151,6 +151,64 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
         <div class="authors-col-right">
             <div>
                 <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2504.17921">
+                Avoiding Leakage Poisoning: Concept Interventions Under Distribution Shifts
+                </a>
+                </div>
+                <p><b>International Conference On Machine Learning (ICML), 2025.</b></p>
+                <p>
+                    <b>Mateo Espinosa Zarlenga</b>,
+                    <a href="https://gabriele-dominici.github.io/">Gabriele Dominici</a>
+                    <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a>
+                    <a href="https://zohrehshams.com">Zohreh Shams</a>,
+                    <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
+                </p>
+            </div>
+        </div>
+        <div class="image-col-right">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/mixcem_thumbnail_simplified.png" alt="TAB architecture">
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2504.17921" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/mateoespinosa/cem" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="https://icml.cc/virtual/2025/poster/46307" class="custom-button button-video">Video</a>
+        <a style="text-decoration: none;" target="_blank" href="https://icml.cc/media/PosterPDFs/ICML%202025/46307.png?t=1752597537.763433" class="custom-button button-poster">Poster</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="image-col-left">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/CPO_thumbnail.png" alt="CPO Visual Abstract">
+        </div>
+        <div class="authors-col-left">
+            <div>
+                <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2504.18026">
+                Addressing Concept Mislabeling in Concept Bottleneck Models Through Preference Optimization
+                </a>
+            </div>
+            <div>
+                <p><b>International Conference On Machine Learning (ICML), 2025.</b></p>
+                <p>
+                    <a href="https://emilianopp.com/#/home">Emiliano Penaloza</a>,
+                    <a href="https://tianyuehz.github.io/">Tianyue H. Zhang</a>,
+                    <a href="https://www.cs.toronto.edu/~lcharlin/">Laurent Charlin</a><sup>*</sup>,
+                    <b>Mateo Espinosa Zarlenga</b><sup>*</sup>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <a style="text-decoration: none;" target="_blank" href="https://arxiv.org/abs/2504.18026" class="custom-button button-paper">Paper</a>
+        <a style="text-decoration: none;" target="_blank" href="https://github.com/Emilianopp/ConceptPreferenceOptimization" class="custom-button button-code">Code</a>
+        <a style="text-decoration: none;" target="_blank" href="/assets/posters/CPO_poster.pdf" class="custom-button button-poster">Poster</a>
+    </div>
+</div>
+<div class="paper-row">
+    <div class="paper-container">
+        <div class="authors-col-right">
+            <div>
+                <div>
                 <a style="color:navy; font-weight: bold;" target="_blank" href="https://arxiv.org/abs/2409.17691">
                 Efficient Bias Mitigation Without Privileged Information
                 </a>

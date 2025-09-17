@@ -8,8 +8,8 @@ header:
 classes: wide
 ---
 
-If you have any questions, concerns, and/or would like to collaborate with me
-please feel free to send me an [email](mailto:{{site.author.email}}). I promise I will do my best to
+If you would like to collaborate with me or reach out for a chat, please feel
+free to send me an [email](mailto:{{site.author.email}}). I promise I will do my best to
 reply on time but, as most people do, I sometimes forget to reply promptly so
 sorry in advance if I do this to you :)
 {: .text-justify}

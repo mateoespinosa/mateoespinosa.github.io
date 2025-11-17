@@ -11,7 +11,7 @@ header:
 
 Hi! My name is Mateo Espinosa Zarlenga and I, at least last time I checked, look
 approximately like the dude in the picture somewhere near this text. Currently, I am
-a [Junior Research Fellow (JRF)](https://www.trinity.ox.ac.uk/people/mateo-espinosa-zarlenga) in Computer Science at [Trinity College, Oxford](https://www.trinity.ox.ac.uk/). I did my PhD on **interpreable AI** at the University of Cambridge under the supervision of Professor
+a [Junior Research Fellow (JRF)](https://www.trinity.ox.ac.uk/people/mateo-espinosa-zarlenga) in Computer Science at [Trinity College, Oxford](https://www.trinity.ox.ac.uk/). I did my PhD on **interpretable AI** at the University of Cambridge under the supervision of Professor
 [Mateja Jamnik](https://www.cl.cam.ac.uk/~mj201/). In my research, I am
 generally interested in the overlap of AI interpretability, human-AI
 interaction, and representation learning. In particular, I am interested in

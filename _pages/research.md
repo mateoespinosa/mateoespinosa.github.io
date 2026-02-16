@@ -5,6 +5,9 @@ layout: single
 author_profile: true
 classes: wide
 comments: false
+header:
+  overlay_image: /assets/images/panoramas/yellowstone.jpg
+  image_description: "Yellowstone National Park, USA"
 style: |
   .custom-button {
         margin-top: 15px;
@@ -17,8 +20,8 @@ style: |
         text-align: center;
         text-decoration: none;
         align-items: flex-start;
-        cursor: default;
-        -webkit-appearence: push-button;
+        cursor: pointer;
+        -webkit-appearance: push-button;
         border-style:  solid;
         border-width: 1px;
         border-radius: 5px;
@@ -50,7 +53,7 @@ style: |
     .custom-button:active {
         opacity: 1.0;
         text-decoration: none;
-        text-weight: bolder;
+        font-weight: bolder;
     }
 
     .custom-button:hover a, .custom-button:active a {
@@ -119,11 +122,6 @@ style: |
       clear: both;
       position: relative;
     }
-    .paper-thumbnail {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-    }
 ---
 
 My current research interests roughly lie on the intersection of **explainable AI**,
@@ -138,13 +136,19 @@ refer to my [Gates Cambridge scholar profile](https://www.gatescambridge.org/bio
 
 Below you can find a list of some of my publications, including their respective
 venues, papers, code, and presentations (when applicable). For a possibly more
-up-to-date list, however, please take refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en).
+up-to-date list, however, please refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en).
+
+<div class="research-quick-nav">
+  <a href="#conference-publications">Conference Papers</a>
+  <a href="#journal-publications">Journal Papers</a>
+  <a href="#workshop-publications">Workshop Papers</a>
+</div>
 
 
 -----
 
 
-### Conference Publications (Refereed and Archived)
+### <span id="conference-publications">Conference Publications (Refereed and Archived)</span>
 
 <div class="paper-row">
     <div class="paper-container">
@@ -475,7 +479,7 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 
 -----
 
-### Journal Publications (Refereed and Archived)
+### <span id="journal-publications">Journal Publications (Refereed and Archived)</span>
 
 <div class="paper-row">
     <div class="paper-container">
@@ -558,7 +562,7 @@ up-to-date list, however, please take refer to my [Google Scholar profile](https
 -----
 
 
-### Workshop Publications (Refereed)
+### <span id="workshop-publications">Workshop Publications (Refereed)</span>
 <div class="paper-row">
     <div class="paper-container">
         <div class="authors-col-right">

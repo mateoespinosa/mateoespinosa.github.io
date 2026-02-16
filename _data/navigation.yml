@@ -6,9 +6,12 @@ main:
   - title: "Research"
     url: /research/
     description: "Gossip from the lab"
+  - title: "Teaching"
+    url: /teaching/
+    description: "Courses and mentoring"
   - title: "Blog"
     url: /blog/
     description: "Random thoughts"
   - title: "Contact"
     url: /contact/
-    descrption: "Contact"
+    description: "Contact"

@@ -3,8 +3,9 @@
 ---
 
 @charset "utf-8";
-$global-font-family : Spectral !default;
-$header-font-family : 'Exo', sans-serif !default;
+$global-font-family : "Spectral", sans-serif !default;
+$header-font-family : 'Spectral', serif !default;
+$masthead-font-family : 'Spectral', serif !default;
 
 $type-size-1 : 3em !default;  // ~39.056px
 $type-size-2 : 1.953em !default;  // ~31.248px
@@ -17,3 +18,198 @@ $type-size-8 : 0.625em !default;  // ~10px
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* Explicit override in case theme variable wiring changes */
+.greedy-nav .site-title {
+  font-family: 'Spectral', serif;
+}
+
+.masthead__inner-wrap {
+  font-family: 'Spectral', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  line-height: 1.72;
+  font-weight: 300;
+}
+
+a {
+  color: #4f7fbf;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:visited {
+  color: #6e87b5;
+}
+
+a:hover {
+  color: #3f6ea9;
+  text-decoration-thickness: 2px;
+}
+
+/* Keep nav colors controlled by the theme (not global link palette) */
+.masthead a,
+.greedy-nav a,
+.masthead__menu-item a {
+  color: inherit;
+}
+
+.masthead a:visited,
+.greedy-nav a:visited,
+.masthead__menu-item a:visited {
+  color: inherit;
+}
+
+.masthead a:hover,
+.greedy-nav a:hover,
+.masthead__menu-item a:hover {
+  color: inherit;
+  text-decoration-thickness: initial;
+}
+
+/* Keep profile/user-info links the same color as surrounding text */
+.author__urls a,
+.author__urls a:visited,
+.author__urls a:hover,
+.author__urls a:active,
+.sidebar .author__urls-wrapper a,
+.sidebar .author__urls-wrapper a:visited,
+.sidebar .author__urls-wrapper a:hover,
+.sidebar .author__urls-wrapper a:active {
+  color: inherit;
+}
+
+.masthead {
+  backdrop-filter: blur(4px);
+}
+
+.greedy-nav .site-title {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.page__hero--overlay {
+  min-height: 240px;
+}
+
+.page__content p {
+  max-width: 78ch;
+}
+
+.recent-news-container {
+  max-height: 340px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 0.5rem 0.65rem;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.recent-news-container::-webkit-scrollbar {
+  width: 9px;
+}
+
+.recent-news-container::-webkit-scrollbar-thumb {
+  background: rgba(70, 70, 70, 0.45);
+  border-radius: 999px;
+}
+
+.research-quick-nav {
+  position: sticky;
+  top: 1rem;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.25rem 0 1.5rem;
+  padding: 0.85rem;
+  border-radius: 10px;
+  background: #f6f8fc;
+  border: 1px solid #d5deea;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.research-quick-nav a {
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0.2rem 0.75rem;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 0.92rem;
+}
+
+.research-quick-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.paper-row {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(14, 26, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.paper-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(14, 26, 42, 0.1);
+}
+
+.paper-thumbnail {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.paper-row .paper-container p {
+  font-size: 0.94rem;
+  color: #4f5f74;
+}
+
+.paper-row .paper-container p b {
+  font-weight: 600;
+  color: #445369;
+}
+
+.custom-button {
+  min-width: 90px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.custom-button:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .paper-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .image-col-left,
+  .image-col-right,
+  .authors-col-left,
+  .authors-col-right {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .paper-thumbnail {
+    position: static !important;
+    transform: none !important;
+    max-width: min(100%, 420px);
+  }
+}

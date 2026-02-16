@@ -37,10 +37,10 @@ Previous to my student life, I was in the gorgeous and oxygen-deprived city of
 where I was born and raised.
 {: .text-justify}
 
-In this site I will be posting random thoughts and projects I get to work on in
+On this site I will be posting random thoughts and projects I get to work on in
 my free time (or at least that's the idea). In the meantime, if you want to
 contact me or share some ideas with me (I am always open to collaborations!),
-please do not hesitate in [doing so]({{site.base}}/contact).
+please do not hesitate in [doing so]({{site.baseurl}}/contact).
 {: .text-justify}
 
 ---

@@ -1,0 +1,5 @@
+{% assign item = include.item %}
+<li class="news-item">
+  <time class="news-date" datetime="{{ item.date }}">{{ item.label }}</time>
+  <p>{{ item.content_html }}</p>
+</li>

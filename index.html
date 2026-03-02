@@ -25,16 +25,13 @@ header:
   I am always happy to connect.
 </p>
 
-<h3 class="archive__subtitle">Recent News</h3>
+<h3 class="archive__subtitle content-section-heading">Recent News</h3>
 {% assign featured_news = site.data.news.items | where: "featured", true %}
 {% assign older_news = site.data.news.items | where: "featured", false %}
 <div class="recent-news-container">
   <ol class="news-timeline">
     {% for item in featured_news %}
-    <li class="news-item">
-      <time class="news-date" datetime="{{ item.date }}">{{ item.label }}</time>
-      <p>{{ item.content_html }}</p>
-    </li>
+    {% include news_item.html item=item %}
     {% endfor %}
   </ol>
 
@@ -43,10 +40,7 @@ header:
     <summary>View earlier highlights</summary>
     <ol class="news-timeline news-timeline--compact">
       {% for item in older_news %}
-      <li class="news-item">
-        <time class="news-date" datetime="{{ item.date }}">{{ item.label }}</time>
-        <p>{{ item.content_html }}</p>
-      </li>
+      {% include news_item.html item=item %}
       {% endfor %}
     </ol>
   </details>

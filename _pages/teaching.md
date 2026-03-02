@@ -10,38 +10,22 @@ header:
 ---
 
 {% for section in site.data.teaching.sections %}
-### {{ section.heading }}
+<h3 class="content-section-heading">{{ section.heading }}</h3>
 
 <div class="teaching-section">
   <div class="teaching-grid">
     {% for item in section.items %}
-    <article class="teaching-card">
-      <h4>
-        {% if item.url and item.url != '' %}
-        <a href="{{ item.url }}">{{ item.title }}</a>
-        {% else %}
-        {{ item.title }}
-        {% endif %}
-      </h4>
-      {% if item.institution and item.institution != '' %}
-      <p class="teaching-meta"><strong>Institution:</strong> {{ item.institution }}</p>
-      {% endif %}
-      {% if item.venue and item.venue != '' %}
-      <p class="teaching-meta"><strong>Venue:</strong> {{ item.venue }}</p>
-      {% endif %}
-      {% if item.role and item.role != '' %}
-      <p class="teaching-meta"><strong>Role:</strong> {{ item.role }}</p>
-      {% endif %}
-      {% if item.years and item.years != '' %}
-      <span class="teaching-years">{{ item.years }}</span>
-      {% endif %}
-    </article>
+    {% include teaching_card.html item=item %}
     {% endfor %}
   </div>
 </div>
+
+{% unless forloop.last %}
+<hr class="content-divider">
+{% endunless %}
 {% endfor %}
 
-### {{ site.data.teaching.supervision_heading }}
+<h3 class="content-section-heading">{{ site.data.teaching.supervision_heading }}</h3>
 
 <div class="teaching-section">
   <ul class="supervision-list">

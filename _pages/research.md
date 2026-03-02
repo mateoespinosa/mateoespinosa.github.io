@@ -21,56 +21,23 @@ Below you can find a list of some of my publications, including their respective
 code, and presentations (when applicable). For a possibly more up-to-date list, however, please
 refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en).
 
-<div class="research-quick-nav">
+<nav class="research-quick-nav" aria-label="Research publication navigation">
+  <span class="research-quick-nav__label">Jump to</span>
   <a href="#conference-publications">Conference Papers</a>
   <a href="#journal-publications">Journal Papers</a>
   <a href="#workshop-publications">Workshop Papers</a>
-</div>
+</nav>
 
------
+<hr class="content-divider">
 
 {% for section in site.data.research.sections %}
-### <span id="{{ section.id }}">{{ section.title }}</span>
+<h3 class="content-section-heading" id="{{ section.id }}">{{ section.title }}</h3>
 
 {% for paper in section.papers %}
-<div class="paper-row">
-  <div class="paper-container">
-    {% if paper.image_side == 'left' %}
-    <div class="image-col-left">
-      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper.image }}" alt="{{ paper.image_alt }}">
-    </div>
-    {% endif %}
-
-    {% if paper.image_side == 'left' %}
-    <div class="authors-col-left">
-    {% else %}
-    <div class="authors-col-right">
-    {% endif %}
-      <div>
-        <a class="paper-title-link" target="_blank" rel="noopener noreferrer" href="{{ paper.url }}">{{ paper.title }}</a>
-      </div>
-      <div>
-        <p class="paper-venue"><b>{{ paper.venue }}</b></p>
-        <p class="paper-authors">{{ paper.authors_html }}</p>
-      </div>
-    </div>
-
-    {% if paper.image_side != 'left' %}
-    <div class="image-col-right">
-      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper.image }}" alt="{{ paper.image_alt }}">
-    </div>
-    {% endif %}
-  </div>
-
-  <div class="paper-links">
-    {% for link in paper.links %}
-    <a target="_blank" rel="noopener noreferrer" href="{{ link.url }}" class="custom-button button-{{ link.kind }}">{{ link.label }}</a>
-    {% endfor %}
-  </div>
-</div>
+{% include paper_card.html paper=paper %}
 {% endfor %}
 
 {% unless forloop.last %}
------
+<hr class="content-divider">
 {% endunless %}
 {% endfor %}

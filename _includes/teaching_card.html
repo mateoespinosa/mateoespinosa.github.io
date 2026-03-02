@@ -1,0 +1,26 @@
+{% assign item = include.item %}
+<article class="teaching-card">
+  <h4 class="teaching-title">
+    {% if item.url and item.url != '' %}
+    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+    {% else %}
+    {{ item.title }}
+    {% endif %}
+  </h4>
+
+  <div class="teaching-meta-stack">
+    {% if item.institution and item.institution != '' %}
+    <p class="teaching-meta"><span class="teaching-label">Institution:</span> {{ item.institution }}</p>
+    {% endif %}
+    {% if item.venue and item.venue != '' %}
+    <p class="teaching-meta"><span class="teaching-label">Venue:</span> {{ item.venue }}</p>
+    {% endif %}
+    {% if item.role and item.role != '' %}
+    <p class="teaching-meta"><span class="teaching-label">Role:</span> {{ item.role }}</p>
+    {% endif %}
+  </div>
+
+  {% if item.years and item.years != '' %}
+  <span class="teaching-years">{{ item.years }}</span>
+  {% endif %}
+</article>

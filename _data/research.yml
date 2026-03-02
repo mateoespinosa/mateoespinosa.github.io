@@ -1,5 +1,6 @@
 # Research publication list data model.
-# Each section contains papers with image placement and action links.
+# Each section groups papers by publication type.
+# Paper authors are structured objects: name + optional url/me/suffix.
 sections:
 - id: conference-publications
   title: Conference Publications (Refereed and Archived)
@@ -7,13 +8,7 @@ sections:
   - title: 'Avoiding Leakage Poisoning: Concept Interventions Under Distribution Shifts'
     url: https://arxiv.org/abs/2504.17921
     venue: International Conference On Machine Learning (ICML), 2025.
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://gabriele-dominici.github.io/">Gabriele Dominici</a>
-      <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a>
-      <a href="https://zohrehshams.com">Zohreh Shams</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
-    image: /assets/images/thumbnails/mixcem_thumbnail_simplified.png
+    image: "/assets/images/thumbnails/mixcem_thumbnail_simplified.png"
     image_alt: TAB architecture
     image_side: right
     links:
@@ -29,15 +24,22 @@ sections:
     - label: Poster
       url: https://icml.cc/media/PosterPDFs/ICML%202025/46307.png?t=1752597537.763433
       kind: poster
-  - title: Addressing Concept Mislabeling in Concept Bottleneck Models Through Preference Optimization
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Gabriele Dominici
+      url: https://gabriele-dominici.github.io/
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+  - title: Addressing Concept Mislabeling in Concept Bottleneck Models Through Preference
+      Optimization
     url: https://arxiv.org/abs/2504.18026
     venue: International Conference On Machine Learning (ICML), 2025.
-    authors_html: |-
-      <a href="https://emilianopp.com/#/home">Emiliano Penaloza</a>,
-      <a href="https://tianyuehz.github.io/">Tianyue H. Zhang</a>,
-      <a href="https://www.cs.toronto.edu/~lcharlin/">Laurent Charlin</a><sup>*</sup>,
-      <b>Mateo Espinosa Zarlenga</b><sup>*</sup>
-    image: /assets/images/thumbnails/CPO_thumbnail.png
+    image: "/assets/images/thumbnails/CPO_thumbnail.png"
     image_alt: CPO Visual Abstract
     image_side: left
     links:
@@ -48,20 +50,24 @@ sections:
       url: https://github.com/Emilianopp/ConceptPreferenceOptimization
       kind: code
     - label: Poster
-      url: /assets/posters/CPO_poster.pdf
+      url: "/assets/posters/CPO_poster.pdf"
       kind: poster
+    authors:
+    - name: Emiliano Penaloza
+      url: https://emilianopp.com/#/home
+    - name: Tianyue H. Zhang
+      url: https://tianyuehz.github.io/
+    - name: Laurent Charlin
+      url: https://www.cs.toronto.edu/~lcharlin/
+      suffix: "*"
+    - name: Mateo Espinosa Zarlenga
+      me: true
+      suffix: "*"
   - title: Efficient Bias Mitigation Without Privileged Information
     url: https://arxiv.org/abs/2409.17691
-    venue: Oral and Best Paper Candidate (within top 15 papers out of 8,500+ submissions) at the 18th European Conference
-      on Computer Vision (ECCV), 2024
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://swamiviv.github.io/">Swami Sankaranarayanan</a>,
-      <a href="https://ai.sony/people/Jerone-Andrews/">Jerone T. A. Andrews</a>,
-      <a href="https://zohrehshams.com">Zohreh Shams</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
-      <a href="https://ai.sony/people/Alice-Xiang/">Alice Xiang</a>
-    image: /assets/images/thumbnails/tab_thumbnail.png
+    venue: Oral and Best Paper Candidate (within top 15 papers out of 8,500+ submissions)
+      at the 18th European Conference on Computer Vision (ECCV), 2024
+    image: "/assets/images/thumbnails/tab_thumbnail.png"
     image_alt: TAB architecture
     image_side: right
     links:
@@ -77,14 +83,23 @@ sections:
     - label: Poster
       url: https://eccv.ecva.net/media/PosterPDFs/ECCV%202024/491.png?t=1728382129.9790785
       kind: poster
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Swami Sankaranarayanan
+      url: https://swamiviv.github.io/
+    - name: Jerone T. A. Andrews
+      url: https://ai.sony/people/Jerone-Andrews/
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    - name: Alice Xiang
+      url: https://ai.sony/people/Alice-Xiang/
   - title: Understanding Inter-Concept Relationships in Concept-Based Models
     url: https://arxiv.org/abs/2405.18217
     venue: International Conference On Machine Learning (ICML), 2024.
-    authors_html: |-
-      <a href="https://naveenraman.com/">Naveen Raman</a>,
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
-    image: /assets/images/thumbnails/inter_concept_thumbnail.png
+    image: "/assets/images/thumbnails/inter_concept_thumbnail.png"
     image_alt: Inter-Concept Relationships visual abstract
     image_side: left
     links:
@@ -97,17 +112,18 @@ sections:
     - label: Video
       url: https://www.youtube.com/watch?v=qj_G4UQtyLY
       kind: video
+    authors:
+    - name: Naveen Raman
+      url: https://naveenraman.com/
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
   - title: 'Learning to Receive Help: Intervention-Aware Concept Embedding Models'
     url: https://arxiv.org/abs/2309.16928
-    venue: Spotlight paper at the conference on Neural Information Processing Systems (NeurIPS), 2023
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://collinskatie.github.io/">Katherine M. Collins</a>,
-      <a href="https://dj-research.netlify.app/">Krishnamurthy (DJ) Dvijotham</a>,
-      <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
-      <a href="https://zohrehshams.com">Zohreh Shams</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
-    image: /assets/images/thumbnails/intcem_thumbnail.png
+    venue: Spotlight paper at the conference on Neural Information Processing Systems
+      (NeurIPS), 2023
+    image: "/assets/images/thumbnails/intcem_thumbnail.png"
     image_alt: IntCEM architecture
     image_side: right
     links:
@@ -117,61 +133,88 @@ sections:
     - label: Code
       url: https://github.com/mateoespinosa/cem
       kind: code
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Katherine M. Collins
+      url: https://collinskatie.github.io/
+    - name: Krishnamurthy (DJ) Dvijotham
+      url: https://dj-research.netlify.app/
+    - name: Adrian Weller
+      url: http://mlg.eng.cam.ac.uk/adrian
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
   - title: Interpretable Neural-Symbolic Concept Reasoning
     url: https://arxiv.org/abs/2304.14068
-    venue: International Conference On Machine Learning (ICML), 2023. Also appeared at ICML's Differentiable Almost Everything
-      Workshop, 2023.
-    authors_html: |-
-      <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a>,
-      <a href="https://sailab.diism.unisi.it/people/gabriele-ciravegna/">Gabriele Ciravegna</a>,
-      <a href="https://scholar.google.com/citations?user=KT3SRqgAAAAJ&amp;hl=en">Francesco Giannini</a>,
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://caraml-group.github.io/author/lucie-charlotte-magister/">Lucie Charlotte Magister</a>,
-      <a href="https://scholar.google.it/citations?user=M1t5hwYAAAAJ&amp;hl=en">Alberto Tonda</a>,
-      <a href="https://www.cl.cam.ac.uk/~pl219/">Pietro Lio</a>,
-      <a href="https://www.i3s.unice.fr/~precioso/">Frederic Precioso</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
-      <a href="https://www.giuseppemarra.com/">Giuseppe Marra</a>
-    image: /assets/images/thumbnails/dcr_thumbnail.png
+    venue: International Conference On Machine Learning (ICML), 2023. Also appeared
+      at ICML's Differentiable Almost Everything Workshop, 2023.
+    image: "/assets/images/thumbnails/dcr_thumbnail.png"
     image_alt: DCR visual abstract
     image_side: left
     links:
     - label: Paper
       url: https://arxiv.org/abs/2304.14068
       kind: paper
+    authors:
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Gabriele Ciravegna
+      url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
+    - name: Francesco Giannini
+      url: https://scholar.google.com/citations?user=KT3SRqgAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Lucie Charlotte Magister
+      url: https://caraml-group.github.io/author/lucie-charlotte-magister/
+    - name: Alberto Tonda
+      url: https://scholar.google.it/citations?user=M1t5hwYAAAAJ&hl=en
+    - name: Pietro Lio
+      url: https://www.cl.cam.ac.uk/~pl219/
+    - name: Frederic Precioso
+      url: https://www.i3s.unice.fr/~precioso/
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
   - title: Human Uncertainty in Concept-Based AI Systems
     url: https://arxiv.org/abs/2303.12872
     venue: AAAI/ACM Conference on AI, Ethics, and Society (AIES), 2023
-    authors_html: |-
-      <a href="https://collinskatie.github.io/">Katherine M. Collins</a>,
-      <a href="https://matthewbarker.me/">Matthew Barker</a><sup>*</sup>,
-      <b>Mateo Espinosa Zarlenga</b><sup>*</sup>,
-      <a href="https://naveenraman.com/">Naveen Raman</a><sup>*</sup>,
-      <a href="https://umangsbhatt.github.io">Umang Bhatt</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>,
-      <a href="https://ilia10000.github.io/">Ilia Sucholutsky</a>,
-      <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
-      <a href="https://dj-research.netlify.app/">Krishnamurthy (DJ) Dvijotham</a>
-    image: /assets/images/thumbnails/concept_uncertainty_thumbnail.png
+    image: "/assets/images/thumbnails/concept_uncertainty_thumbnail.png"
     image_alt: Concept uncertainty visual abstract
     image_side: right
     links:
     - label: Paper
       url: https://arxiv.org/abs/2303.12872
       kind: paper
+    authors:
+    - name: Katherine M. Collins
+      url: https://collinskatie.github.io/
+    - name: Matthew Barker
+      url: https://matthewbarker.me/
+      suffix: "*"
+    - name: Mateo Espinosa Zarlenga
+      me: true
+      suffix: "*"
+    - name: Naveen Raman
+      url: https://naveenraman.com/
+      suffix: "*"
+    - name: Umang Bhatt
+      url: https://umangsbhatt.github.io
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    - name: Ilia Sucholutsky
+      url: https://ilia10000.github.io/
+    - name: Adrian Weller
+      url: http://mlg.eng.cam.ac.uk/adrian
+    - name: Krishnamurthy (DJ) Dvijotham
+      url: https://dj-research.netlify.app/
   - title: Towards Robust Metrics For Concept Representation Evaluation
     url: https://arxiv.org/abs/2301.10367
-    venue: Association for the Advancement of Artificial Intelligence Conference on Artificial Intelligence (AAAI) as an oral
-      presentation, 2023
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b><sup>*</sup>,
-      <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a><sup>*</sup>,
-      <a href="https://zohrehshams.com">Zohreh Shams</a><sup>*</sup>,
-      <a href="https://scholar.google.com/citations?user=MSFAgbkAAAAJ&amp;hl=en">Dmitry Kazhdan</a>,
-      <a href="https://umangsbhatt.github.io">Umang Bhatt</a>,
-      <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
-    image: /assets/images/thumbnails/quality_thumbnail.png
+    venue: Association for the Advancement of Artificial Intelligence Conference on
+      Artificial Intelligence (AAAI) as an oral presentation, 2023
+    image: "/assets/images/thumbnails/quality_thumbnail.png"
     image_alt: Metrics visual abstract
     image_side: left
     links:
@@ -187,23 +230,28 @@ sections:
     - label: Poster
       url: https://github.com/mateoespinosa/concept-quality/blob/main/media/poster.pdf
       kind: poster
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+      suffix: "*"
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+      suffix: "*"
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+      suffix: "*"
+    - name: Dmitry Kazhdan
+      url: https://scholar.google.com/citations?user=MSFAgbkAAAAJ&hl=en
+    - name: Umang Bhatt
+      url: https://umangsbhatt.github.io
+    - name: Adrian Weller
+      url: http://mlg.eng.cam.ac.uk/adrian
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
   - title: 'Concept Embedding Models: Beyond the Accuracy-Explainability Trade-Off'
     url: https://arxiv.org/abs/2209.09056
     venue: Conference on Neural Information Processing Systems (NeurIPS), 2022
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b><sup>*</sup>,
-      <a href="https://www.pietrobarbiero.eu">Pietro Barbiero</a><sup>*</sup>,
-      <a href="https://sailab.diism.unisi.it/people/gabriele-ciravegna/">Gabriele Ciravegna</a>,
-      <a href="https://www.giuseppemarra.com/">Giuseppe Marra</a>,
-      <a href="https://scholar.google.com/citations?user=KT3SRqgAAAAJ&amp;hl=en">Francesco Giannini</a>,
-      <a href="https://scholar.google.com/citations?user=qI-LOjIAAAAJ&amp;hl=en">Michelangelo Diligenti</a>,
-      <a href="https://zohrehshams.com">Zohreh Shams</a>,
-      <a href="https://www.i3s.unice.fr/~precioso/">Frederic Precioso</a>,
-      <a href="https://scholar.google.com/citations?user=_HHu1MQAAAAJ&amp;hl=en">Stefano Melacci</a>,
-      <a href="http://mlg.eng.cam.ac.uk/adrian">Adrian Weller</a>,
-      <a href="https://www.cl.cam.ac.uk/~pl219/">Pietro Lio</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>.
-    image: /assets/images/thumbnails/cem_thumbnail.png
+    image: "/assets/images/thumbnails/cem_thumbnail.png"
     image_alt: CEM Main Results
     image_side: right
     links:
@@ -214,44 +262,47 @@ sections:
       url: https://github.com/mateoespinosa/cem
       kind: code
     - label: Slides
-      url: /assets/presentations/cem_neurips_2022_slides.pptx
+      url: "/assets/presentations/cem_neurips_2022_slides.pptx"
       kind: slides
     - label: Poster
-      url: /assets/posters/eclaire_poster.png
+      url: "/assets/posters/eclaire_poster.png"
       kind: poster
     - label: Blog
       url: https://towardsdatascience.com/concept-embedding-models-beyond-the-accuracy-explainability-trade-off-f7ba02f28fad
       kind: blog
-  - title: An Open-Source Benchmark Suite for Microservices and Their Hardware-Software Implications for Cloud & Edge Systems
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+      suffix: "*"
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+      suffix: "*"
+    - name: Gabriele Ciravegna
+      url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
+    - name: Francesco Giannini
+      url: https://scholar.google.com/citations?user=KT3SRqgAAAAJ&hl=en
+    - name: Michelangelo Diligenti
+      url: https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+    - name: Frederic Precioso
+      url: https://www.i3s.unice.fr/~precioso/
+    - name: Stefano Melacci
+      url: https://scholar.google.com/citations?user=_HHu1MQAAAAJ&hl=en
+    - name: Adrian Weller
+      url: http://mlg.eng.cam.ac.uk/adrian
+    - name: Pietro Lio
+      url: https://www.cl.cam.ac.uk/~pl219/
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+  - title: An Open-Source Benchmark Suite for Microservices and Their Hardware-Software
+      Implications for Cloud & Edge Systems
     url: https://dl.acm.org/doi/10.1145/3297858.3304013
-    venue: The 24th ACM International Conference on Architectural Support for Programming Languages and Operating Systems
-      (ASPLOS), 2019
-    authors_html: |-
-      Yu Gan,
-      Yanqi Zhang,
-      Dailun Cheng,
-      Ankitha Shetty,
-      Priyal Rathi,
-      Nayan Katarki,
-      Ariana Bruno,
-      Justin Hu,
-      Brian Ritchken,
-      Brendon Jackson,
-      Kelvin Hu,
-      Meghna Pancholi,
-      Yuan He,
-      Brett Clancy,
-      Chris Colen,
-      Fukang Wen,
-      Catherine Leung,
-      Siyuan Wang,
-      Leon Zaruvinsky,
-      <b>Mateo Espinosa Zarlenga</b>,
-      Rick Lin,
-      Zhongling Liu,
-      Jake Padilla,
-      Christina Delimitrou.
-    image: /assets/images/thumbnails/microservices.png
+    venue: The 24th ACM International Conference on Architectural Support for Programming
+      Languages and Operating Systems (ASPLOS), 2019
+    image: "/assets/images/thumbnails/microservices.png"
     image_alt: Microservices
     image_side: left
     links:
@@ -261,20 +312,40 @@ sections:
     - label: Code
       url: https://github.com/delimitrou/DeathStarBench
       kind: code
+    authors:
+    - name: Yu Gan
+    - name: Yanqi Zhang
+    - name: Dailun Cheng
+    - name: Ankitha Shetty
+    - name: Priyal Rathi
+    - name: Nayan Katarki
+    - name: Ariana Bruno
+    - name: Justin Hu
+    - name: Brian Ritchken
+    - name: Brendon Jackson
+    - name: Kelvin Hu
+    - name: Meghna Pancholi
+    - name: Yuan He
+    - name: Brett Clancy
+    - name: Chris Colen
+    - name: Fukang Wen
+    - name: Catherine Leung
+    - name: Siyuan Wang
+    - name: Leon Zaruvinsky
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Rick Lin
+    - name: Zhongling Liu
+    - name: Jake Padilla
+    - name: Christina Delimitrou
 - id: journal-publications
   title: Journal Publications (Refereed and Archived)
   papers:
   - title: 'TabCBM: Concept-based Interpretable Neural Networks for Tabular Data'
     url: https://openreview.net/pdf?id=TIsrnWpjQ0
-    venue: Transactions of Machine Learning Research (TMLR), 2023. Also appeared at ICML's Workshop on Interpretable Machine
-      Learning in Healthcare, 2023.
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://zohrehshams.com">Zohreh Shams</a>,
-      <a href="https://www.physbiol.cam.ac.uk/staff/michael-nelson">Michael Edward Nelson</a>,
-      <a href="https://beenkim.github.io/">Been Kim</a><sup>*</sup>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a><sup>*</sup>
-    image: /assets/images/thumbnails/tabcbm_thumbnail.png
+    venue: Transactions of Machine Learning Research (TMLR), 2023. Also appeared at
+      ICML's Workshop on Interpretable Machine Learning in Healthcare, 2023.
+    image: "/assets/images/thumbnails/tabcbm_thumbnail.png"
     image_alt: TabCBM visual abstract
     image_side: right
     links:
@@ -287,35 +358,24 @@ sections:
     - label: Poster
       url: https://github.com/mateoespinosa/tabcbm/blob/main/media/poster.pdf
       kind: poster
-  - title: Unveiling the Hardware and Software Implications of Microservices in Cloud and Edge Systems
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+    - name: Michael Edward Nelson
+      url: https://www.physbiol.cam.ac.uk/staff/michael-nelson
+    - name: Been Kim
+      url: https://beenkim.github.io/
+      suffix: "*"
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+      suffix: "*"
+  - title: Unveiling the Hardware and Software Implications of Microservices in Cloud
+      and Edge Systems
     url: https://ieeexplore.ieee.org/document/9076308
     venue: IEEE Micro, 2020
-    authors_html: |-
-      Yu Gan,
-      Yanqi Zhang,
-      Dailun Cheng,
-      Ankitha Shetty,
-      Priyal Rathi,
-      Nayan Katarki,
-      Ariana Bruno,
-      Justin Hu,
-      Brian Ritchken,
-      Brendon Jackson,
-      Kelvin Hu,
-      Meghna Pancholi,
-      Yuan He,
-      Brett Clancy,
-      Chris Colen,
-      Fukang Wen,
-      Catherine Leung,
-      Siyuan Wang,
-      Leon Zaruvinsky,
-      <b>Mateo Espinosa Zarlenga</b>,
-      Rick Lin,
-      Zhongling Liu,
-      Jake Padilla,
-      Christina Delimitrou.
-    image: /assets/images/thumbnails/microservices_struct_thumbnail.png
+    image: "/assets/images/thumbnails/microservices_struct_thumbnail.png"
     image_alt: Microservices
     image_side: left
     links:
@@ -325,18 +385,40 @@ sections:
     - label: Code
       url: https://github.com/delimitrou/DeathStarBench
       kind: code
+    authors:
+    - name: Yu Gan
+    - name: Yanqi Zhang
+    - name: Dailun Cheng
+    - name: Ankitha Shetty
+    - name: Priyal Rathi
+    - name: Nayan Katarki
+    - name: Ariana Bruno
+    - name: Justin Hu
+    - name: Brian Ritchken
+    - name: Brendon Jackson
+    - name: Kelvin Hu
+    - name: Meghna Pancholi
+    - name: Yuan He
+    - name: Brett Clancy
+    - name: Chris Colen
+    - name: Fukang Wen
+    - name: Catherine Leung
+    - name: Siyuan Wang
+    - name: Leon Zaruvinsky
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Rick Lin
+    - name: Zhongling Liu
+    - name: Jake Padilla
+    - name: Christina Delimitrou
 - id: workshop-publications
   title: Workshop Publications (Refereed)
   papers:
   - title: Do Concept Bottleneck Models Obey Locality?
     url: https://arxiv.org/pdf/2401.01259.pdf
-    venue: '" XAI in Action: Past, Present, and Future Applications " Workshop @ NeurIPS 2023'
-    authors_html: |-
-      <a href="https://naveenraman.com/">Naveen Raman</a>,
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://sites.google.com/view/juyeonheo/%ED%99%88">Juyeon Heo</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>
-    image: /assets/images/thumbnails/cbm_locality_thumbnail.png
+    venue: '" XAI in Action: Past, Present, and Future Applications " Workshop @ NeurIPS
+      2023'
+    image: "/assets/images/thumbnails/cbm_locality_thumbnail.png"
     image_alt: CBM locality visual abstract
     image_side: right
     links:
@@ -346,15 +428,20 @@ sections:
     - label: Code
       url: https://github.com/naveenr414/Spurious-Concepts
       kind: code
+    authors:
+    - name: Naveen Raman
+      url: https://naveenraman.com/
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Juyeon Heo
+      url: https://sites.google.com/view/juyeonheo/%ED%99%88
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
   - title: Efficient Decompositional Rule Extraction for Deep Neural Networks
     url: https://arxiv.org/abs/2111.12628
-    venue: 1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis (XAI4Debugging@NeurIPS) as a spotlight
-      presentation, 2021
-    authors_html: |-
-      <b>Mateo Espinosa Zarlenga</b>,
-      <a href="https://zohrehshams.com">Zohreh Shams</a>,
-      <a href="https://www.cl.cam.ac.uk/~mj201">Mateja Jamnik</a>.
-    image: /assets/images/thumbnails/eclaire_thumbnail.png
+    venue: 1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis
+      (XAI4Debugging@NeurIPS) as a spotlight presentation, 2021
+    image: "/assets/images/thumbnails/eclaire_thumbnail.png"
     image_alt: ECLAIRE
     image_side: left
     links:
@@ -365,8 +452,15 @@ sections:
       url: https://github.com/mateoespinosa/remix
       kind: code
     - label: Slides
-      url: /assets/presentations/eclaire_neurips_slides.pptx
+      url: "/assets/presentations/eclaire_neurips_slides.pptx"
       kind: slides
     - label: Poster
-      url: /assets/posters/eclaire_poster.png
+      url: "/assets/posters/eclaire_poster.png"
       kind: poster
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Zohreh Shams
+      url: https://zohrehshams.com
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201

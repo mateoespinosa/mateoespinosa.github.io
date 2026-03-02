@@ -1,0 +1,50 @@
+{% assign paper = include.paper %}
+<article class="paper-row">
+  <div class="paper-container">
+    {% if paper.image_side == "left" %}
+    <div class="image-col-left">
+      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper.image }}" alt="{{ paper.image_alt }}">
+    </div>
+    {% endif %}
+
+    {% if paper.image_side == "left" %}
+    <div class="authors-col-left">
+    {% else %}
+    <div class="authors-col-right">
+    {% endif %}
+      <div>
+        <a class="paper-title-link" target="_blank" rel="noopener noreferrer" href="{{ paper.url }}">{{ paper.title }}</a>
+      </div>
+      <div>
+        <p class="paper-venue"><b>{{ paper.venue }}</b></p>
+        <p class="paper-authors">
+          {% if paper.authors and paper.authors.size > 0 %}
+          {% for author in paper.authors %}
+            {% capture author_markup %}{{ author.name }}{% if author.suffix and author.suffix != '' %}<sup>{{ author.suffix }}</sup>{% endif %}{% endcapture %}
+            {% if author.url and author.url != '' %}
+              <a class="{% if author.me %}author-self{% endif %}" href="{{ author.url }}" target="_blank" rel="noopener noreferrer">{{ author_markup }}</a>
+            {% else %}
+              <span class="{% if author.me %}author-self{% endif %}">{{ author_markup }}</span>
+            {% endif %}
+            {% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+          {% elsif paper.authors_html %}
+          {{ paper.authors_html }}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+
+    {% if paper.image_side != "left" %}
+    <div class="image-col-right">
+      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper.image }}" alt="{{ paper.image_alt }}">
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="paper-links">
+    {% for link in paper.links %}
+    <a target="_blank" rel="noopener noreferrer" href="{{ link.url }}" class="custom-button button-{{ link.kind }}">{{ link.label }}</a>
+    {% endfor %}
+  </div>
+</article>

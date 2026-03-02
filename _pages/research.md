@@ -6,7 +6,7 @@ author_profile: true
 classes: wide
 comments: false
 header:
-  overlay_image: /assets/images/panoramas/yellowstone.jpg
+  overlay_image: /assets/images/panoramas/yellowstone_hero.jpg
   image_description: "Yellowstone National Park, USA"
 style: |
   .custom-button {
@@ -88,34 +88,45 @@ style: |
     }
 
 
-    .image-col-left {
-      float: left;
-      width: 30%;
-      text-align: center;
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-    .authors-col-left {
-      float: left;
-      width: 70%;
-    }
+    .image-col-left,
     .image-col-right {
-      float: right;
-      width: 30%;
+      float: none;
+      flex: 0 0 min(32%, 270px);
+      margin: 0;
       text-align: center;
-      margin-left: 5%;
-      margin-right: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    .authors-col-left,
     .authors-col-right {
-      float: right;
-      width: 70%;
+      float: none;
+      flex: 1 1 auto;
+      min-width: 0;
     }
+
     .paper-container {
         display: flex;
+        align-items: stretch;
+        gap: clamp(0.9rem, 2vw, 1.6rem);
     }
+
     .paper-row {
         padding: 3%;
     }
+
+    .paper-thumbnail {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      max-height: 220px;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      margin: 0 auto;
+    }
+
     .paper-row:after {
       content: "";
       display: table;
@@ -124,14 +135,13 @@ style: |
     }
 ---
 
-My current research interests roughly lie on the intersection of **explainable AI**,
+My current research interests roughly lie on the intersection of **interpretable/explainable AI**,
 **representation learning**, and **human-in-the-loop AI**. More
 specifically, I am interested in (1) the design of powerful models that can
 construct explanations for their predictions in terms of high-level
 *"concepts"* and (2) the broad applications that these architectures may have in
 scenarios where experts can interact with the models at
-test time. For some more details on the general direction of my research, please
-refer to my [Gates Cambridge scholar profile](https://www.gatescambridge.org/biography/18457/).
+test time (e.g., model steering, test-time feedback, concept interventions).
 
 
 Below you can find a list of some of my publications, including their respective
@@ -501,7 +511,7 @@ up-to-date list, however, please refer to my [Google Scholar profile](https://sc
             </div>
         </div>
         <div class="image-col-right">
-            <img class="paper-thumbnail" style="max-width: 120%;" src="/assets/images/thumbnails/tabcbm_thumbnail.png" alt="TabCBM visual abstract">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/tabcbm_thumbnail.png" alt="TabCBM visual abstract">
         </div>
     </div>
     <div style="text-align: center;">
@@ -582,7 +592,7 @@ up-to-date list, however, please refer to my [Google Scholar profile](https://sc
             </div>
         </div>
         <div class="image-col-right">
-            <img class="paper-thumbnail" style="max-width: 120%;" src="/assets/images/thumbnails/cbm_locality_thumbnail.png" alt="CBM locality visual abstract">
+            <img class="paper-thumbnail" src="/assets/images/thumbnails/cbm_locality_thumbnail.png" alt="CBM locality visual abstract">
         </div>
     </div>
     <div style="text-align: center;">

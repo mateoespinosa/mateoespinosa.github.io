@@ -19,6 +19,15 @@ $type-size-8 : 0.625em !default;  // ~10px
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+:root {
+  --brand-ink: #223247;
+  --brand-blue: #3f6ea9;
+  --brand-blue-deep: #2f5a93;
+  --brand-blue-soft: #eaf1fb;
+  --card-border: rgba(24, 47, 78, 0.16);
+  --card-shadow: 0 12px 28px rgba(17, 34, 58, 0.08);
+}
+
 /* Explicit override in case theme variable wiring changes */
 .greedy-nav .site-title {
   font-family: 'Spectral', serif;
@@ -101,23 +110,67 @@ a:hover {
   max-width: 78ch;
 }
 
+.home-note {
+  margin: 0 0 1.45rem;
+  color: #516683;
+}
+
 .recent-news-container {
-  max-height: 340px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  padding: 0.5rem 0.65rem;
-  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 0.45rem 0.9rem 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(14, 26, 42, 0.06);
 }
 
-.recent-news-container::-webkit-scrollbar {
-  width: 9px;
+.news-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.recent-news-container::-webkit-scrollbar-thumb {
-  background: rgba(70, 70, 70, 0.45);
-  border-radius: 999px;
+.news-item {
+  display: grid;
+  grid-template-columns: minmax(130px, 165px) 1fr;
+  gap: 0.35rem 0.9rem;
+  align-items: start;
+  padding: 0.62rem 0;
+  border-bottom: 1px solid rgba(21, 43, 72, 0.1);
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-date {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #577399;
+}
+
+.news-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.older-news {
+  margin-top: 0.45rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(35, 57, 85, 0.22);
+}
+
+.older-news summary {
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #496890;
+}
+
+.news-timeline--compact .news-item p {
+  font-size: 0.9rem;
 }
 
 .research-quick-nav {
@@ -193,6 +246,15 @@ a:hover {
 }
 
 @media (max-width: 900px) {
+  .news-item {
+    grid-template-columns: 1fr;
+    gap: 0.12rem;
+  }
+
+  .news-date {
+    font-size: 0.78rem;
+  }
+
   .paper-container {
     flex-direction: column;
     gap: 0.8rem;

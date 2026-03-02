@@ -5,7 +5,7 @@ layout: posts
 author_profile: true
 classes: wide
 header:
-  overlay_image: /assets/images/panoramas/bay.jpg
+  overlay_image: /assets/images/panoramas/bay_hero.jpg
   image_description: "San Francisco Bay, California, USA"
 ---
 

@@ -5,7 +5,7 @@ comments: false
 permalink: /teaching/
 classes: wide
 header:
-  overlay_image: /assets/images/panoramas/banos.jpg
+  overlay_image: /assets/images/panoramas/banos_hero.jpg
   image_description: "Baños de Agua Santa, Tungurahua, Ecuador"
 style: |
   .teaching-section {

@@ -1,0 +1,63 @@
+# Homepage news feed.
+# `featured: true` appears in the main visible list.
+# `featured: false` appears under "View earlier highlights".
+items:
+- date: '2026-03-01'
+  label: March 2026
+  featured: true
+  content_html: We started a <a href="https://interpretabledeeplearning.github.io/reading_group/">new journal club on interpretable
+    AI</a>. Everyone is more than welcomed to join!
+- date: '2026-01-01'
+  label: January 2026
+  featured: true
+  content_html: Our paper on <a href="https://openreview.net/forum?id=h61OIERd38">hierarchical concept discovery</a> was accepted
+    at ICLR 2026!
+- date: '2025-12-01'
+  label: December 2025
+  featured: true
+  content_html: I passed my PhD defense (viva voce) without corrections.
+- date: '2025-11-01'
+  label: November 2025
+  featured: true
+  content_html: I started a Junior Research Fellowship (JRF) in Computer Science at Trinity College, Oxford.
+- date: '2025-08-01'
+  label: August 2025
+  featured: true
+  content_html: Pietro Barbiero and I gave a talk on Foundations of Interpretable Models at the <a href="https://luma.com/pqzv80yd">Neuro-Symbolic
+    AI Summer School</a> based on <a href="https://arxiv.org/abs/2508.00545">this paper</a>.
+- date: '2025-07-01'
+  label: July 2025
+  featured: true
+  content_html: I presented two papers at ICML 2025 in Vancouver [<a href="https://arxiv.org/abs/2504.17921">1</a>, <a href="https://arxiv.org/abs/2504.18026">2</a>].
+- date: '2025-02-01'
+  label: February 2025
+  featured: true
+  content_html: I co-presented a tutorial on <a href="https://conceptlearning.github.io/">Concept-based Interpretable Deep
+    Learning</a> at <a href="https://aaai.org/conference/aaai/aaai-25/">AAAI 2025</a>.
+- date: '2025-01-01'
+  label: January 2025
+  featured: false
+  content_html: Our <a href="https://openreview.net/pdf?id=lmKJ1b6PaL">Causal Concept Graph Models</a> work was accepted at
+    ICLR 2025.
+- date: '2024-10-01'
+  label: October 2024
+  featured: false
+  content_html: Our work on <a href="https://arxiv.org/abs/2409.17691">unsupervised bias mitigation</a> was accepted at ECCV
+    2024 as an oral and nominated for Best Paper.
+- date: '2024-07-01'
+  label: July 2024
+  featured: false
+  content_html: One paper was accepted at ICML 2024 where I also co-organized the <a href="https://www.latinxinai.org/icml-2024">LatinX
+    in AI workshop</a>.
+- date: '2023-09-01'
+  label: September 2023
+  featured: false
+  content_html: Our IntCEM paper was accepted at NeurIPS 2023 as a spotlight.
+- date: '2022-09-01'
+  label: September 2022
+  featured: false
+  content_html: Our Concept Embedding Model paper was accepted at NeurIPS 2022.
+- date: '2017-06-01'
+  label: June 2017
+  featured: false
+  content_html: I completed my MEng in Computer Science from Cornell University with the highest GPA in my cohort.

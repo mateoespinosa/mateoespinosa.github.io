@@ -1,0 +1,102 @@
+# Teaching page data model.
+# `sections` drives the card groups (Lecturer / Tutorials / Teaching Assistant).
+# `supervision` drives the Research Supervisor list.
+sections:
+- heading: Lecturer / Instructor
+  items:
+  - title: 'L193: Explainable Artificial Intelligence'
+    url: https://www.cl.cam.ac.uk/teaching/2526/L193/
+    institution: University of Cambridge
+    venue: ''
+    role: Co-lecturer and co-designer
+    years: 2025, 2026
+  - title: 'R255: Explainable Artificial Intelligence (MPhil submodule)'
+    url: https://www.cl.cam.ac.uk/teaching/2324/R255/
+    institution: University of Cambridge
+    venue: ''
+    role: Co-lecturer
+    years: 2023 - 2024
+  - title: 'CS 3110: Functional Programming and Data Structures'
+    url: https://www.cs.cornell.edu/courses/cs3110/2017sp/
+    institution: Cornell University
+    venue: ''
+    role: Recitation Instructor and Head TA
+    years: '2017'
+- heading: Tutorials
+  items:
+  - title: 'AAAI 2026 Tutorial: Foundations of Interpretable Deep Learning'
+    url: https://aaai.org/conference/aaai/aaai-26/tutorial-and-lab-list/#th18
+    institution: ''
+    venue: AAAI 2026
+    role: Co-presenter and organiser
+    years: '2026'
+  - title: 'AAAI 2025 Tutorial: Concept-based Interpretable Deep Learning'
+    url: https://aaai.org/conference/aaai/aaai-25/tutorial-and-lab-list/#TH07
+    institution: ''
+    venue: AAAI 2025
+    role: Co-presenter and organiser
+    years: '2025'
+- heading: Teaching Assistant
+  items:
+  - title: Discrete Mathematics
+    url: ''
+    institution: University of Cambridge
+    venue: ''
+    role: College Supervisor
+    years: 2021 - 2023
+  - title: 'CS 4850: Mathematical Foundations for the Information Age'
+    url: ''
+    institution: Cornell University
+    venue: ''
+    role: Teaching Assistant
+    years: '2016'
+  - title: 'CS 4700: Foundations of Artificial Intelligence'
+    url: ''
+    institution: Cornell University
+    venue: ''
+    role: Teaching Assistant
+    years: '2015'
+  - title: 'CS 2800: Discrete Structures'
+    url: ''
+    institution: Cornell University
+    venue: ''
+    role: Teaching Assistant
+    years: 2014 - 2015
+supervision_heading: Research Supervisor
+supervision:
+- name: Haoyan Luo
+  url: https://clarenceluo78.github.io/
+  years: 2025 - Present
+  details: 'University of Cambridge | PhD co-supervisor (main supervisor: Professor Mateja Jamnik)'
+- name: Yael Konforti
+  url: https://scholar.google.com/citations?user=w6Oa5fgAAAAJ&hl=en
+  years: 2024 - Present
+  details: 'University of Cambridge | PhD co-supervisor (main supervisor: Professor Mateja Jamnik)'
+- name: Oscar Hill
+  url: https://www.cst.cam.ac.uk/people/ogh22
+  years: 2023 - Present
+  details: 'University of Cambridge | MPhil and PhD co-supervisor (main supervisor: Professor Mateja Jamnik)'
+- name: Muhammad Ayain Fida Rana
+  url: https://ayainfida.github.io/
+  years: 2025 - Present
+  details: University of Cambridge | MPhil thesis co-supervisor
+- name: Eve Sherratt-Cross
+  url: ''
+  years: 2025 - Present
+  details: Durham University | MEng project co-supervisor
+- name: Jessy Sodimu
+  url: ''
+  years: 2025 - Present
+  details: University of Bath | Master's thesis co-supervisor
+- name: Evan Rex
+  url: ''
+  years: 2023 - 2024
+  details: 'University of Cambridge | MPhil thesis co-supervisor (now: McKinsey)'
+- name: Thomas Yuan
+  url: ''
+  years: 2023 - 2024
+  details: 'University of Cambridge | Part III thesis co-supervisor (now: Squarepoint Capital)'
+- name: Naveen Raman
+  url: https://naveenraman.com/
+  years: 2022 - 2023
+  details: 'University of Cambridge | MPhil thesis supervisor (now: PhD at CMU)'

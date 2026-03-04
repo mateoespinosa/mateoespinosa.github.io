@@ -4,13 +4,30 @@ title: Teaching
 comments: false
 permalink: /teaching/
 classes: wide
+description: "Teaching, tutorials, and supervision roles in interpretable AI, machine learning, and computer science."
+excerpt:
+image: /assets/images/panoramas/banos_hero.jpg
 header:
   overlay_image: /assets/images/panoramas/banos_hero.jpg
   image_description: "Baños de Agua Santa, Tungurahua, Ecuador"
 ---
 
+{% if site.data.teaching.conference_tutorials and site.data.teaching.conference_tutorials.size > 0 %}
+<h2 class="content-section-heading">{{ site.data.teaching.conference_tutorials_heading | default: "Conference Tutorials" }}</h2>
+
+<div class="teaching-section">
+  <div class="teaching-grid">
+    {% for item in site.data.teaching.conference_tutorials %}
+    {% include teaching_card.html item=item %}
+    {% endfor %}
+  </div>
+</div>
+
+<hr class="content-divider">
+{% endif %}
+
 {% for section in site.data.teaching.sections %}
-<h3 class="content-section-heading">{{ section.heading }}</h3>
+<h2 class="content-section-heading">{{ section.heading }}</h2>
 
 <div class="teaching-section">
   <div class="teaching-grid">
@@ -25,7 +42,9 @@ header:
 {% endunless %}
 {% endfor %}
 
-<h3 class="content-section-heading">{{ site.data.teaching.supervision_heading }}</h3>
+
+
+<h2 class="content-section-heading">{{ site.data.teaching.supervision_heading }}</h2>
 
 <div class="teaching-section">
   <ul class="supervision-list">

@@ -67,8 +67,8 @@ teaching = load_yaml(File.join(DATA_DIR, "teaching.yml"))
 unless teaching.is_a?(Hash)
   errors << "teaching.yml: must be a mapping"
 else
-  require_keys!(errors, teaching, %w[sections supervision_heading supervision], "teaching.yml")
-  reject_unknown_keys!(errors, teaching, %w[sections supervision_heading supervision], "teaching.yml")
+  require_keys!(errors, teaching, %w[sections conference_tutorials_heading conference_tutorials supervision_heading supervision], "teaching.yml")
+  reject_unknown_keys!(errors, teaching, %w[sections conference_tutorials_heading conference_tutorials supervision_heading supervision], "teaching.yml")
 
   unless teaching["sections"].is_a?(Array) && !teaching["sections"].empty?
     errors << "teaching.yml: `sections` must be a non-empty array"
@@ -108,6 +108,28 @@ else
   end
 
   errors << "teaching.yml: `supervision_heading` must be a non-empty string" unless present_string?(teaching["supervision_heading"])
+
+  errors << "teaching.yml: `conference_tutorials_heading` must be a non-empty string" unless present_string?(teaching["conference_tutorials_heading"])
+
+  unless teaching["conference_tutorials"].is_a?(Array)
+    errors << "teaching.yml: `conference_tutorials` must be an array"
+  else
+    teaching["conference_tutorials"].each_with_index do |item, idx|
+      context = "teaching.yml conference tutorial item #{idx + 1}"
+      unless item.is_a?(Hash)
+        errors << "#{context}: item must be a mapping"
+        next
+      end
+
+      required = %w[title institution venue role years]
+      optional = %w[url]
+      require_keys!(errors, item, required, context)
+      reject_unknown_keys!(errors, item, required + optional, context)
+
+      errors << "#{context}: `title` must be a non-empty string" unless present_string?(item["title"])
+      errors << "#{context}: `years` must be a non-empty string" unless present_string?(item["years"].to_s)
+    end
+  end
 
   unless teaching["supervision"].is_a?(Array)
     errors << "teaching.yml: `supervision` must be an array"
@@ -172,18 +194,60 @@ else
           next
         end
 
-        required = %w[title url venue image image_alt image_side links authors]
-        optional = %w[authors_html]
+        required = %w[title url venue venue_short year main_tag tags links authors publication_type]
+        optional = %w[authors_html featured_home home_summary image image_alt image_side]
         require_keys!(errors, paper, required, paper_context)
         reject_unknown_keys!(errors, paper, required + optional, paper_context)
 
-        %w[title url venue image image_alt].each do |key|
+        %w[title url venue venue_short main_tag].each do |key|
           next if present_string?(paper[key])
           errors << "#{paper_context}: `#{key}` must be a non-empty string"
         end
 
-        unless %w[left right].include?(paper["image_side"])
-          errors << "#{paper_context}: `image_side` must be `left` or `right`"
+        if paper.key?("image") && !paper["image"].nil? && !paper["image"].is_a?(String)
+          errors << "#{paper_context}: `image` must be a string when provided"
+        end
+
+        if paper.key?("image_alt") && !paper["image_alt"].nil? && !paper["image_alt"].is_a?(String)
+          errors << "#{paper_context}: `image_alt` must be a string when provided"
+        end
+
+        if present_string?(paper["image"]) && !present_string?(paper["image_alt"])
+          errors << "#{paper_context}: `image_alt` must be a non-empty string when `image` is provided"
+        end
+
+        unless paper["year"].is_a?(Integer) || paper["year"].to_s.match?(/\A\d{4}\z/)
+          errors << "#{paper_context}: `year` must be a 4-digit year"
+        end
+
+        if paper.key?("image_side") && !paper["image_side"].nil? && !%w[left right].include?(paper["image_side"])
+          errors << "#{paper_context}: `image_side` must be `left` or `right` when provided"
+        end
+
+        unless %w[conference journal workshop preprint].include?(paper["publication_type"])
+          errors << "#{paper_context}: `publication_type` must be one of conference/journal/workshop/preprint"
+        end
+
+        unless paper["tags"].is_a?(Array) && !paper["tags"].empty?
+          errors << "#{paper_context}: `tags` must be a non-empty array"
+        else
+          paper["tags"].each_with_index do |tag, t_idx|
+            unless present_string?(tag)
+              errors << "#{paper_context} tag #{t_idx + 1}: each tag must be a non-empty string"
+            end
+          end
+        end
+
+        if paper["tags"].is_a?(Array) && present_string?(paper["main_tag"]) && !paper["tags"].include?(paper["main_tag"])
+          errors << "#{paper_context}: `main_tag` must also be included in `tags`"
+        end
+
+        if paper.key?("featured_home") && !(paper["featured_home"] == true || paper["featured_home"] == false)
+          errors << "#{paper_context}: `featured_home` must be boolean when provided"
+        end
+
+        if paper["featured_home"] == true && !present_string?(paper["home_summary"])
+          errors << "#{paper_context}: `home_summary` is required when `featured_home` is true"
         end
 
         unless paper["links"].is_a?(Array) && !paper["links"].empty?

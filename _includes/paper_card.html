@@ -1,21 +1,37 @@
 {% assign paper = include.paper %}
-<article class="paper-row">
+{% assign section = include.section %}
+{% assign default_thumbnail = "/assets/images/thumbnails/placeholder_thumbnail.png" %}
+{% assign paper_image = paper.image | default: default_thumbnail %}
+{% assign paper_image_alt = paper.image_alt | default: "Publication thumbnail" %}
+{% assign initial_image_position = paper.image_side | default: "right" %}
+{% capture paper_tags %}{% if paper.tags %}{{ paper.tags | join: "|" }}{% endif %}{% endcapture %}
+{% capture paper_authors_plain %}{% for author in paper.authors %}{{ author.name }} {% endfor %}{% endcapture %}
+<article
+  class="paper-row"
+  id="paper-{{ paper.title | slugify }}"
+  data-paper-card
+  data-image-position="{{ initial_image_position }}"
+  data-section-id="{{ section.id }}"
+  data-type="{{ paper.publication_type | default: 'conference' }}"
+  data-title="{{ paper.title | escape }}"
+  data-venue="{{ paper.venue | escape }}"
+  data-venue-short="{{ paper.venue_short | escape }}"
+  data-year="{{ paper.year }}"
+  data-main-tag="{{ paper.main_tag | escape }}"
+  data-tags="{{ paper_tags | strip | escape }}"
+  data-authors="{{ paper_authors_plain | strip | escape }}"
+>
   <div class="paper-container">
-    {% if paper.image_side == "left" %}
-    <div class="image-col-left">
-      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper.image }}" alt="{{ paper.image_alt }}">
+    <div class="paper-image-col">
+      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper_image }}" alt="{{ paper_image_alt }}" onerror="this.onerror=null;this.src='{{ default_thumbnail }}';">
     </div>
-    {% endif %}
 
-    {% if paper.image_side == "left" %}
-    <div class="authors-col-left">
-    {% else %}
-    <div class="authors-col-right">
-    {% endif %}
+    <div class="paper-content-col">
       <div>
         <a class="paper-title-link" target="_blank" rel="noopener noreferrer" href="{{ paper.url }}">{{ paper.title }}</a>
       </div>
       <div>
+        <p class="paper-venue-meta">{{ paper.venue_short }} · {{ paper.year }} · {{ paper.publication_type | capitalize }}</p>
         <p class="paper-venue"><b>{{ paper.venue }}</b></p>
         <p class="paper-authors">
           {% if paper.authors and paper.authors.size > 0 %}
@@ -32,14 +48,11 @@
           {{ paper.authors_html }}
           {% endif %}
         </p>
+        {% if paper.main_tag and paper.main_tag != '' %}
+        <p class="paper-main-tag">{{ paper.main_tag }}</p>
+        {% endif %}
       </div>
     </div>
-
-    {% if paper.image_side != "left" %}
-    <div class="image-col-right">
-      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper.image }}" alt="{{ paper.image_alt }}">
-    </div>
-    {% endif %}
   </div>
 
   <div class="paper-links">

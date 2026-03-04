@@ -1,5 +1,6 @@
 # Teaching page data model.
-# `sections` drives the card groups (Lecturer / Tutorials / Teaching Assistant).
+# `sections` drives the core teaching card groups (e.g., Lecturer / Teaching Assistant).
+# `conference_tutorials` drives the conference tutorial subsection.
 # `supervision` drives the Research Supervisor list.
 sections:
 - heading: Lecturer / Instructor
@@ -8,7 +9,7 @@ sections:
     url: https://www.cl.cam.ac.uk/teaching/2526/L193/
     institution: University of Cambridge
     venue: ''
-    role: Co-lecturer and co-designer
+    role: Co-lecturer
     years: 2025, 2026
   - title: 'R255: Explainable Artificial Intelligence (MPhil submodule)'
     url: https://www.cl.cam.ac.uk/teaching/2324/R255/
@@ -22,20 +23,6 @@ sections:
     venue: ''
     role: Recitation Instructor and Head TA
     years: '2017'
-- heading: Tutorials
-  items:
-  - title: 'AAAI 2026 Tutorial: Foundations of Interpretable Deep Learning'
-    url: https://aaai.org/conference/aaai/aaai-26/tutorial-and-lab-list/#th18
-    institution: ''
-    venue: AAAI 2026
-    role: Co-presenter and organiser
-    years: '2026'
-  - title: 'AAAI 2025 Tutorial: Concept-based Interpretable Deep Learning'
-    url: https://aaai.org/conference/aaai/aaai-25/tutorial-and-lab-list/#TH07
-    institution: ''
-    venue: AAAI 2025
-    role: Co-presenter and organiser
-    years: '2025'
 - heading: Teaching Assistant
   items:
   - title: Discrete Mathematics
@@ -62,6 +49,22 @@ sections:
     venue: ''
     role: Teaching Assistant
     years: 2014 - 2015
+
+conference_tutorials_heading: Conference Tutorials
+conference_tutorials:
+- title: 'AAAI 2026 Tutorial: Foundations of Interpretable Deep Learning'
+  url: https://interpretabledeeplearning.github.io/tutorials/tutorial_aaai2026/
+  institution: ''
+  venue: AAAI 2026
+  role: Co-presenter and organiser
+  years: '2026'
+- title: 'AAAI 2025 Tutorial: Concept-based Interpretable Deep Learning'
+  url: https://conceptlearning.github.io/
+  institution: ''
+  venue: AAAI 2025
+  role: Co-presenter and organiser
+  years: '2025'
+
 supervision_heading: Research Supervisor
 supervision:
 - name: Haoyan Luo

@@ -1,13 +1,83 @@
 # Research publication list data model.
 # Each section groups papers by publication type.
-# Paper authors are structured objects: name + optional url/me/suffix.
+# `main_tag` is shown on each publication card.
+# `tags` supports richer filtering and categorization.
 sections:
 - id: conference-publications
-  title: Conference Publications (Refereed and Archived)
+  title: Conference Publications
   papers:
+
+  - title: 'Deferring Concept Bottleneck Models: Learning to Defer Interventions to Inaccurate Experts'
+    url: https://arxiv.org/abs/2503.16199
+    venue: Neural Information Processing Systems (NeurIPS), 2025
+    venue_short: NeurIPS
+    year: 2025
+    main_tag: Learning to Defer
+    tags:
+    - Learning to Defer
+    - Concept Bottleneck Models
+    - Expert Deferral
+    - Human-in-the-Loop AI
+    - Robustness
+    - Uncertainty
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: "/assets/images/thumbnails/dcbms_thumbnail.png"
+    image_alt: DCBM architecture
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2503.16199
+      kind: paper
+    - label: Code
+      url: https://github.com/andrepugni/DCBM
+      kind: code
+    - label: Video
+      url: https://neurips.cc/virtual/2025/loc/san-diego/poster/118116
+      kind: video
+    - label: Poster
+      url: https://neurips.cc/media/PosterPDFs/NeurIPS%202025/118116.png?t=1763559605.2281644
+      kind: poster
+    authors:
+    - name: Andrea Pugnana
+      url: https://kdd.isti.cnr.it/people/pugnana-andrea
+    - name: Riccardo Massidda
+      url: https://pages.di.unipi.it/massidda/
+    - name: Francesco Giannini
+      url: https://www.francescogiannini.eu/
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Roberto Pellungrini
+      url: https://kdd.isti.cnr.it/people/pellungrini-roberto
+    - name: Gabriele Dominici
+      url: https://gabriele-dominici.github.io/
+    - name: Fosca Giannotti
+      url: https://www.sns.it/en/persona/fosca-giannotti
+    - name: Davide Bacciu
+      url: https://pages.di.unipi.it/bacciu/
+    publication_type: conference
+    home_summary: We show how to construct models that can defer both task and concept
+      predictions to human experts when they are uncertain about them.
+
   - title: 'Avoiding Leakage Poisoning: Concept Interventions Under Distribution Shifts'
     url: https://arxiv.org/abs/2504.17921
     venue: International Conference On Machine Learning (ICML), 2025.
+    venue_short: ICML
+    year: 2025
+    main_tag: Concept Interventions
+    tags:
+    - Concept Interventions
+    - Out-of-Distribution Robustness
+    - Concept Leakage
+    - Human-in-the-Loop AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Robustness
+    - Incompleteness
     image: "/assets/images/thumbnails/mixcem_thumbnail_simplified.png"
     image_alt: TAB architecture
     image_side: right
@@ -35,10 +105,27 @@ sections:
       url: https://zohrehshams.com
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    featured_home: true
+    home_summary: We show that concept leakage can lead to faulty interventions in out-of-distribution
+      settings. Then, we introduce a new representation decomposition to prevent this.
+
   - title: Addressing Concept Mislabeling in Concept Bottleneck Models Through Preference
       Optimization
     url: https://arxiv.org/abs/2504.18026
     venue: International Conference On Machine Learning (ICML), 2025.
+    venue_short: ICML
+    year: 2025
+    main_tag: Concept Bottleneck Models
+    tags:
+    - Concept Bottleneck Models
+    - Label Noise
+    - Preference Optimization
+    - Robust Training
+    - Concept Supervision
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
     image: "/assets/images/thumbnails/CPO_thumbnail.png"
     image_alt: CPO Visual Abstract
     image_side: left
@@ -63,13 +150,74 @@ sections:
     - name: Mateo Espinosa Zarlenga
       me: true
       suffix: "*"
+    publication_type: conference
+    home_summary: Proposes CPO, a preference-based objective that makes CBMs robust
+      to noisy or incorrect concept labels.
+
+  - title: Causal Concept Graph Models
+    url: https://arxiv.org/abs/2405.16507
+    venue: International Conference on Learning Representations (ICLR), 2025.
+    venue_short: ICLR
+    year: 2025
+    main_tag: Causality
+    tags:
+    - Causal Concept Models
+    - Concept Bottleneck Models
+    - Causal Inference
+    - Causality
+    - Concept Uncertainty
+    - Graphical Models
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: "/assets/images/thumbnails/causal_cgm_thumbnail.jpg"
+    image_alt: Causal CGM architecture
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2405.16507
+      kind: paper
+    - label: Code
+      url: https://github.com/gabriele-dominici/CausalCGM
+      kind: code
+    authors:
+    - name: Gabriele Dominici
+      url: https://gabriele-dominici.github.io/
+      suffix: "*"
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+      suffix: "*"
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Alberto Termine
+      url: https://sites.google.com/view/albertotermine/home-page
+    - name: Martin Gjoreski
+      url: https://martingjoreski.github.io/
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
+    - name: Marc Langheinrich
+      url: https://search.usi.ch/en/people/c543f5bfc3f21587b8b79dee8ce84a93/langheinrich-marc
+    publication_type: conference
+    home_summary: We introduce a concept bottleneck architecture that models concept
+      dependencies with a causal graph for more reliable concept-level reasoning.
+
   - title: Efficient Bias Mitigation Without Privileged Information
     url: https://arxiv.org/abs/2409.17691
     venue: Oral and Best Paper Candidate (within top 15 papers out of 8,500+ submissions)
       at the 18th European Conference on Computer Vision (ECCV), 2024
+    venue_short: ECCV
+    year: 2024
+    main_tag: Fairness & Bias
+    tags:
+    - Fairness & Bias
+    - Fairness
+    - Bias Mitigation
+    - Spurious Correlations
+    - Data Augmentation
+    - Unsupervised Bias Mitigation
     image: "/assets/images/thumbnails/tab_thumbnail.png"
     image_alt: TAB architecture
-    image_side: right
+    image_side: left
     links:
     - label: Paper
       url: https://arxiv.org/abs/2409.17691
@@ -96,12 +244,33 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     - name: Alice Xiang
       url: https://ai.sony/people/Alice-Xiang/
+    publication_type: conference
+    featured_home: true
+    home_summary: We show that model selection for existing unsupervised bias
+      mitigation methods is prone to yielding biased models unless privileged
+      information (e.g., group labels) is available. To address this, we propose
+      a simple mechanism to mitigate biases that requires no model selection or
+      privileged information.
+
   - title: Understanding Inter-Concept Relationships in Concept-Based Models
     url: https://arxiv.org/abs/2405.18217
     venue: International Conference On Machine Learning (ICML), 2024.
+    venue_short: ICML
+    year: 2024
+    main_tag: Limitations of Concept-Based Models
+    tags:
+    - Limitations of Concept-Based Models
+    - Concept Relations
+    - Concept Bottleneck Models
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Inter-Concept Relationships
+    - Concept Interventions
+    - Robustness
     image: "/assets/images/thumbnails/inter_concept_thumbnail.png"
     image_alt: Inter-Concept Relationships visual abstract
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://arxiv.org/abs/2405.18217
@@ -119,13 +288,30 @@ sections:
       me: true
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    home_summary: Shows many concept models miss stable inter-concept structure and
+      introduces a method improving intervention accuracy.
+
   - title: 'Learning to Receive Help: Intervention-Aware Concept Embedding Models'
     url: https://arxiv.org/abs/2309.16928
     venue: Spotlight paper at the conference on Neural Information Processing Systems
       (NeurIPS), 2023
+    venue_short: NeurIPS
+    year: 2023
+    main_tag: Concept Interventions
+    tags:
+    - Concept Interventions
+    - Concept Bottleneck Models
+    - Human-in-the-Loop AI
+    - Concept Embeddings
+    - Intervention Policy
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Incompleteness
     image: "/assets/images/thumbnails/intcem_thumbnail.png"
     image_alt: IntCEM architecture
-    image_side: right
+    image_side: left
     links:
     - label: Paper
       url: https://arxiv.org/abs/2309.16928
@@ -146,13 +332,27 @@ sections:
       url: https://zohrehshams.com
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    home_summary: Introduces IntCEM, which learns intervention policies during training
+      to better exploit test-time concept corrections.
+
   - title: Interpretable Neural-Symbolic Concept Reasoning
     url: https://arxiv.org/abs/2304.14068
     venue: International Conference On Machine Learning (ICML), 2023. Also appeared
       at ICML's Differentiable Almost Everything Workshop, 2023.
+    venue_short: ICML
+    year: 2023
+    main_tag: Neural-Symbolic AI
+    tags:
+    - Neural-Symbolic AI
+    - Rule Learning
+    - Counterfactual Explanations
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
     image: "/assets/images/thumbnails/dcr_thumbnail.png"
     image_alt: DCR visual abstract
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://arxiv.org/abs/2304.14068
@@ -163,7 +363,7 @@ sections:
     - name: Gabriele Ciravegna
       url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
     - name: Francesco Giannini
-      url: https://scholar.google.com/citations?user=KT3SRqgAAAAJ&hl=en
+      url: https://www.francescogiannini.eu/
     - name: Mateo Espinosa Zarlenga
       me: true
     - name: Lucie Charlotte Magister
@@ -178,12 +378,27 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     - name: Giuseppe Marra
       url: https://www.giuseppemarra.com/
+    publication_type: conference
+    home_summary: Proposes DCR, a differentiable neural-symbolic model that builds
+      explicit logic rules over concept truth values.
+
   - title: Human Uncertainty in Concept-Based AI Systems
     url: https://arxiv.org/abs/2303.12872
     venue: AAAI/ACM Conference on AI, Ethics, and Society (AIES), 2023
+    venue_short: AIES
+    year: 2023
+    main_tag: Human-AI Collaboration
+    tags:
+    - Human-AI Collaboration
+    - Concept Interventions
+    - Human-in-the-Loop AI
+    - Concept Bottleneck Models
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
     image: "/assets/images/thumbnails/concept_uncertainty_thumbnail.png"
     image_alt: Concept uncertainty visual abstract
-    image_side: right
+    image_side: left
     links:
     - label: Paper
       url: https://arxiv.org/abs/2303.12872
@@ -210,13 +425,29 @@ sections:
       url: http://mlg.eng.cam.ac.uk/adrian
     - name: Krishnamurthy (DJ) Dvijotham
       url: https://dj-research.netlify.app/
+    publication_type: conference
+    home_summary: We show that uncertainty-aware training improves robustness in
+      real-world human-AI collaboration.
+
   - title: Towards Robust Metrics For Concept Representation Evaluation
     url: https://arxiv.org/abs/2301.10367
     venue: Association for the Advancement of Artificial Intelligence Conference on
       Artificial Intelligence (AAAI) as an oral presentation, 2023
+    venue_short: AAAI
+    year: 2023
+    main_tag: Evaluation Metrics
+    tags:
+    - Evaluation Metrics
+    - Concept Quality
+    - Robustness
+    - Interpretability Evaluation
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Concept Leakage
     image: "/assets/images/thumbnails/quality_thumbnail.png"
     image_alt: Metrics visual abstract
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://arxiv.org/abs/2301.10367
@@ -248,12 +479,27 @@ sections:
       url: http://mlg.eng.cam.ac.uk/adrian
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    home_summary: Introduces robust metrics for concept purity and interventions,
+      showing disentanglement scores can mislead concept evaluation.
+
   - title: 'Concept Embedding Models: Beyond the Accuracy-Explainability Trade-Off'
     url: https://arxiv.org/abs/2209.09056
     venue: Conference on Neural Information Processing Systems (NeurIPS), 2022
+    venue_short: NeurIPS
+    year: 2022
+    main_tag: Concept-based Interpretability
+    tags:
+    - Concept Embeddings
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Concept Interventions
+    - Incompleteness
+    - Self-Explaining Models
     image: "/assets/images/thumbnails/cem_thumbnail.png"
     image_alt: CEM Main Results
-    image_side: right
+    image_side: left
     links:
     - label: Paper
       url: https://arxiv.org/abs/2209.09056
@@ -282,7 +528,7 @@ sections:
     - name: Giuseppe Marra
       url: https://www.giuseppemarra.com/
     - name: Francesco Giannini
-      url: https://scholar.google.com/citations?user=KT3SRqgAAAAJ&hl=en
+      url: https://www.francescogiannini.eu/
     - name: Michelangelo Diligenti
       url: https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en
     - name: Zohreh Shams
@@ -297,14 +543,27 @@ sections:
       url: https://www.cl.cam.ac.uk/~pl219/
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    featured_home: true
+    home_summary: We introduce concept embeddings to construct
+     accurate deep neural networks that are both interpretable and intervenable,
+     even when concept supervision is incomplete.
+
   - title: An Open-Source Benchmark Suite for Microservices and Their Hardware-Software
       Implications for Cloud & Edge Systems
     url: https://dl.acm.org/doi/10.1145/3297858.3304013
     venue: The 24th ACM International Conference on Architectural Support for Programming
       Languages and Operating Systems (ASPLOS), 2019
+    venue_short: ASPLOS
+    year: 2019
+    main_tag: Systems Benchmarking
+    tags:
+    - Systems Benchmarking
+    - Microservices
+    - Cloud Systems
     image: "/assets/images/thumbnails/microservices.png"
     image_alt: Microservices
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://dl.acm.org/doi/10.1145/3297858.3304013
@@ -338,16 +597,72 @@ sections:
     - name: Zhongling Liu
     - name: Jake Padilla
     - name: Christina Delimitrou
+    publication_type: conference
+    home_summary: Presents DeathStarBench, a comprehensive microservice benchmark suite.
+
+
 - id: journal-publications
-  title: Journal Publications (Refereed and Archived)
+  title: Journal Publications
   papers:
+
+  - title: Do Concept Bottleneck Models Respect Localities?
+    url: https://arxiv.org/abs/2401.01259
+    venue: 'Transactions of Machine Learning Research (TMLR), 2025.  Also appeared at "XAI in Action: Past, Present, and Future Applications" in NeurIPS 2023.'
+    venue_short: TMLR
+    year: 2025
+    main_tag: Limitations of Concept Bottleneck Models
+    tags:
+    - Limitations of Concept Bottleneck Models
+    - Concept Bottleneck Models
+    - Locality
+    - Spurious Features
+    - Concept Evaluation
+    - Explainability Reliability
+    - Limitations of Concept-Based Models
+    - Robustness
+    image: "/assets/images/thumbnails/cbm_locality_thumbnail.png"
+    image_alt: CBM locality visual abstract
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/pdf/2401.01259.pdf
+      kind: paper
+    - label: Code
+      url: https://github.com/naveenr414/Spurious-Concepts
+      kind: code
+    authors:
+    - name: Naveen Raman
+      url: https://naveenraman.com/
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Juyeon Heo
+      url: https://sites.google.com/view/juyeonheo/%ED%99%88
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: journal
+    home_summary: Evaluates whether concept predictors use relevant features, finding
+      locality failures and proposing diagnostic metrics.
+
   - title: 'TabCBM: Concept-based Interpretable Neural Networks for Tabular Data'
     url: https://openreview.net/pdf?id=TIsrnWpjQ0
     venue: Transactions of Machine Learning Research (TMLR), 2023. Also appeared at
       ICML's Workshop on Interpretable Machine Learning in Healthcare, 2023.
+    venue_short: TMLR
+    year: 2023
+    main_tag: Tabular Explainability
+    tags:
+    - Tabular Explainability
+    - Concept Bottleneck Models
+    - Tabular Data
+    - Weak Concept Supervision
+    - Human-in-the-Loop AI
+    - Single-cell Transcriptomics
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
     image: "/assets/images/thumbnails/tabcbm_thumbnail.png"
     image_alt: TabCBM visual abstract
-    image_side: right
+    image_side: left
     links:
     - label: Paper
       url: https://openreview.net/forum?id=TIsrnWpjQ0
@@ -371,13 +686,25 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
       suffix: "*"
+    publication_type: journal
+    home_summary: Defines high-level concepts for tabular domains and introduces TabCBM
+      for interpretable, intervention-ready predictions.
+
   - title: Unveiling the Hardware and Software Implications of Microservices in Cloud
       and Edge Systems
     url: https://ieeexplore.ieee.org/document/9076308
     venue: IEEE Micro, 2020
+    venue_short: IEEE Micro
+    year: 2020
+    main_tag: Systems Benchmarking
+    tags:
+    - Systems Benchmarking
+    - Microservices
+    - Cloud-Edge Systems
+    - Systems Characterization
     image: "/assets/images/thumbnails/microservices_struct_thumbnail.png"
     image_alt: Microservices
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://ieeexplore.ieee.org/document/9076308
@@ -411,39 +738,30 @@ sections:
     - name: Zhongling Liu
     - name: Jake Padilla
     - name: Christina Delimitrou
+    publication_type: journal
+    home_summary: Synthesizes system-level implications of microservices and introduces
+      DeathStarBench as a representative interactive benchmark.
+
 - id: workshop-publications
-  title: Workshop Publications (Refereed)
+  title: Workshop Publications
   papers:
-  - title: Do Concept Bottleneck Models Obey Locality?
-    url: https://arxiv.org/pdf/2401.01259.pdf
-    venue: '" XAI in Action: Past, Present, and Future Applications " Workshop @ NeurIPS
-      2023'
-    image: "/assets/images/thumbnails/cbm_locality_thumbnail.png"
-    image_alt: CBM locality visual abstract
-    image_side: right
-    links:
-    - label: Paper
-      url: https://arxiv.org/pdf/2401.01259.pdf
-      kind: paper
-    - label: Code
-      url: https://github.com/naveenr414/Spurious-Concepts
-      kind: code
-    authors:
-    - name: Naveen Raman
-      url: https://naveenraman.com/
-    - name: Mateo Espinosa Zarlenga
-      me: true
-    - name: Juyeon Heo
-      url: https://sites.google.com/view/juyeonheo/%ED%99%88
-    - name: Mateja Jamnik
-      url: https://www.cl.cam.ac.uk/~mj201
   - title: Efficient Decompositional Rule Extraction for Deep Neural Networks
     url: https://arxiv.org/abs/2111.12628
     venue: 1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis
       (XAI4Debugging@NeurIPS) as a spotlight presentation, 2021
+    venue_short: NeurIPS Workshop
+    year: 2021
+    main_tag: Rule Extraction
+    tags:
+    - Rule Extraction
+    - Neural Network Interpretability
+    - Decompositional Methods
+    - Scalable Algorithms
+    - Symbolic Explanations
+    - Explainability
     image: "/assets/images/thumbnails/eclaire_thumbnail.png"
     image_alt: ECLAIRE
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://arxiv.org/abs/2111.12628
@@ -464,3 +782,170 @@ sections:
       url: https://zohrehshams.com
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: workshop
+    home_summary: Introduces ECLAIRE, a polynomial-time rule extractor that scales
+      to large DNNs while producing accurate, readable rules.
+
+- id: preprint-publications
+  title: Preprints
+  papers:
+
+  - title: 'Mixture of Concept Bottleneck Experts'
+    url: https://arxiv.org/abs/2602.02886
+    venue: Preprint, 2026.
+    venue_short: arXiv
+    year: 2026
+    main_tag: Concept-Based Models
+    tags:
+    - Concept-Based Models
+    - Mixture of Experts
+    - Symbolic Regression
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: M-CBE visual overview
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2602.02886
+      kind: paper
+    authors:
+    - name: Francesco De Santis
+      url: https://scholar.google.com/citations?user=psiXFqIAAAAJ&hl=it
+    - name: Gabriele Ciravegna
+      url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
+    - name: Giovanni De Felice
+      url: https://scholar.google.com/citations?user=dFZ6v6IAAAAJ&hl=en
+    - name: Arianna Casanova
+      url: https://www.uni.li/en/arianna.casanova
+    - name: Francesco Giannini
+      url: https://www.francescogiannini.eu/
+    - name: Michelangelo Diligenti
+      url: https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Johannes Schneider
+      url: https://www.uni.li/en/johannes.schneider
+    - name: Danilo Giordano
+      url: https://dbdmg.polito.it/dbdmg_web/people/danilo-giordano/
+    publication_type: preprint
+    home_summary: Proposes a mixture-of-experts concept model that combines concept
+      predictors and symbolic regressors to improve the accuracy-interpretability
+      tradeoff.
+
+  - title: Actionable Interpretability Must Be Defined in Terms of Symmetries
+    url: https://arxiv.org/abs/2601.12913
+    venue: Preprint, 2026.
+    venue_short: arXiv
+    year: 2026
+    main_tag: Interpretability Theory
+    tags:
+    - Interpretability Theory
+    - Bayesian Inference
+    - Human-Centric AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: Actionable interpretability visual overview
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2601.12913
+      kind: paper
+    authors:
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Francesco Giannini
+      url: https://www.francescogiannini.eu/
+    - name: Alberto Termine
+      url: https://sites.google.com/view/albertotermine/home-page
+    - name: Filippo Bonchi
+      url: https://scholar.google.com/citations?user=RMy4gDsAAAAJ&hl=en
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
+    publication_type: preprint
+    home_summary:
+
+  - title: 'Foundations of Interpretable Models'
+    url: https://arxiv.org/abs/2508.00545
+    venue: Preprint, 2025.
+    venue_short: arXiv
+    year: 2025
+    main_tag: Interpretability Theory
+    tags:
+    - Interpretability Theory
+    - Logic
+    - Causality
+    - Human-Centric AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: Foundations of interpretable models visual overview
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2508.00545
+      kind: paper
+    authors:
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Alberto Termine
+      url: https://sites.google.com/view/albertotermine/home-page
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
+    publication_type: preprint
+    home_summary:
+
+  - title: Neural Interpretable Reasoning and Causal Inference
+    url: https://arxiv.org/abs/2502.11639
+    venue: Preprint, 2025.
+    venue_short: arXiv
+    year: 2025
+    main_tag: Interpretability Theory
+    tags:
+    - Interpretability Theory
+    - Interpretable Reasoning
+    - Causal Inference
+    - Bayesian Networks
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: Neural interpretable reasoning visual overview
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2502.11639
+      kind: paper
+    authors:
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
+    - name: Gabriele Ciravegna
+      url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
+    - name: David Debot
+      url: https://daviddebot.github.io/
+    - name: Francesco De Santis
+      url: https://scholar.google.com/citations?user=psiXFqIAAAAJ&hl=it
+    - name: Michelangelo Diligenti
+      url: https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Francesco Giannini
+      url: https://www.francescogiannini.eu/
+    publication_type: preprint
+    home_summary:

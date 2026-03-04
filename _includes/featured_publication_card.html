@@ -1,0 +1,24 @@
+{% assign paper = include.paper %}
+{% assign section = include.section %}
+{% assign default_thumbnail = "/assets/images/thumbnails/placeholder_thumbnail.png" %}
+{% assign paper_image = paper.image | default: default_thumbnail %}
+{% assign paper_image_alt = paper.image_alt | default: "Publication thumbnail" %}
+<article class="featured-paper-card">
+  <a class="featured-paper-card__thumb" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">
+    <img loading="lazy" decoding="async" src="{{ paper_image }}" alt="{{ paper_image_alt }}" onerror="this.onerror=null;this.src='{{ default_thumbnail }}';">
+  </a>
+  <div class="featured-paper-card__body">
+    <p class="featured-paper-card__meta">
+      <span class="featured-paper-card__tag">{{ paper.main_tag }}</span>
+      <span class="featured-paper-card__venue">{{ paper.venue_short }} {{ paper.year }}</span>
+    </p>
+    <h3 class="featured-paper-card__title">
+      <a href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+    </h3>
+    <p class="featured-paper-card__summary">{{ paper.home_summary | default: paper.venue }}</p>
+    <p class="featured-paper-card__links">
+      <a href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">Read paper</a>
+      <a href="{{ '/research/#' | append: section.id | relative_url }}">View all publications</a>
+    </p>
+  </div>
+</article>

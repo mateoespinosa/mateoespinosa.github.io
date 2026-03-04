@@ -2,6 +2,9 @@
 layout: home
 author_profile: true
 title: the hairy ball theorem
+description: "Mateo Espinosa Zarlenga's personal website: research, publications, teaching, and news on interpretable AI."
+excerpt:
+image: /assets/images/panoramas/yellowstone_4_hero.jpg
 header:
   overlay_image: /assets/images/panoramas/yellowstone_4_hero.jpg
   image_description: "Yellowstone National Park, USA"
@@ -9,23 +12,33 @@ header:
 
 <section>
   <p>
-    I am a <a href="https://www.trinity.ox.ac.uk/people/mateo-espinosa-zarlenga">Junior Research Fellow (JRF)</a> in Computer Science at Trinity College, Oxford.
-    I also hold visiting research positions at the University of Oxford and the University of Cambridge.
-    My work focuses on <strong>concept-based interpretability</strong>, representation learning, and human-AI collaboration.
-  </p>
-  <p>
-    To find out more about my research, please see my <a href="/research/">research page</a>.
-    For a full publication list, visit my
-    <a href="https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
+    Welcome to my humble abode! I am a <a href="https://www.trinity.ox.ac.uk/people/mateo-espinosa-zarlenga">Junior Research Fellow (JRF)</a> in Computer Science at Trinity College, Oxford.
+    I also hold research positions at the University of Oxford (Associate Research Fellow) and the University of Cambridge (Visiting Researcher).
+    My research lies within the general field of Artificial Intelligence (AI), where I am roughly interested in <strong>interpretability</strong> (e.g., explaining a model using human-like <em>concepts</em>),
+    representation learning (e.g., how can one manipulate concept representations to influence or steer model behavior),
+    and human-AI collaboration (e.g., test-time feedback and interventions). To find out more about my research, please see my <a href="/research/">research page</a>.
   </p>
 </section>
 
 <p class="home-note">
   If you would like to collaborate or chat, feel free to <a href="/contact/">send me an email</a>.
-  I am always happy to connect.
+  I am always happy to connect!
 </p>
 
-<h3 class="archive__subtitle content-section-heading">Recent News</h3>
+<h2 class="archive__subtitle content-section-heading">Featured Publications</h2>
+<div class="featured-publications-grid">
+  {% assign featured_rendered = 0 %}
+  {% for section in site.data.research.sections %}
+    {% for paper in section.papers %}
+      {% if paper.featured_home and featured_rendered < 3 %}
+        {% include featured_publication_card.html paper=paper section=section %}
+        {% assign featured_rendered = featured_rendered | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>
+
+<h2 class="archive__subtitle content-section-heading">Recent News</h2>
 {% assign featured_news = site.data.news.items | where: "featured", true %}
 {% assign older_news = site.data.news.items | where: "featured", false %}
 <div class="recent-news-container">

@@ -7,6 +7,44 @@ sections:
   title: Conference Publications
   papers:
 
+  - title: Hierarchical Concept-based Interpretable Models
+    url: https://arxiv.org/abs/2602.23947
+    venue: International Conference on Learning Representations (ICLR), 2026.
+    venue_short: ICLR
+    year: 2026
+    main_tag: Concept-based Interpretability
+    tags:
+    - Concept-based Interpretability
+    - Concept Bottleneck Models
+    - Concept Hierarchies
+    - Concept Interventions
+    - Explainable AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: HiCEM visual abstract
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2602.23947
+      kind: paper
+    - label: Code
+      url: https://github.com/OscarPi/cem-concept-discovery
+      kind: code
+    authors:
+    - name: Oscar Hill
+      url: https://scholar.google.com/citations?user=odt95BYAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    featured_home: false
+    home_summary: Introduces HiCEMs for modeling concept relationships hierarchically
+      and Concept Splitting for discovering fine-grained sub-concepts without additional
+      annotations.
+
   - title: 'Deferring Concept Bottleneck Models: Learning to Defer Interventions to Inaccurate Experts'
     url: https://arxiv.org/abs/2503.16199
     venue: Neural Information Processing Systems (NeurIPS), 2025
@@ -745,6 +783,42 @@ sections:
 - id: workshop-publications
   title: Workshop Publications
   papers:
+  - title: 'Digging Deeper: Learning Multi-Level Concept Hierarchies'
+    url: https://arxiv.org/abs/2603.10084
+    venue: ICLR 2026 Workshop on Principled Design for Trustworthy AI
+    venue_short: ICLR Workshop
+    year: 2026
+    main_tag: Hierarchical Concept Models
+    tags:
+    - Hierarchical Concept Models
+    - Concept Bottleneck Models
+    - Multi-Level Concept Hierarchies
+    - Concept Splitting
+    - Concept Interventions
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: Multi-Level Concept Hierarchies visual abstract
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2603.10084
+      kind: paper
+    - label: Code
+      url: https://github.com/OscarPi/cem-concept-discovery
+      kind: code
+    authors:
+    - name: Oscar Hill
+      url: https://scholar.google.com/citations?user=odt95BYAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: workshop
+    home_summary: Extends HiCEMs to discover multi-level concept hierarchies,
+      enabling fine-grained test-time concept interventions.
+
   - title: Efficient Decompositional Rule Extraction for Deep Neural Networks
     url: https://arxiv.org/abs/2111.12628
     venue: 1st NeurIPS Workshop on eXplainable AI approaches for debugging and diagnosis
@@ -949,3 +1023,32 @@ sections:
       url: https://www.francescogiannini.eu/
     publication_type: preprint
     home_summary:
+
+- id: thesis-publications
+  title: Theses
+  papers:
+  - title: "Help Wanted: Robust Concept Interventions for Interpretable Deep Neural Networks"
+    url: https://www.repository.cam.ac.uk/items/977f9f43-0a12-40a4-a46a-5eb03c3309a7
+    venue: University of Cambridge
+    venue_short: PhD, Cambridge
+    year: 2025
+    main_tag: PhD Thesis
+    tags:
+    - Concept Bottleneck Models
+    - Concept-based Interpretability
+    - Interpretability
+    - Concept Interventions
+    - Explainability
+    - Human-in-the-Loop AI
+    image: "/assets/images/thumbnails/phd_thesis_thumbnail.png"
+    image_alt: PhD thesis cover
+    image_side: left
+    links:
+    - label: Thesis
+      url: https://www.repository.cam.ac.uk/items/977f9f43-0a12-40a4-a46a-5eb03c3309a7
+      kind: paper
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    publication_type: thesis
+    home_summary: null

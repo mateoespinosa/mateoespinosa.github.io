@@ -68,7 +68,7 @@ refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4
 </section>
 
 <nav class="research-quick-nav" aria-label="Research publication navigation">
-  <span class="research-quick-nav__label">Jump to</span>
+  <!-- <span class="research-quick-nav__label">Jump to</span> -->
   <a href="#conference-publications">Conference Papers</a>
   <a href="#journal-publications">Journal Papers</a>
   <a href="#workshop-publications">Workshop Papers</a>

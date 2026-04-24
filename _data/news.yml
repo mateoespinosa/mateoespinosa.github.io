@@ -2,6 +2,10 @@
 # `featured: true` appears in the main visible list.
 # `featured: false` appears under "View earlier highlights".
 items:
+- date: '2026-04-26'
+  label: April 2026
+  featured: true
+  content_html: I will be giving an invited talk at ICLR 2026's <a href="https://ucrl-iclr26.github.io/">Unifying Concept Representation Learning Workshop</a>!
 - date: '2026-03-01'
   label: March 2026
   featured: true

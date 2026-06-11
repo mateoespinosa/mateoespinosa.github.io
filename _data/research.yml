@@ -7,6 +7,119 @@ sections:
   title: Conference Publications
   papers:
 
+  - title: "In Defense of Information Leakage in Concept-based Models"
+    url: https://arxiv.org/abs/2606.10669
+    venue: Position paper at the International Conference On Machine Learning (ICML), 2026.
+    venue_short: ICML
+    year: 2026
+    main_tag: Concept Representation Learning
+    tags:
+    - Interpretability Theory
+    - Position Paper
+    - Concept Representation Learning
+    - Concept-based Models
+    - Explainable AI
+    - Explainability
+    image: null
+    image_alt: CB-SLICE visual abstract
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2606.10669
+      kind: paper
+    - label: Code
+      url: https://github.com/mateoespinosa/cem
+      kind: code
+    authors:
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    publication_type: conference
+    featured_home: false
+    home_summary: null
+
+  - title: "Mixture of Concept Bottleneck Experts"
+    url: https://arxiv.org/abs/2602.02886
+    venue: Spotlight at the International Conference On Machine Learning (ICML), 2026.
+    venue_short: ICML
+    year: 2026
+    main_tag: Concept-Based Models
+    tags:
+    - Concept-Based Models
+    - Mixture of Experts
+    - Symbolic Regression
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: M-CBE visual abstract
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2602.02886
+      kind: paper
+    - label: Code
+      url: https://github.com/francescoTheSantis/Mixture-of-CB-Experts
+      kind: code
+    authors:
+    - name: Francesco De Santis
+      url: https://scholar.google.com/citations?user=psiXFqIAAAAJ&hl=it
+    - name: Gabriele Ciravegna
+      url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
+    - name: Giovanni De Felice
+      url: https://scholar.google.com/citations?user=dFZ6v6IAAAAJ&hl=en
+    - name: Arianna Casanova
+      url: https://www.uni.li/en/arianna.casanova
+    - name: Francesco Giannini
+      url: https://www.francescogiannini.eu/
+    - name: Michelangelo Diligenti
+      url: https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en
+    - name: Johannes Schneider
+      url: https://www.uni.li/en/johannes.schneider
+    - name: Danilo Giordano
+      url: https://dbdmg.polito.it/dbdmg_web/people/danilo-giordano/
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    publication_type: conference
+    featured_home: false
+    home_summary: null
+
+  - title: "CB-SLICE: Concept-Based Interpretable Error Slice Discovery"
+    url: https://arxiv.org/abs/2605.29836
+    venue: International Conference On Machine Learning (ICML), 2026.
+    venue_short: ICML
+    year: 2026
+    main_tag: Bias Discovery
+    tags:
+    - Bias Mitigation
+    - Fairness
+    - Bias Discovery
+    - Explainable AI
+    - Explainability
+    image: null
+    image_alt: CB-SLICE visual abstract
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2605.29836
+      kind: paper
+    - label: Code
+      url: https://github.com/yaelkon/CB-SLICE
+      kind: code
+    authors:
+    - name: Yael Konforti
+      url: https://scholar.google.com/citations?user=w6Oa5fgAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Elaf Almahmoud
+      url: https://scholar.google.com/citations?user=KpHq6KkAAAAJ&hl=en
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: conference
+    featured_home: false
+    home_summary: null
+
   - title: Hierarchical Concept-based Interpretable Models
     url: https://arxiv.org/abs/2602.23947
     venue: International Conference on Learning Representations (ICLR), 2026.
@@ -24,7 +137,7 @@ sections:
     - Explainability
     image: null
     image_alt: HiCEM visual abstract
-    image_side: left
+    image_side: right
     links:
     - label: Paper
       url: https://arxiv.org/abs/2602.23947
@@ -783,6 +896,76 @@ sections:
 - id: workshop-publications
   title: Workshop Publications
   papers:
+
+  - title: "Actionable Interpretability Must Be Defined in Terms of Symmetries: A Compositional Probabilistic Approach"
+    url: https://openreview.net/forum?id=H4fV9zy3eh
+    venue: "2nd Workshop on Compositional Learning: Safety, Interpretability, and Agents at ICML 2026"
+    venue_short: ICML Workshop
+    year: 2026
+    main_tag: Interpretability Theory
+    tags:
+    - Interpretability Theory
+    - Bayesian Inference
+    - Human-Centric AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    image: null
+    image_alt: actionable interpretability visual abstract
+    image_side: right
+    links:
+    - label: Paper
+      url: https://openreview.net/forum?id=H4fV9zy3eh
+      kind: paper
+    authors:
+    - name: Pietro Barbiero
+      url: https://www.pietrobarbiero.eu
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Francesco Giannini
+      url: https://www.francescogiannini.eu/
+    - name: Alberto Termine
+      url: https://sites.google.com/view/albertotermine/home-page
+    - name: Filippo Bonchi
+      url: https://scholar.google.com/citations?user=RMy4gDsAAAAJ&hl=en
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    - name: Giuseppe Marra
+      url: https://www.giuseppemarra.com/
+    publication_type: workshop
+    home_summary: null
+
+  - title: "Don't Lose Focus: Activation Steering via Key-Orthogonal Projections"
+    url: https://arxiv.org/abs/2605.06342
+    venue: Mechanistic Interpretability Workshop at ICML 2026
+    venue_short: ICML Workshop
+    year: 2026
+    main_tag: LLM Steering
+    tags:
+    - Steering
+    - Activation Steering
+    - Key-Orthogonal Projections
+    - Mechanistic Interpretability
+    - Interpretability
+    - LLM Interpretability
+    - Control
+    image: null
+    image_alt: SKOPE visual abstract
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2605.06342
+      kind: paper
+    authors:
+    - name: Haoyan Luo
+      url: https://clarenceluo78.github.io/
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: workshop
+    home_summary: null
+
   - title: 'Digging Deeper: Learning Multi-Level Concept Hierarchies'
     url: https://arxiv.org/abs/2603.10084
     venue: ICLR 2026 Workshop on Principled Design for Trustworthy AI
@@ -864,89 +1047,43 @@ sections:
   title: Preprints
   papers:
 
-  - title: 'Mixture of Concept Bottleneck Experts'
-    url: https://arxiv.org/abs/2602.02886
-    venue: Preprint, 2026.
-    venue_short: arXiv
-    year: 2026
-    main_tag: Concept-Based Models
-    tags:
-    - Concept-Based Models
-    - Mixture of Experts
-    - Symbolic Regression
-    - Concept-based Interpretability
-    - Interpretability
-    - Explainability
-    image: null
-    image_alt: M-CBE visual overview
-    image_side: left
-    links:
-    - label: Paper
-      url: https://arxiv.org/abs/2602.02886
-      kind: paper
-    authors:
-    - name: Francesco De Santis
-      url: https://scholar.google.com/citations?user=psiXFqIAAAAJ&hl=it
-    - name: Gabriele Ciravegna
-      url: https://sailab.diism.unisi.it/people/gabriele-ciravegna/
-    - name: Giovanni De Felice
-      url: https://scholar.google.com/citations?user=dFZ6v6IAAAAJ&hl=en
-    - name: Arianna Casanova
-      url: https://www.uni.li/en/arianna.casanova
-    - name: Francesco Giannini
-      url: https://www.francescogiannini.eu/
-    - name: Michelangelo Diligenti
-      url: https://scholar.google.com/citations?user=qI-LOjIAAAAJ&hl=en
-    - name: Mateo Espinosa Zarlenga
-      me: true
-    - name: Pietro Barbiero
-      url: https://www.pietrobarbiero.eu
-    - name: Johannes Schneider
-      url: https://www.uni.li/en/johannes.schneider
-    - name: Danilo Giordano
-      url: https://dbdmg.polito.it/dbdmg_web/people/danilo-giordano/
-    publication_type: preprint
-    home_summary: Proposes a mixture-of-experts concept model that combines concept
-      predictors and symbolic regressors to improve the accuracy-interpretability
-      tradeoff.
-
-  - title: Actionable Interpretability Must Be Defined in Terms of Symmetries
-    url: https://arxiv.org/abs/2601.12913
-    venue: Preprint, 2026.
-    venue_short: arXiv
-    year: 2026
-    main_tag: Interpretability Theory
-    tags:
-    - Interpretability Theory
-    - Bayesian Inference
-    - Human-Centric AI
-    - Concept-based Interpretability
-    - Interpretability
-    - Explainability
-    image: null
-    image_alt: Actionable interpretability visual overview
-    image_side: right
-    links:
-    - label: Paper
-      url: https://arxiv.org/abs/2601.12913
-      kind: paper
-    authors:
-    - name: Pietro Barbiero
-      url: https://www.pietrobarbiero.eu
-    - name: Mateo Espinosa Zarlenga
-      me: true
-    - name: Francesco Giannini
-      url: https://www.francescogiannini.eu/
-    - name: Alberto Termine
-      url: https://sites.google.com/view/albertotermine/home-page
-    - name: Filippo Bonchi
-      url: https://scholar.google.com/citations?user=RMy4gDsAAAAJ&hl=en
-    - name: Mateja Jamnik
-      url: https://www.cl.cam.ac.uk/~mj201
-    - name: Giuseppe Marra
-      url: https://www.giuseppemarra.com/
-    publication_type: preprint
-    home_summary:
+  # - title: Actionable Interpretability Must Be Defined in Terms of Symmetries
+  #   url: https://arxiv.org/abs/2601.12913
+  #   venue: Preprint, 2026.
+  #   venue_short: arXiv
+  #   year: 2026
+  #   main_tag: Interpretability Theory
+  #   tags:
+  #   - Interpretability Theory
+  #   - Bayesian Inference
+  #   - Human-Centric AI
+  #   - Concept-based Interpretability
+  #   - Interpretability
+  #   - Explainability
+  #   image: null
+  #   image_alt: Actionable interpretability visual overview
+  #   image_side: right
+  #   links:
+  #   - label: Paper
+  #     url: https://arxiv.org/abs/2601.12913
+  #     kind: paper
+  #   authors:
+  #   - name: Pietro Barbiero
+  #     url: https://www.pietrobarbiero.eu
+  #   - name: Mateo Espinosa Zarlenga
+  #     me: true
+  #   - name: Francesco Giannini
+  #     url: https://www.francescogiannini.eu/
+  #   - name: Alberto Termine
+  #     url: https://sites.google.com/view/albertotermine/home-page
+  #   - name: Filippo Bonchi
+  #     url: https://scholar.google.com/citations?user=RMy4gDsAAAAJ&hl=en
+  #   - name: Mateja Jamnik
+  #     url: https://www.cl.cam.ac.uk/~mj201
+  #   - name: Giuseppe Marra
+  #     url: https://www.giuseppemarra.com/
+  #   publication_type: preprint
+  #   home_summary:
 
   - title: 'Foundations of Interpretable Models'
     url: https://arxiv.org/abs/2508.00545

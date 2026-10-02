@@ -195,7 +195,8 @@ else
         end
 
         required = %w[title url venue venue_short year main_tag tags links authors publication_type]
-        optional = %w[authors_html featured_home home_summary image image_alt image_side]
+        optional = %w[authors_html featured_home tldr honor note also venue_display image
+                      image_alt image_side]
         require_keys!(errors, paper, required, paper_context)
         reject_unknown_keys!(errors, paper, required + optional, paper_context)
 
@@ -224,8 +225,8 @@ else
           errors << "#{paper_context}: `image_side` must be `left` or `right` when provided"
         end
 
-        unless %w[conference journal workshop preprint].include?(paper["publication_type"])
-          errors << "#{paper_context}: `publication_type` must be one of conference/journal/workshop/preprint"
+        unless %w[conference journal workshop preprint thesis].include?(paper["publication_type"])
+          errors << "#{paper_context}: `publication_type` must be one of conference/journal/workshop/preprint/thesis"
         end
 
         unless paper["tags"].is_a?(Array) && !paper["tags"].empty?
@@ -246,8 +247,18 @@ else
           errors << "#{paper_context}: `featured_home` must be boolean when provided"
         end
 
-        if paper["featured_home"] == true && !present_string?(paper["home_summary"])
-          errors << "#{paper_context}: `home_summary` is required when `featured_home` is true"
+        unless present_string?(paper["tldr"])
+          errors << "#{paper_context}: `tldr` must be a non-empty one-line summary"
+        end
+
+        if present_string?(paper["tldr"]) && paper["tldr"].strip.length > 260
+          errors << "#{paper_context}: `tldr` should stay under 260 characters (currently #{paper['tldr'].strip.length})"
+        end
+
+        %w[honor note also venue_display].each do |key|
+          next unless paper.key?(key)
+          next if paper[key].nil? || present_string?(paper[key])
+          errors << "#{paper_context}: `#{key}` must be a non-empty string when provided"
         end
 
         unless paper["links"].is_a?(Array) && !paper["links"].empty?

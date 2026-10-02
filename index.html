@@ -25,23 +25,26 @@ header:
   I am always happy to connect!
 </p>
 
-<h2 class="archive__subtitle content-section-heading">Featured Publications</h2>
-<div class="featured-publications-grid">
+<h2 class="section-heading">Featured Publications</h2>
+<ul class="featured-pubs">
   {% assign featured_rendered = 0 %}
   {% for section in site.data.research.sections %}
     {% for paper in section.papers %}
       {% if paper.featured_home and featured_rendered < 3 %}
-        {% include featured_publication_card.html paper=paper section=section %}
+        {% include featured_publication_card.html paper=paper %}
         {% assign featured_rendered = featured_rendered | plus: 1 %}
       {% endif %}
     {% endfor %}
   {% endfor %}
-</div>
+</ul>
+<p class="link-row">
+  <a href="/research/">All publications</a>
+</p>
 
-<h2 class="archive__subtitle content-section-heading">Recent News</h2>
+<h2 class="section-heading">Recent News</h2>
 {% assign featured_news = site.data.news.items | where: "featured", true %}
 {% assign older_news = site.data.news.items | where: "featured", false %}
-<div class="recent-news-container">
+<div class="news-panel">
   <ol class="news-timeline">
     {% for item in featured_news %}
     {% include news_item.html item=item %}
@@ -50,8 +53,8 @@ header:
 
   {% if older_news.size > 0 %}
   <details class="older-news">
-    <summary>View earlier highlights</summary>
-    <ol class="news-timeline news-timeline--compact">
+    <summary>Earlier highlights</summary>
+    <ol class="news-timeline">
       {% for item in older_news %}
       {% include news_item.html item=item %}
       {% endfor %}

@@ -26,70 +26,73 @@ Below you can find a list of some of my publications, including their respective
 code, and presentations (when applicable). For a possibly more up-to-date list, however, please
 refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en).
 
-<section class="research-filters" aria-labelledby="publication-browser-heading">
-  <h2 id="publication-browser-heading" class="content-section-heading">Publication Browser</h2>
-  <p class="research-filters__lead">
-    Search and filter publications by title, author, year, venue, publication type, and tags.
-  </p>
-  <form id="publication-filter-form" class="research-filters__form" role="search">
-    <div class="research-filter-field">
-      <label for="publication-search">Search publications</label>
-      <input id="publication-search" name="publication-search" type="search" placeholder="e.g., concept bottleneck, NeurIPS, bias mitigation">
-    </div>
-    <div class="research-filter-field">
-      <label for="publication-year">Year</label>
-      <select id="publication-year" name="publication-year">
-        <option value="">All years</option>
-      </select>
-    </div>
-    <div class="research-filter-field">
-      <label for="publication-venue">Venue</label>
-      <select id="publication-venue" name="publication-venue">
-        <option value="">All venues</option>
-      </select>
-    </div>
-    <div class="research-filter-field">
-      <label for="publication-type">Type</label>
-      <select id="publication-type" name="publication-type">
-        <option value="">All types</option>
-      </select>
-    </div>
-    <div class="research-filter-field">
-      <label for="publication-tag">Tag</label>
-      <select id="publication-tag" name="publication-tag">
-        <option value="">All tags</option>
-      </select>
-    </div>
-  </form>
-  <div class="research-filters__actions">
-    <p id="publication-filter-results" class="research-filters__results" aria-live="polite"></p>
-    <button id="clear-publication-filters" class="research-filters__clear" type="button">Reset filters</button>
-  </div>
-</section>
+{% comment %}
+  One reverse-chronological run rather than four venue sections: a reader's first
+  question is what is recent, not what was a workshop. `publication_type` is kept
+  in the data and exposed as a filter chip instead of as a heading.
+{% endcomment %}
 
-<nav class="research-quick-nav" aria-label="Research publication navigation">
-  <!-- <span class="research-quick-nav__label">Jump to</span> -->
-  <a href="#conference-publications">Conference Papers</a>
-  <a href="#journal-publications">Journal Papers</a>
-  <a href="#workshop-publications">Workshop Papers</a>
-  <a href="#preprint-publications">Preprints</a>
-  <a class="research-quick-nav__top" href="#research-top">Go to top</a>
-</nav>
-
-<hr class="content-divider">
-
+{% assign all_papers = "" | split: "" %}
 {% for section in site.data.research.sections %}
-<section class="research-section" data-research-section="{{ section.id }}">
-  <h2 class="content-section-heading" id="{{ section.id }}">{{ section.title }}</h2>
-
-  {% for paper in section.papers %}
-  {% include paper_card.html paper=paper section=section %}
-  {% endfor %}
-</section>
-
-{% unless forloop.last %}
-<hr class="content-divider research-section-divider" data-divider-for="{{ section.id }}">
-{% endunless %}
+  {% assign all_papers = all_papers | concat: section.papers %}
 {% endfor %}
+{% assign all_papers = all_papers | sort: "year" | reverse %}
+
+<section class="pub-browser" aria-labelledby="publication-browser-heading">
+  <h2 id="publication-browser-heading" class="sr-only">Publication browser</h2>
+
+  <div class="pub-toolbar">
+    <div class="pub-toolbar__row">
+      <div class="pub-search">
+        <label class="sr-only" for="publication-search">Search publications</label>
+        <input id="publication-search" name="publication-search" type="search"
+               placeholder="Search title, author, venue, or topic…" autocomplete="off">
+      </div>
+
+      <ul class="pub-chips" id="publication-type-chips" role="group" aria-label="Filter by publication type">
+        <li><button type="button" class="pub-chip" data-filter-type="" aria-pressed="true">All</button></li>
+        <li><button type="button" class="pub-chip" data-filter-featured="true" aria-pressed="false">Selected</button></li>
+        <li><button type="button" class="pub-chip" data-filter-type="conference" aria-pressed="false">Conference</button></li>
+        <li><button type="button" class="pub-chip" data-filter-type="journal" aria-pressed="false">Journal</button></li>
+        <li><button type="button" class="pub-chip" data-filter-type="workshop" aria-pressed="false">Workshop</button></li>
+        <li><button type="button" class="pub-chip" data-filter-type="preprint" aria-pressed="false">Preprint</button></li>
+        <li><button type="button" class="pub-chip" data-filter-type="thesis" aria-pressed="false">Thesis</button></li>
+      </ul>
+    </div>
+
+    <details class="pub-filters-more">
+      <summary>More filters</summary>
+      <div class="pub-filters-more__grid">
+        <div class="pub-field">
+          <label for="publication-year">Year</label>
+          <select id="publication-year"><option value="">All years</option></select>
+        </div>
+        <div class="pub-field">
+          <label for="publication-venue">Venue</label>
+          <select id="publication-venue"><option value="">All venues</option></select>
+        </div>
+        <div class="pub-field">
+          <label for="publication-tag">Topic</label>
+          <select id="publication-tag"><option value="">All topics</option></select>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="pub-status">
+    <p id="publication-filter-results" class="pub-status__count" aria-live="polite" role="status"></p>
+    <button id="clear-publication-filters" class="pub-reset" type="button" hidden>Reset filters</button>
+  </div>
+
+  <div class="pub-list" id="publication-list">
+    {% for paper in all_papers %}
+    {% include paper_card.html paper=paper %}
+    {% endfor %}
+  </div>
+
+  <p class="pub-empty" id="publication-empty" hidden>
+    No publications match those filters.
+  </p>
+</section>
 
 <script src="{{ '/assets/js/research-filters.js' | relative_url }}" defer></script>

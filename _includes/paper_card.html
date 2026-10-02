@@ -1,17 +1,27 @@
 {% assign paper = include.paper %}
-{% assign section = include.section %}
-{% assign default_thumbnail = "/assets/images/thumbnails/placeholder_thumbnail.png" %}
-{% assign paper_image = paper.image | default: default_thumbnail %}
-{% assign paper_image_alt = paper.image_alt | default: "Publication thumbnail" %}
-{% assign initial_image_position = paper.image_side | default: "right" %}
+
+{% comment %}
+  One publication row: year rail, fixed-ratio teaser slot, then the body.
+  The venue is stated once (`venue_display`, or `venue_short` + `year`); the full
+  `venue` string stays in the data as the authoritative record and is used as the
+  title attribute rather than printed as a second line.
+{% endcomment %}
+
+{% assign venue_label = paper.venue_display | default: nil %}
+{% unless venue_label %}
+  {% capture venue_label %}{{ paper.venue_short }} {{ paper.year }}{% endcapture %}
+{% endunless %}
+
 {% capture paper_tags %}{% if paper.tags %}{{ paper.tags | join: "|" }}{% endif %}{% endcapture %}
 {% capture paper_authors_plain %}{% for author in paper.authors %}{{ author.name }} {% endfor %}{% endcapture %}
+
+{% assign first_author = paper.authors[0].name | default: "unknown" %}
+{% capture bib_key %}{{ first_author | split: " " | last | downcase | replace: "'", "" }}{{ paper.year }}{{ paper.title | split: " " | first | downcase | replace: ":", "" | replace: ",", "" | replace: "'", "" }}{% endcapture %}
+
 <article
-  class="paper-row"
+  class="pub"
   id="paper-{{ paper.title | slugify }}"
   data-paper-card
-  data-image-position="{{ initial_image_position }}"
-  data-section-id="{{ section.id }}"
   data-type="{{ paper.publication_type | default: 'conference' }}"
   data-title="{{ paper.title | escape }}"
   data-venue="{{ paper.venue | escape }}"
@@ -20,44 +30,84 @@
   data-main-tag="{{ paper.main_tag | escape }}"
   data-tags="{{ paper_tags | strip | escape }}"
   data-authors="{{ paper_authors_plain | strip | escape }}"
+  data-tldr="{{ paper.tldr | escape }}"
+  data-featured="{% if paper.featured_home %}true{% else %}false{% endif %}"
 >
-  <div class="paper-container">
-    <div class="paper-image-col">
-      <img loading="lazy" decoding="async" class="paper-thumbnail" src="{{ paper_image }}" alt="{{ paper_image_alt }}" onerror="this.onerror=null;this.src='{{ default_thumbnail }}';">
-    </div>
+  <div class="pub__year"><span>{{ paper.year }}</span></div>
 
-    <div class="paper-content-col">
-      <div>
-        <a class="paper-title-link" target="_blank" rel="noopener noreferrer" href="{{ paper.url }}">{{ paper.title }}</a>
-      </div>
-      <div>
-        <p class="paper-venue-meta">{{ paper.venue_short }} · {{ paper.year }} · {{ paper.publication_type | capitalize }}</p>
-        <p class="paper-venue"><b>{{ paper.venue }}</b></p>
-        <p class="paper-authors">
-          {% if paper.authors and paper.authors.size > 0 %}
-          {% for author in paper.authors %}
-            {% capture author_markup %}{{ author.name }}{% if author.suffix and author.suffix != '' %}<sup>{{ author.suffix }}</sup>{% endif %}{% endcapture %}
-            {% if author.url and author.url != '' %}
-              <a class="{% if author.me %}author-self{% endif %}" href="{{ author.url }}" target="_blank" rel="noopener noreferrer">{{ author_markup }}</a>
-            {% else %}
-              <span class="{% if author.me %}author-self{% endif %}">{{ author_markup }}</span>
-            {% endif %}
-            {% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-          {% elsif paper.authors_html %}
-          {{ paper.authors_html }}
-          {% endif %}
-        </p>
-        {% if paper.main_tag and paper.main_tag != '' %}
-        <p class="paper-main-tag">{{ paper.main_tag }}</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
+  {% if paper.image %}
+  <a class="pub__fig" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img loading="lazy" decoding="async" src="{{ paper.image }}" alt="{{ paper.image_alt | default: 'Publication teaser figure' }}">
+  </a>
+  {% else %}
+  <div class="pub__fig pub__fig--empty" aria-hidden="true"></div>
+  {% endif %}
 
-  <div class="paper-links">
-    {% for link in paper.links %}
-    <a target="_blank" rel="noopener noreferrer" href="{{ link.url }}" class="custom-button button-{{ link.kind }}">{{ link.label }}</a>
-    {% endfor %}
+  <div class="pub__body">
+    <a class="pub__title" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
+
+    <p class="pub__authors">
+      {%- if paper.authors and paper.authors.size > 0 -%}
+        {%- for author in paper.authors -%}
+          {%- capture author_markup %}{{ author.name }}{% if author.suffix and author.suffix != '' %}<sup>{{ author.suffix }}</sup>{% endif %}{% endcapture -%}
+          {%- if author.url and author.url != '' -%}
+            <a class="pub__author{% if author.me %} author-self{% endif %}" href="{{ author.url }}" target="_blank" rel="noopener noreferrer">{{ author_markup }}</a>
+          {%- else -%}
+            <span class="pub__author{% if author.me %} author-self{% endif %}">{{ author_markup }}</span>
+          {%- endif -%}
+          {%- unless forloop.last -%}, {% endunless -%}
+        {%- endfor -%}
+      {%- elsif paper.authors_html -%}
+        {{ paper.authors_html }}
+      {%- endif -%}
+    </p>
+
+    <p class="pub__venue">
+      <span class="pub__venue-name" title="{{ paper.venue | escape }}">{{ venue_label | strip }}</span>
+      {%- if paper.note and paper.note != '' %} · {{ paper.note }}{% endif -%}
+      {%- if paper.honor and paper.honor != '' %} <span class="pub__honor">{{ paper.honor }}</span>{% endif -%}
+    </p>
+
+    {% if paper.also and paper.also != '' %}
+    <p class="pub__also">{{ paper.also }}</p>
+    {% endif %}
+
+    {% if paper.tldr and paper.tldr != '' %}
+    <p class="pub__tldr">{{ paper.tldr }}</p>
+    {% endif %}
+
+    {% if paper.links and paper.links.size > 0 %}
+    <p class="link-row">
+      {% for link in paper.links %}
+      <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+      {% unless forloop.last %}<span class="link-row__sep" aria-hidden="true">/</span>{% endunless %}
+      {% endfor %}
+    </p>
+    {% endif %}
+
+    <details class="pub__cite">
+      <summary>BibTeX</summary>
+      <pre><code>{% case paper.publication_type %}{% when 'journal' %}@article{{ '{' }}{{ bib_key }},
+  title   = {{ '{' }}{{ paper.title }}},
+  author  = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
+  journal = {{ '{' }}{{ paper.venue_short }}},
+  year    = {{ '{' }}{{ paper.year }}}
+}{% when 'preprint' %}@article{{ '{' }}{{ bib_key }},
+  title   = {{ '{' }}{{ paper.title }}},
+  author  = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
+  journal = {arXiv preprint},
+  year    = {{ '{' }}{{ paper.year }}}
+}{% when 'thesis' %}@phdthesis{{ '{' }}{{ bib_key }},
+  title  = {{ '{' }}{{ paper.title }}},
+  author = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
+  school = {{ '{' }}{{ paper.venue }}},
+  year   = {{ '{' }}{{ paper.year }}}
+}{% else %}@inproceedings{{ '{' }}{{ bib_key }},
+  title     = {{ '{' }}{{ paper.title }}},
+  author    = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
+  booktitle = {{ '{' }}{{ paper.venue_short }}},
+  year      = {{ '{' }}{{ paper.year }}}
+}{% endcase %}</code></pre>
+    </details>
   </div>
 </article>

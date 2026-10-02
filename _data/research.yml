@@ -12,6 +12,7 @@ sections:
     venue: Position paper at the International Conference On Machine Learning (ICML), 2026.
     venue_short: ICML
     year: 2026
+    note: "Position paper"
     main_tag: Concept Representation Learning
     tags:
     - Interpretability Theory
@@ -35,13 +36,16 @@ sections:
       me: true
     publication_type: conference
     featured_home: false
-    home_summary: null
+    tldr: >-
+      Argues that eliminating information leakage is self-defeating when concept sets are incomplete,
+      and that the right target is benign leakage rather than none at all.
 
   - title: "Mixture of Concept Bottleneck Experts"
     url: https://arxiv.org/abs/2602.02886
     venue: Spotlight at the International Conference On Machine Learning (ICML), 2026.
     venue_short: ICML
     year: 2026
+    honor: "Spotlight"
     main_tag: Concept-Based Models
     tags:
     - Concept-Based Models
@@ -83,7 +87,9 @@ sections:
       url: https://www.pietrobarbiero.eu
     publication_type: conference
     featured_home: false
-    home_summary: null
+    tldr: >-
+      Introduces M-CBE, which generalizes CBMs by letting the task predictor combine several expert
+      expressions whose functional form is learned rather than fixed in advance.
 
   - title: "CB-SLICE: Concept-Based Interpretable Error Slice Discovery"
     url: https://arxiv.org/abs/2605.29836
@@ -118,7 +124,9 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     featured_home: false
-    home_summary: null
+    tldr: >-
+      Introduces CB-SLICE, which groups samples by shared concept prediction failures to surface error
+      slices and name the concepts responsible for each one.
 
   - title: Hierarchical Concept-based Interpretable Models
     url: https://arxiv.org/abs/2602.23947
@@ -154,9 +162,9 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     featured_home: false
-    home_summary: Introduces HiCEMs for modeling concept relationships hierarchically
-      and Concept Splitting for discovering fine-grained sub-concepts without additional
-      annotations.
+    tldr: >-
+      Introduces HiCEMs for modeling concept relationships hierarchically and Concept Splitting for
+      discovering fine-grained sub-concepts without additional annotations.
 
   - title: 'Deferring Concept Bottleneck Models: Learning to Defer Interventions to Inaccurate Experts'
     url: https://arxiv.org/abs/2503.16199
@@ -210,8 +218,9 @@ sections:
     - name: Davide Bacciu
       url: https://pages.di.unipi.it/bacciu/
     publication_type: conference
-    home_summary: We show how to construct models that can defer both task and concept
-      predictions to human experts when they are uncertain about them.
+    tldr: >-
+      We show how to construct models that can defer both task and concept predictions to human
+      experts when they are uncertain about them.
 
   - title: 'Avoiding Leakage Poisoning: Concept Interventions Under Distribution Shifts'
     url: https://arxiv.org/abs/2504.17921
@@ -258,8 +267,9 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     featured_home: true
-    home_summary: We show that concept leakage can lead to faulty interventions in out-of-distribution
-      settings. Then, we introduce a new representation decomposition to prevent this.
+    tldr: >-
+      We show that concept leakage can lead to faulty interventions in out-of-distribution settings.
+      Then, we introduce a new representation decomposition to prevent this.
 
   - title: Addressing Concept Mislabeling in Concept Bottleneck Models Through Preference
       Optimization
@@ -302,8 +312,9 @@ sections:
       me: true
       suffix: "*"
     publication_type: conference
-    home_summary: Proposes CPO, a preference-based objective that makes CBMs robust
-      to noisy or incorrect concept labels.
+    tldr: >-
+      Proposes CPO, a preference-based objective that makes CBMs robust to noisy or incorrect concept
+      labels.
 
   - title: Causal Concept Graph Models
     url: https://arxiv.org/abs/2405.16507
@@ -349,8 +360,9 @@ sections:
     - name: Marc Langheinrich
       url: https://search.usi.ch/en/people/c543f5bfc3f21587b8b79dee8ce84a93/langheinrich-marc
     publication_type: conference
-    home_summary: We introduce a concept bottleneck architecture that models concept
-      dependencies with a causal graph for more reliable concept-level reasoning.
+    tldr: >-
+      We introduce a concept bottleneck architecture that models concept dependencies with a causal
+      graph for more reliable concept-level reasoning.
 
   - title: Efficient Bias Mitigation Without Privileged Information
     url: https://arxiv.org/abs/2409.17691
@@ -358,6 +370,8 @@ sections:
       at the 18th European Conference on Computer Vision (ECCV), 2024
     venue_short: ECCV
     year: 2024
+    honor: "Oral, Best Paper Candidate"
+    note: "top 15 of 8,500+ submissions"
     main_tag: Fairness & Bias
     tags:
     - Fairness & Bias
@@ -397,11 +411,10 @@ sections:
       url: https://ai.sony/people/Alice-Xiang/
     publication_type: conference
     featured_home: true
-    home_summary: We show that model selection for existing unsupervised bias
-      mitigation methods is prone to yielding biased models unless privileged
-      information (e.g., group labels) is available. To address this, we propose
-      a simple mechanism to mitigate biases that requires no model selection or
-      privileged information.
+    tldr: >-
+      We show that model selection for unsupervised bias mitigation yields biased models unless
+      privileged information (e.g., group labels) is available, then propose a mechanism that needs
+      neither.
 
   - title: Understanding Inter-Concept Relationships in Concept-Based Models
     url: https://arxiv.org/abs/2405.18217
@@ -440,8 +453,9 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
-    home_summary: Shows many concept models miss stable inter-concept structure and
-      introduces a method improving intervention accuracy.
+    tldr: >-
+      Shows many concept models miss stable inter-concept structure and introduces a method improving
+      intervention accuracy.
 
   - title: 'Learning to Receive Help: Intervention-Aware Concept Embedding Models'
     url: https://arxiv.org/abs/2309.16928
@@ -449,6 +463,7 @@ sections:
       (NeurIPS), 2023
     venue_short: NeurIPS
     year: 2023
+    honor: "Spotlight"
     main_tag: Concept Interventions
     tags:
     - Concept Interventions
@@ -484,8 +499,9 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
-    home_summary: Introduces IntCEM, which learns intervention policies during training
-      to better exploit test-time concept corrections.
+    tldr: >-
+      Introduces IntCEM, which learns intervention policies during training to better exploit test-
+      time concept corrections.
 
   - title: Interpretable Neural-Symbolic Concept Reasoning
     url: https://arxiv.org/abs/2304.14068
@@ -493,6 +509,7 @@ sections:
       at ICML's Differentiable Almost Everything Workshop, 2023.
     venue_short: ICML
     year: 2023
+    also: "Also appeared at ICML's Differentiable Almost Everything Workshop, 2023."
     main_tag: Neural-Symbolic AI
     tags:
     - Neural-Symbolic AI
@@ -530,8 +547,9 @@ sections:
     - name: Giuseppe Marra
       url: https://www.giuseppemarra.com/
     publication_type: conference
-    home_summary: Proposes DCR, a differentiable neural-symbolic model that builds
-      explicit logic rules over concept truth values.
+    tldr: >-
+      Proposes DCR, a differentiable neural-symbolic model that builds explicit logic rules over
+      concept truth values.
 
   - title: Human Uncertainty in Concept-Based AI Systems
     url: https://arxiv.org/abs/2303.12872
@@ -577,8 +595,9 @@ sections:
     - name: Krishnamurthy (DJ) Dvijotham
       url: https://dj-research.netlify.app/
     publication_type: conference
-    home_summary: We show that uncertainty-aware training improves robustness in
-      real-world human-AI collaboration.
+    tldr: >-
+      We show that uncertainty-aware training improves robustness in real-world human-AI
+      collaboration.
 
   - title: Towards Robust Metrics For Concept Representation Evaluation
     url: https://arxiv.org/abs/2301.10367
@@ -586,6 +605,7 @@ sections:
       Artificial Intelligence (AAAI) as an oral presentation, 2023
     venue_short: AAAI
     year: 2023
+    honor: "Oral"
     main_tag: Evaluation Metrics
     tags:
     - Evaluation Metrics
@@ -631,8 +651,9 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
-    home_summary: Introduces robust metrics for concept purity and interventions,
-      showing disentanglement scores can mislead concept evaluation.
+    tldr: >-
+      Introduces robust metrics for concept purity and interventions, showing disentanglement scores
+      can mislead concept evaluation.
 
   - title: 'Concept Embedding Models: Beyond the Accuracy-Explainability Trade-Off'
     url: https://arxiv.org/abs/2209.09056
@@ -696,9 +717,9 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     featured_home: true
-    home_summary: We introduce concept embeddings to construct
-     accurate deep neural networks that are both interpretable and intervenable,
-     even when concept supervision is incomplete.
+    tldr: >-
+      We introduce concept embeddings to construct accurate deep neural networks that are both
+      interpretable and intervenable, even when concept supervision is incomplete.
 
   - title: An Open-Source Benchmark Suite for Microservices and Their Hardware-Software
       Implications for Cloud & Edge Systems
@@ -749,8 +770,8 @@ sections:
     - name: Jake Padilla
     - name: Christina Delimitrou
     publication_type: conference
-    home_summary: Presents DeathStarBench, a comprehensive microservice benchmark suite.
-
+    tldr: >-
+      Presents DeathStarBench, a comprehensive microservice benchmark suite.
 
 - id: journal-publications
   title: Journal Publications
@@ -761,6 +782,7 @@ sections:
     venue: 'Transactions of Machine Learning Research (TMLR), 2025.  Also appeared at "XAI in Action: Past, Present, and Future Applications" in NeurIPS 2023.'
     venue_short: TMLR
     year: 2025
+    also: 'Also appeared at "XAI in Action: Past, Present, and Future Applications" at NeurIPS 2023.'
     main_tag: Limitations of Concept Bottleneck Models
     tags:
     - Limitations of Concept Bottleneck Models
@@ -791,8 +813,9 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: journal
-    home_summary: Evaluates whether concept predictors use relevant features, finding
-      locality failures and proposing diagnostic metrics.
+    tldr: >-
+      Evaluates whether concept predictors use relevant features, finding locality failures and
+      proposing diagnostic metrics.
 
   - title: 'TabCBM: Concept-based Interpretable Neural Networks for Tabular Data'
     url: https://openreview.net/pdf?id=TIsrnWpjQ0
@@ -800,6 +823,7 @@ sections:
       ICML's Workshop on Interpretable Machine Learning in Healthcare, 2023.
     venue_short: TMLR
     year: 2023
+    also: "Also appeared at ICML's Workshop on Interpretable Machine Learning in Healthcare, 2023."
     main_tag: Tabular Explainability
     tags:
     - Tabular Explainability
@@ -838,8 +862,9 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
       suffix: "*"
     publication_type: journal
-    home_summary: Defines high-level concepts for tabular domains and introduces TabCBM
-      for interpretable, intervention-ready predictions.
+    tldr: >-
+      Defines high-level concepts for tabular domains and introduces TabCBM for interpretable,
+      intervention-ready predictions.
 
   - title: Unveiling the Hardware and Software Implications of Microservices in Cloud
       and Edge Systems
@@ -890,8 +915,9 @@ sections:
     - name: Jake Padilla
     - name: Christina Delimitrou
     publication_type: journal
-    home_summary: Synthesizes system-level implications of microservices and introduces
-      DeathStarBench as a representative interactive benchmark.
+    tldr: >-
+      Synthesizes system-level implications of microservices and introduces DeathStarBench as a
+      representative interactive benchmark.
 
 - id: workshop-publications
   title: Workshop Publications
@@ -902,6 +928,7 @@ sections:
     venue: "2nd Workshop on Compositional Learning: Safety, Interpretability, and Agents at ICML 2026"
     venue_short: ICML Workshop
     year: 2026
+    venue_display: "Compositional Learning Workshop, ICML 2026"
     main_tag: Interpretability Theory
     tags:
     - Interpretability Theory
@@ -933,15 +960,19 @@ sections:
     - name: Giuseppe Marra
       url: https://www.giuseppemarra.com/
     publication_type: workshop
-    home_summary: null
+    tldr: >-
+      Argues that actionable definitions of interpretability must be stated as symmetries, and
+      proposes four that formalize interpretable models as a subclass of probabilistic models.
 
   - title: "Don't Lose Focus: Activation Steering via Key-Orthogonal Projections"
     url: https://arxiv.org/abs/2605.06342
     venue: Mechanistic Interpretability Workshop at ICML 2026
     venue_short: ICML Workshop
     year: 2026
+    venue_display: "Mechanistic Interpretability Workshop, ICML 2026"
     main_tag: LLM Steering
     tags:
+    - LLM Steering
     - Steering
     - Activation Steering
     - Key-Orthogonal Projections
@@ -964,13 +995,16 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: workshop
-    home_summary: null
+    tldr: >-
+      Shows that activation steering degrades reasoning by rerouting attention, and introduces SKOP to
+      preserve attention on the tokens the model relies on.
 
   - title: 'Digging Deeper: Learning Multi-Level Concept Hierarchies'
     url: https://arxiv.org/abs/2603.10084
     venue: ICLR 2026 Workshop on Principled Design for Trustworthy AI
     venue_short: ICLR Workshop
     year: 2026
+    venue_display: "Principled Design for Trustworthy AI Workshop, ICLR 2026"
     main_tag: Hierarchical Concept Models
     tags:
     - Hierarchical Concept Models
@@ -999,8 +1033,9 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: workshop
-    home_summary: Extends HiCEMs to discover multi-level concept hierarchies,
-      enabling fine-grained test-time concept interventions.
+    tldr: >-
+      Extends HiCEMs to discover multi-level concept hierarchies, enabling fine-grained test-time
+      concept interventions.
 
   - title: Efficient Decompositional Rule Extraction for Deep Neural Networks
     url: https://arxiv.org/abs/2111.12628
@@ -1008,6 +1043,8 @@ sections:
       (XAI4Debugging@NeurIPS) as a spotlight presentation, 2021
     venue_short: NeurIPS Workshop
     year: 2021
+    venue_display: "XAI4Debugging Workshop, NeurIPS 2021"
+    honor: "Spotlight"
     main_tag: Rule Extraction
     tags:
     - Rule Extraction
@@ -1040,8 +1077,9 @@ sections:
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: workshop
-    home_summary: Introduces ECLAIRE, a polynomial-time rule extractor that scales
-      to large DNNs while producing accurate, readable rules.
+    tldr: >-
+      Introduces ECLAIRE, a polynomial-time rule extractor that scales to large DNNs while producing
+      accurate, readable rules.
 
 - id: preprint-publications
   title: Preprints
@@ -1090,6 +1128,7 @@ sections:
     venue: Preprint, 2025.
     venue_short: arXiv
     year: 2025
+    venue_display: "Preprint, 2025"
     main_tag: Interpretability Theory
     tags:
     - Interpretability Theory
@@ -1118,13 +1157,16 @@ sections:
     - name: Giuseppe Marra
       url: https://www.giuseppemarra.com/
     publication_type: preprint
-    home_summary:
+    tldr: >-
+      Proposes a general and actionable definition of interpretability, and derives from it a
+      blueprint and an open-source library for designing interpretable models.
 
   - title: Neural Interpretable Reasoning and Causal Inference
     url: https://arxiv.org/abs/2502.11639
     venue: Preprint, 2025.
     venue_short: arXiv
     year: 2025
+    venue_display: "Preprint, 2025"
     main_tag: Interpretability Theory
     tags:
     - Interpretability Theory
@@ -1159,7 +1201,9 @@ sections:
     - name: Francesco Giannini
       url: https://www.francescogiannini.eu/
     publication_type: preprint
-    home_summary:
+    tldr: >-
+      Formalizes interpretability as inference equivariance and shows how neural re-parametrization
+      makes verifying it tractable.
 
 - id: thesis-publications
   title: Theses
@@ -1169,8 +1213,10 @@ sections:
     venue: University of Cambridge
     venue_short: PhD, Cambridge
     year: 2025
+    venue_display: "PhD thesis, University of Cambridge, 2025"
     main_tag: PhD Thesis
     tags:
+    - PhD Thesis
     - Concept Bottleneck Models
     - Concept-based Interpretability
     - Interpretability
@@ -1188,4 +1234,6 @@ sections:
     - name: Mateo Espinosa Zarlenga
       me: true
     publication_type: thesis
-    home_summary: null
+    tldr: >-
+      My PhD thesis, on relaxing four unrealistic assumptions behind concept interventions so that
+      experts can reliably correct models at test time.

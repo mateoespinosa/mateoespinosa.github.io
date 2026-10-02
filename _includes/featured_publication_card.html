@@ -1,24 +1,27 @@
 {% assign paper = include.paper %}
-{% assign section = include.section %}
-{% assign default_thumbnail = "/assets/images/thumbnails/placeholder_thumbnail.png" %}
-{% assign paper_image = paper.image | default: default_thumbnail %}
-{% assign paper_image_alt = paper.image_alt | default: "Publication thumbnail" %}
-<article class="featured-paper-card">
-  <a class="featured-paper-card__thumb" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">
-    <img loading="lazy" decoding="async" src="{{ paper_image }}" alt="{{ paper_image_alt }}" onerror="this.onerror=null;this.src='{{ default_thumbnail }}';">
+
+{% assign venue_label = paper.venue_display | default: nil %}
+{% unless venue_label %}
+  {% capture venue_label %}{{ paper.venue_short }} {{ paper.year }}{% endcapture %}
+{% endunless %}
+
+<li class="featured-pub">
+  {% if paper.image %}
+  <a class="featured-pub__fig" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img loading="lazy" decoding="async" src="{{ paper.image }}" alt="{{ paper.image_alt | default: 'Publication teaser figure' }}">
   </a>
-  <div class="featured-paper-card__body">
-    <p class="featured-paper-card__meta">
-      <span class="featured-paper-card__tag">{{ paper.main_tag }}</span>
-      <span class="featured-paper-card__venue">{{ paper.venue_short }} {{ paper.year }}</span>
+  {% else %}
+  <div class="featured-pub__fig featured-pub__fig--empty" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="featured-pub__body">
+    <p class="featured-pub__venue">
+      {{ venue_label | strip }}
+      {%- if paper.honor and paper.honor != '' %} · <span class="pub__honor">{{ paper.honor }}</span>{% endif -%}
     </p>
-    <h3 class="featured-paper-card__title">
+    <h3 class="featured-pub__title">
       <a href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">{{ paper.title }}</a>
     </h3>
-    <p class="featured-paper-card__summary">{{ paper.home_summary | default: paper.venue }}</p>
-    <p class="featured-paper-card__links">
-      <a href="{{ paper.url }}" target="_blank" rel="noopener noreferrer">Read paper</a>
-      <a href="{{ '/research/#' | append: section.id | relative_url }}">View all publications</a>
-    </p>
+    <p class="featured-pub__tldr">{{ paper.tldr | default: paper.venue }}</p>
   </div>
-</article>
+</li>

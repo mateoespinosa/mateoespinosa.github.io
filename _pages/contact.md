@@ -4,6 +4,7 @@ title: Contact
 permalink: /contact/
 header:
   overlay_image: /assets/images/panoramas/point_reyes_hero.jpg
+  overlay_filter: 0.25
   image_description: "Point Reyes, California, USA"
 classes: wide
 ---

@@ -10,6 +10,7 @@ excerpt: "Browse publications by venue, year, type, and topics."
 image: /assets/images/panoramas/yellowstone_hero.jpg
 header:
   overlay_image: /assets/images/panoramas/yellowstone_hero.jpg
+  overlay_filter: 0.25
   image_description: "Yellowstone National Park, USA"
 ---
 

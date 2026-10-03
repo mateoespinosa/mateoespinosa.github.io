@@ -9,6 +9,7 @@ excerpt:
 image: /assets/images/panoramas/banos_hero.jpg
 header:
   overlay_image: /assets/images/panoramas/banos_hero.jpg
+  overlay_filter: 0.25
   image_description: "Baños de Agua Santa, Tungurahua, Ecuador"
 ---
 

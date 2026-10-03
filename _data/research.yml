@@ -21,7 +21,7 @@ sections:
     - Concept-based Models
     - Explainable AI
     - Explainability
-    image: "/assets/images/thumbnails/first-page/in-defense-of-information-leakage.jpg"
+    image: "/assets/images/thumbnails/first-page/in-defense-of-information-leakage.png"
     image_alt: First page of the paper
     image_side: left
     links:
@@ -54,7 +54,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/first-page/mixture-of-concept-bottleneck-experts.jpg"
+    image: "/assets/images/thumbnails/first-page/mixture-of-concept-bottleneck-experts.png"
     image_alt: First page of the paper
     image_side: right
     links:
@@ -103,7 +103,7 @@ sections:
     - Bias Discovery
     - Explainable AI
     - Explainability
-    image: "/assets/images/thumbnails/first-page/cb-slice.jpg"
+    image: "/assets/images/thumbnails/first-page/cb-slice.png"
     image_alt: First page of the paper
     image_side: left
     links:
@@ -142,7 +142,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/first-page/hierarchical-concept-based-interpretable-models.jpg"
+    image: "/assets/images/thumbnails/first-page/hierarchical-concept-based-interpretable-models.png"
     image_alt: First page of the paper
     image_side: right
     links:
@@ -331,7 +331,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/causal_cgm_thumbnail.jpg"
+    image: "/assets/images/thumbnails/causal_cgm_thumbnail.png"
     image_alt: Causal CGM architecture
     image_side: right
     links:
@@ -931,7 +931,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/first-page/actionable-interpretability-symmetries.jpg"
+    image: "/assets/images/thumbnails/first-page/actionable-interpretability-symmetries.png"
     image_alt: First page of the paper
     image_side: right
     links:
@@ -973,7 +973,7 @@ sections:
     - Interpretability
     - LLM Interpretability
     - Control
-    image: "/assets/images/thumbnails/first-page/dont-lose-focus-skop.jpg"
+    image: "/assets/images/thumbnails/first-page/dont-lose-focus-skop.png"
     image_alt: First page of the paper
     image_side: right
     links:
@@ -1008,7 +1008,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/first-page/digging-deeper-concept-hierarchies.jpg"
+    image: "/assets/images/thumbnails/first-page/digging-deeper-concept-hierarchies.png"
     image_alt: First page of the paper
     image_side: left
     links:
@@ -1129,7 +1129,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/first-page/foundations-of-interpretable-models.jpg"
+    image: "/assets/images/thumbnails/first-page/foundations-of-interpretable-models.png"
     image_alt: First page of the paper
     image_side: left
     links:
@@ -1166,7 +1166,7 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: "/assets/images/thumbnails/first-page/neural-interpretable-reasoning.jpg"
+    image: "/assets/images/thumbnails/first-page/neural-interpretable-reasoning.png"
     image_alt: First page of the paper
     image_side: right
     links:

@@ -167,6 +167,28 @@ select:focus-visible,
   p, ul, ol, dl {
     max-width: var(--measure);
   }
+
+  // Running prose is justified across the site; hyphenation keeps the word
+  // spacing even rather than letting rivers open up.
+  p {
+    text-align: justify;
+    hyphens: auto;
+  }
+}
+
+// Component text sits on short lines, where justification looks broken.
+.pub-list p,
+.pub-browser p,
+.featured-pubs p,
+.news-panel p,
+.teaching-grid p,
+.supervision-list p,
+.link-row,
+.pub__tldr,
+.pub-status__count,
+.archive__item-excerpt {
+  text-align: left;
+  hyphens: manual;
 }
 
 // Let the publication list and other full-width blocks out of the text measure.
@@ -295,13 +317,20 @@ hr {
   padding: 4em 0 2.5em;
 }
 
-// The panorama is bright across most of its height, so the hero carries an
-// overlay_filter scrim (set in index.html) and the white title gets a heavier
-// shadow than the theme's default.
+// Page titles over a hero image are always white. Each hero carries a light
+// overlay_filter scrim (set per page in front matter) and the type a crisp
+// shadow, so white reads over the panoramas without washing them out.
+.page__hero--overlay {
+  .page__title,
+  .page__lead,
+  .page__meta {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
 .layout--home .page__hero--overlay .page__title {
   margin-top: 4.5rem;
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 .page__title,
@@ -523,6 +552,13 @@ table {
   border: 1px solid var(--rule);
 }
 
+// The render is dark ink on a transparent page, which vanishes against a dark
+// ground. Inverting restores it; hue-rotate keeps embedded figures close to
+// their original colours.
+:root[data-theme="dark"] .pub__fig--page img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 // A paper with no teaser yet drops the slot entirely rather than showing an
 // empty box that reads as a broken image. Because every cell is placed by
 // explicit column, removing it cannot shift the text column out of alignment.
@@ -558,7 +594,7 @@ table {
   font-size: 0.78rem;
   line-height: 1.45;
   letter-spacing: 0.005em;
-  color: var(--muted);
+  color: var(--faint);
 
   a, a:visited { color: inherit; text-decoration: none; }
   a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }

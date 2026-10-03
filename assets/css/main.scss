@@ -97,10 +97,10 @@ $type-size-8 : 0.694em !default;
   --rule-soft: #232b35;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { @include dark-tokens; }
-}
-
+// Dark is opt-in only. There is deliberately no `prefers-color-scheme` rule
+// here, so a viewer whose OS is dark still gets the light site until they ask
+// for dark with the masthead toggle, which stamps data-theme on <html> and
+// remembers the choice in localStorage.
 :root[data-theme="dark"] { @include dark-tokens; }
 
 // ===========================================================================
@@ -238,6 +238,24 @@ hr {
 
 .masthead__inner-wrap {
   font-family: $serif;
+}
+
+// Sits beside the theme's own search button and borrows its metrics.
+.theme__toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-left: 0.5rem;
+  padding: 0 0.3rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover { color: var(--accent); }
+
+  i { font-size: 0.95rem; }
 }
 
 // Keep nav and profile links inheriting their surrounding colour rather than
@@ -1124,11 +1142,7 @@ table {
   .toc .toc__menu a { background: var(--surface); }
 }
 
-@media (prefers-color-scheme: dark) {
-  body:not([data-theme="light"]) { @include dark-theme-overrides; }
-}
-
-body[data-theme="dark"] { @include dark-theme-overrides; }
+:root[data-theme="dark"] body { @include dark-theme-overrides; }
 
 // ===========================================================================
 // Mathematics
@@ -1281,11 +1295,7 @@ mjx-container[display="true"] mjx-math {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body:not([data-theme="light"]) { @include dark-social-icons; }
-}
-
-body[data-theme="dark"] { @include dark-social-icons; }
+:root[data-theme="dark"] body { @include dark-social-icons; }
 
 // ===========================================================================
 // Motion

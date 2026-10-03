@@ -36,7 +36,9 @@
   <div class="pub__year"><span>{{ paper.year }}</span></div>
 
   {% if paper.image %}
-  <a class="pub__fig" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+  {% assign is_page_scan = false %}
+  {% if paper.image contains '/first-page/' %}{% assign is_page_scan = true %}{% endif %}
+  <a class="pub__fig{% if is_page_scan %} pub__fig--page{% endif %}" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
     <img loading="lazy" decoding="async" src="{{ paper.image }}" alt="{{ paper.image_alt | default: 'Publication teaser figure' }}">
   </a>
   {% else %}
@@ -73,7 +75,10 @@
     {% endif %}
 
     {% if paper.tldr and paper.tldr != '' %}
-    <p class="pub__tldr">{{ paper.tldr }}</p>
+    <details class="pub__summary">
+      <summary>TL;DR</summary>
+      <p class="pub__tldr">{{ paper.tldr }}</p>
+    </details>
     {% endif %}
 
     {% if paper.links and paper.links.size > 0 %}

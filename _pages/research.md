@@ -30,13 +30,16 @@ refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4
   One reverse-chronological run rather than four venue sections: a reader's first
   question is what is recent, not what was a workshop. `publication_type` is kept
   in the data and exposed as a filter chip instead of as a heading.
-{% endcomment %}
 
+  Years are walked newest-first and, within each year, sections and papers in
+  their authored order. Liquid's `sort` is not stable, so sorting the merged list
+  by year alone scrambled papers within a year; this is deterministic.
+{% endcomment %}
 {% assign all_papers = "" | split: "" %}
 {% for section in site.data.research.sections %}
   {% assign all_papers = all_papers | concat: section.papers %}
 {% endfor %}
-{% assign all_papers = all_papers | sort: "year" | reverse %}
+{% assign years = all_papers | map: "year" | uniq | sort | reverse %}
 
 <section class="pub-browser" aria-labelledby="publication-browser-heading">
   <h2 id="publication-browser-heading" class="sr-only">Publication browser</h2>
@@ -85,8 +88,14 @@ refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4
   </div>
 
   <div class="pub-list" id="publication-list">
-    {% for paper in all_papers %}
-    {% include paper_card.html paper=paper %}
+    {% for y in years %}
+      {% for section in site.data.research.sections %}
+        {% for paper in section.papers %}
+          {% if paper.year == y %}
+            {% include paper_card.html paper=paper %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     {% endfor %}
   </div>
 

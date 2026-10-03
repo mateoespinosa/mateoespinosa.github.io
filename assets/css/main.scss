@@ -107,8 +107,15 @@ $type-size-8 : 0.694em !default;
 // Base
 // ===========================================================================
 
+// The theme ships 16 / 18 / 20 / 22px across its breakpoints, which runs large
+// on wide screens. One notch down at every step.
 html {
+  font-size: 15px;
   scroll-behavior: smooth;
+
+  @media (min-width: 768px)  { font-size: 16px; }
+  @media (min-width: 1024px) { font-size: 17px; }
+  @media (min-width: 1280px) { font-size: 18px; }
 }
 
 body {
@@ -264,8 +271,14 @@ hr {
 
 .layout--home .page__hero--overlay,
 .page__hero--overlay.page__hero--tall {
-  min-height: 300px;
-  padding: 4em 0;
+  min-height: 340px;
+  padding: 4em 0 2.5em;
+}
+
+// The Yellowstone panorama is bright sky across its top third, so the title is
+// dropped onto the darker ground below it where white type actually reads.
+.layout--home .page__hero--overlay .page__title {
+  margin-top: 4.5rem;
 }
 
 .page__title,
@@ -461,29 +474,31 @@ table {
 // JS marks repeated years in a run so each year is announced once.
 .pub--year-repeat .pub__year > span { visibility: hidden; }
 
-// One fixed ratio for every teaser slot, so the column edge is straight even
-// though the visual abstracts themselves are all different shapes. `contain`
-// keeps them uncropped inside that slot.
+// No painted box: a figure on a white ground should look like it is sitting on
+// the page, not inside a tile. Centred against the whole entry rather than
+// pinned to its top.
 .pub__fig {
   grid-column: 2;
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
-  padding: 0.3rem;
-  overflow: hidden;
-  background: var(--surface-sunk);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--radius);
 
   img {
     display: block;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 9.5rem;
     width: auto;
     height: auto;
     object-fit: contain;
   }
+}
+
+// Papers with no teaser of their own fall back to a render of their first page.
+// That one does want an edge, so it reads as a sheet of paper.
+.pub__fig--page img {
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 4px rgba(16, 28, 44, 0.08);
 }
 
 // A paper with no teaser yet drops the slot entirely rather than showing an
@@ -557,6 +572,28 @@ table {
   font-size: 0.79rem;
   line-height: 1.45;
   color: var(--faint);
+}
+
+.pub__summary {
+  margin-top: var(--space-2);
+
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    font-family: $sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--faint);
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "+ "; }
+    &:hover { color: var(--accent); }
+  }
+
+  &[open] summary::before { content: "– "; }
 }
 
 .pub__tldr {
@@ -788,20 +825,15 @@ table {
 
 .featured-pub__fig {
   grid-column: 1;
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
-  padding: 0.3rem;
-  overflow: hidden;
-  background: var(--surface-sunk);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--radius);
 
   img {
     display: block;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 10rem;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -868,18 +900,24 @@ table {
 
   &:first-child { border-top: 0; }
 
+  // Smaller and set in the muted tone so the news block reads as a distinct
+  // register from the body copy above it rather than as more prose.
   p {
     margin: 0;
-    font-size: 0.93rem;
-    line-height: 1.55;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--muted);
   }
+
+  a { color: var(--accent); }
 }
 
 .news-date {
   font-family: $sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   color: var(--faint);
   font-variant-numeric: tabular-nums;
 }
@@ -1093,6 +1131,31 @@ table {
 body[data-theme="dark"] { @include dark-theme-overrides; }
 
 // ===========================================================================
+// Mathematics
+//
+// MathJax centres display math itself, but only once it has typeset; these
+// rules also hold the layout before that and keep a wide equation inside its
+// own scroll box rather than widening the page.
+// ===========================================================================
+
+mjx-container[display="true"] {
+  display: block;
+  margin: 1.4em 0 !important;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+mjx-container[display="true"] mjx-math {
+  display: inline-block;
+  text-align: left;
+}
+
+// Pre-typeset fallback: the raw \[ ... \] kramdown emits sits on its own line.
+.page__content p > mjx-container:only-child { margin: 1.4em 0 !important; }
+
+// ===========================================================================
 // Sidenotes (long-form posts)
 //
 // Floated inside the content box rather than into a negative margin, so a
@@ -1172,9 +1235,15 @@ body[data-theme="dark"] { @include dark-theme-overrides; }
   .teaching-meta,
   .supervision-name,
   .pub-status__count,
-  .pub-empty,
+  .pub-empty {
+    margin: 0;
+  }
+
   .news-item p {
     margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--muted);
   }
 
   .pub__also { margin: 0.15rem 0 0; }

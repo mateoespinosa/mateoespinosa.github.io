@@ -21,8 +21,8 @@ sections:
     - Concept-based Models
     - Explainable AI
     - Explainability
-    image: null
-    image_alt: CB-SLICE visual abstract
+    image: "/assets/images/thumbnails/first-page/in-defense-of-information-leakage.jpg"
+    image_alt: First page of the paper
     image_side: left
     links:
     - label: Paper
@@ -54,8 +54,8 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: null
-    image_alt: M-CBE visual abstract
+    image: "/assets/images/thumbnails/first-page/mixture-of-concept-bottleneck-experts.jpg"
+    image_alt: First page of the paper
     image_side: right
     links:
     - label: Paper
@@ -103,8 +103,8 @@ sections:
     - Bias Discovery
     - Explainable AI
     - Explainability
-    image: null
-    image_alt: CB-SLICE visual abstract
+    image: "/assets/images/thumbnails/first-page/cb-slice.jpg"
+    image_alt: First page of the paper
     image_side: left
     links:
     - label: Paper
@@ -143,8 +143,8 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: null
-    image_alt: HiCEM visual abstract
+    image: "/assets/images/thumbnails/first-page/hierarchical-concept-based-interpretable-models.jpg"
+    image_alt: First page of the paper
     image_side: right
     links:
     - label: Paper
@@ -937,8 +937,8 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: null
-    image_alt: actionable interpretability visual abstract
+    image: "/assets/images/thumbnails/first-page/actionable-interpretability-symmetries.jpg"
+    image_alt: First page of the paper
     image_side: right
     links:
     - label: Paper
@@ -980,8 +980,8 @@ sections:
     - Interpretability
     - LLM Interpretability
     - Control
-    image: null
-    image_alt: SKOPE visual abstract
+    image: "/assets/images/thumbnails/first-page/dont-lose-focus-skop.jpg"
+    image_alt: First page of the paper
     image_side: right
     links:
     - label: Paper
@@ -1015,8 +1015,8 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: null
-    image_alt: Multi-Level Concept Hierarchies visual abstract
+    image: "/assets/images/thumbnails/first-page/digging-deeper-concept-hierarchies.jpg"
+    image_alt: First page of the paper
     image_side: left
     links:
     - label: Paper
@@ -1138,8 +1138,8 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: null
-    image_alt: Foundations of interpretable models visual overview
+    image: "/assets/images/thumbnails/first-page/foundations-of-interpretable-models.jpg"
+    image_alt: First page of the paper
     image_side: left
     links:
     - label: Paper
@@ -1176,8 +1176,8 @@ sections:
     - Concept-based Interpretability
     - Interpretability
     - Explainability
-    image: null
-    image_alt: Neural interpretable reasoning visual overview
+    image: "/assets/images/thumbnails/first-page/neural-interpretable-reasoning.jpg"
+    image_alt: First page of the paper
     image_side: right
     links:
     - label: Paper

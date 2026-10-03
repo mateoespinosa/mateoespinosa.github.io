@@ -43,6 +43,24 @@
 
     {% include scripts.html %}
 
+    <!--
+      MathJax 3. The previous build pointed at cdn.mathjax.org, which was retired
+      in 2017, and sat outside </body>. Kramdown renders $$...$$ as \( \) inline
+      and \[ \] display, so those are the delimiters that matter here.
+    -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]'], ['$$', '$$']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      };
+    </script>
+    <script id="MathJax-script" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
   </body>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </html>

@@ -37,8 +37,8 @@ sections:
     publication_type: conference
     featured_home: false
     tldr: >-
-      Argues that eliminating information leakage is self-defeating when concept sets are incomplete,
-      and that the right target is benign leakage rather than none at all.
+      Leakage in concept models is treated as a bug. When the concept set is incomplete, removing it
+      is what actually breaks them.
 
   - title: "Mixture of Concept Bottleneck Experts"
     url: https://arxiv.org/abs/2602.02886
@@ -88,8 +88,8 @@ sections:
     publication_type: conference
     featured_home: false
     tldr: >-
-      Introduces M-CBE, which generalizes CBMs by letting the task predictor combine several expert
-      expressions whose functional form is learned rather than fixed in advance.
+      One fixed formula from concepts to task is a needless constraint. M-CBE learns a mixture of
+      expert expressions instead.
 
   - title: "CB-SLICE: Concept-Based Interpretable Error Slice Discovery"
     url: https://arxiv.org/abs/2605.29836
@@ -125,8 +125,7 @@ sections:
     publication_type: conference
     featured_home: false
     tldr: >-
-      Introduces CB-SLICE, which groups samples by shared concept prediction failures to surface error
-      slices and name the concepts responsible for each one.
+      Finds the groups a model systematically fails on, and names the concept behind each failure.
 
   - title: Hierarchical Concept-based Interpretable Models
     url: https://arxiv.org/abs/2602.23947
@@ -163,8 +162,8 @@ sections:
     publication_type: conference
     featured_home: false
     tldr: >-
-      Introduces HiCEMs for modeling concept relationships hierarchically and Concept Splitting for
-      discovering fine-grained sub-concepts without additional annotations.
+      Concepts are not a flat list. HiCEMs model them as a hierarchy and split them into finer sub-
+      concepts with no extra labels.
 
   - title: 'Deferring Concept Bottleneck Models: Learning to Defer Interventions to Inaccurate Experts'
     url: https://arxiv.org/abs/2503.16199
@@ -219,8 +218,8 @@ sections:
       url: https://pages.di.unipi.it/bacciu/
     publication_type: conference
     tldr: >-
-      We show how to construct models that can defer both task and concept predictions to human
-      experts when they are uncertain about them.
+      When the model is unsure, it should say so. These CBMs hand both concept and task calls back to
+      a human.
 
   - title: 'Avoiding Leakage Poisoning: Concept Interventions Under Distribution Shifts'
     url: https://arxiv.org/abs/2504.17921
@@ -268,8 +267,8 @@ sections:
     publication_type: conference
     featured_home: true
     tldr: >-
-      We show that concept leakage can lead to faulty interventions in out-of-distribution settings.
-      Then, we introduce a new representation decomposition to prevent this.
+      Under distribution shift, leakage quietly poisons concept interventions. A different
+      representation split prevents it.
 
   - title: Addressing Concept Mislabeling in Concept Bottleneck Models Through Preference
       Optimization
@@ -313,8 +312,8 @@ sections:
       suffix: "*"
     publication_type: conference
     tldr: >-
-      Proposes CPO, a preference-based objective that makes CBMs robust to noisy or incorrect concept
-      labels.
+      Concept labels are often wrong. CPO is a preference-based objective that trains through the
+      noise.
 
   - title: Causal Concept Graph Models
     url: https://arxiv.org/abs/2405.16507
@@ -361,8 +360,8 @@ sections:
       url: https://search.usi.ch/en/people/c543f5bfc3f21587b8b79dee8ce84a93/langheinrich-marc
     publication_type: conference
     tldr: >-
-      We introduce a concept bottleneck architecture that models concept dependencies with a causal
-      graph for more reliable concept-level reasoning.
+      Concepts depend on each other. Wiring those dependencies into a causal graph makes concept-level
+      reasoning hold up.
 
   - title: Efficient Bias Mitigation Without Privileged Information
     url: https://arxiv.org/abs/2409.17691
@@ -412,8 +411,7 @@ sections:
     publication_type: conference
     featured_home: true
     tldr: >-
-      We show that model selection for unsupervised bias mitigation yields biased models unless
-      privileged information (e.g., group labels) is available, then propose a mechanism that needs
+      Unsupervised debiasing still leans on group labels when you pick the model. This one needs
       neither.
 
   - title: Understanding Inter-Concept Relationships in Concept-Based Models
@@ -454,8 +452,8 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     tldr: >-
-      Shows many concept models miss stable inter-concept structure and introduces a method improving
-      intervention accuracy.
+      Most concept models never learn how concepts relate. Recovering that structure makes
+      interventions land.
 
   - title: 'Learning to Receive Help: Intervention-Aware Concept Embedding Models'
     url: https://arxiv.org/abs/2309.16928
@@ -500,8 +498,8 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     tldr: >-
-      Introduces IntCEM, which learns intervention policies during training to better exploit test-
-      time concept corrections.
+      If a model will be corrected at test time, it should train for it. IntCEM learns which
+      corrections to ask for.
 
   - title: Interpretable Neural-Symbolic Concept Reasoning
     url: https://arxiv.org/abs/2304.14068
@@ -548,8 +546,7 @@ sections:
       url: https://www.giuseppemarra.com/
     publication_type: conference
     tldr: >-
-      Proposes DCR, a differentiable neural-symbolic model that builds explicit logic rules over
-      concept truth values.
+      A differentiable model that writes its own logic rules over concept truth values.
 
   - title: Human Uncertainty in Concept-Based AI Systems
     url: https://arxiv.org/abs/2303.12872
@@ -596,8 +593,7 @@ sections:
       url: https://dj-research.netlify.app/
     publication_type: conference
     tldr: >-
-      We show that uncertainty-aware training improves robustness in real-world human-AI
-      collaboration.
+      Real annotators hedge. Models trained on that uncertainty survive contact with real users.
 
   - title: Towards Robust Metrics For Concept Representation Evaluation
     url: https://arxiv.org/abs/2301.10367
@@ -652,8 +648,8 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: conference
     tldr: >-
-      Introduces robust metrics for concept purity and interventions, showing disentanglement scores
-      can mislead concept evaluation.
+      Disentanglement scores say little about concept quality. These metrics measure purity and
+      intervenability directly.
 
   - title: 'Concept Embedding Models: Beyond the Accuracy-Explainability Trade-Off'
     url: https://arxiv.org/abs/2209.09056
@@ -718,8 +714,8 @@ sections:
     publication_type: conference
     featured_home: true
     tldr: >-
-      We introduce concept embeddings to construct accurate deep neural networks that are both
-      interpretable and intervenable, even when concept supervision is incomplete.
+      You do not have to trade accuracy for interpretability. Concept embeddings keep both, even on an
+      incomplete concept set.
 
   - title: An Open-Source Benchmark Suite for Microservices and Their Hardware-Software
       Implications for Cloud & Edge Systems
@@ -771,7 +767,8 @@ sections:
     - name: Christina Delimitrou
     publication_type: conference
     tldr: >-
-      Presents DeathStarBench, a comprehensive microservice benchmark suite.
+      DeathStarBench: an open suite of end-to-end microservice applications for benchmarking real
+      systems.
 
 - id: journal-publications
   title: Journal Publications
@@ -814,8 +811,7 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: journal
     tldr: >-
-      Evaluates whether concept predictors use relevant features, finding locality failures and
-      proposing diagnostic metrics.
+      Concept predictors often read the wrong part of the input. Metrics to catch them when they do.
 
   - title: 'TabCBM: Concept-based Interpretable Neural Networks for Tabular Data'
     url: https://openreview.net/pdf?id=TIsrnWpjQ0
@@ -863,8 +859,7 @@ sections:
       suffix: "*"
     publication_type: journal
     tldr: >-
-      Defines high-level concepts for tabular domains and introduces TabCBM for interpretable,
-      intervention-ready predictions.
+      What counts as a concept in tabular data, and a model that discovers them.
 
   - title: Unveiling the Hardware and Software Implications of Microservices in Cloud
       and Edge Systems
@@ -916,8 +911,7 @@ sections:
     - name: Christina Delimitrou
     publication_type: journal
     tldr: >-
-      Synthesizes system-level implications of microservices and introduces DeathStarBench as a
-      representative interactive benchmark.
+      What microservices do to hardware, systems design, and the assumptions behind both.
 
 - id: workshop-publications
   title: Workshop Publications
@@ -961,8 +955,7 @@ sections:
       url: https://www.giuseppemarra.com/
     publication_type: workshop
     tldr: >-
-      Argues that actionable definitions of interpretability must be stated as symmetries, and
-      proposes four that formalize interpretable models as a subclass of probabilistic models.
+      Interpretability only becomes testable once you state it as symmetries. We propose four.
 
   - title: "Don't Lose Focus: Activation Steering via Key-Orthogonal Projections"
     url: https://arxiv.org/abs/2605.06342
@@ -996,8 +989,8 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: workshop
     tldr: >-
-      Shows that activation steering degrades reasoning by rerouting attention, and introduces SKOP to
-      preserve attention on the tokens the model relies on.
+      Steering an LLM drags its attention off the tokens it needs. SKOP steers without that side
+      effect.
 
   - title: 'Digging Deeper: Learning Multi-Level Concept Hierarchies'
     url: https://arxiv.org/abs/2603.10084
@@ -1034,8 +1027,7 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: workshop
     tldr: >-
-      Extends HiCEMs to discover multi-level concept hierarchies, enabling fine-grained test-time
-      concept interventions.
+      Learns concept hierarchies several levels deep, so interventions can be far finer-grained.
 
   - title: Efficient Decompositional Rule Extraction for Deep Neural Networks
     url: https://arxiv.org/abs/2111.12628
@@ -1078,8 +1070,7 @@ sections:
       url: https://www.cl.cam.ac.uk/~mj201
     publication_type: workshop
     tldr: >-
-      Introduces ECLAIRE, a polynomial-time rule extractor that scales to large DNNs while producing
-      accurate, readable rules.
+      ECLAIRE pulls readable rules out of large networks in polynomial time.
 
 - id: preprint-publications
   title: Preprints
@@ -1158,8 +1149,7 @@ sections:
       url: https://www.giuseppemarra.com/
     publication_type: preprint
     tldr: >-
-      Proposes a general and actionable definition of interpretability, and derives from it a
-      blueprint and an open-source library for designing interpretable models.
+      A definition of interpretability you can actually design against, plus a library that does.
 
   - title: Neural Interpretable Reasoning and Causal Inference
     url: https://arxiv.org/abs/2502.11639
@@ -1202,8 +1192,7 @@ sections:
       url: https://www.francescogiannini.eu/
     publication_type: preprint
     tldr: >-
-      Formalizes interpretability as inference equivariance and shows how neural re-parametrization
-      makes verifying it tractable.
+      Treats interpretability as inference equivariance, which is what makes checking it tractable.
 
 - id: thesis-publications
   title: Theses
@@ -1235,5 +1224,5 @@ sections:
       me: true
     publication_type: thesis
     tldr: >-
-      My PhD thesis, on relaxing four unrealistic assumptions behind concept interventions so that
-      experts can reliably correct models at test time.
+      My PhD thesis: the four assumptions that stop concept interventions working in practice, and how
+      to drop each one.

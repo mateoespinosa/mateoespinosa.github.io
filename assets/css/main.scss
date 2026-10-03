@@ -160,16 +160,18 @@ select:focus-visible,
   border-radius: var(--radius);
 }
 
-.page__content {
-  p, li { font-size: inherit; }
-
+// The home layout puts its content in `.archive` rather than `.page__content`,
+// so both containers need the measure.
+.page__content,
+.archive {
   p, ul, ol, dl {
     max-width: var(--measure);
   }
 }
 
 // Let the publication list and other full-width blocks out of the text measure.
-.page__content {
+.page__content,
+.archive {
   .pub-list,
   .pub-browser,
   .featured-pubs,
@@ -293,10 +295,13 @@ hr {
   padding: 4em 0 2.5em;
 }
 
-// The Yellowstone panorama is bright sky across its top third, so the title is
-// dropped onto the darker ground below it where white type actually reads.
+// The panorama is bright across most of its height, so the hero carries an
+// overlay_filter scrim (set in index.html) and the white title gets a heavier
+// shadow than the theme's default.
 .layout--home .page__hero--overlay .page__title {
   margin-top: 4.5rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 .page__title,
@@ -516,7 +521,6 @@ table {
 // That one does want an edge, so it reads as a sheet of paper.
 .pub__fig--page img {
   border: 1px solid var(--rule);
-  box-shadow: 0 1px 4px rgba(16, 28, 44, 0.08);
 }
 
 // A paper with no teaser yet drops the slot entirely rather than showing an
@@ -533,10 +537,10 @@ table {
   display: block;
   margin-bottom: var(--space-1);
   font-family: $serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.004em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.006em;
   color: var(--ink);
   text-decoration: none;
 
@@ -551,8 +555,9 @@ table {
 
 .pub__authors {
   margin: 0 0 0.15rem;
-  font-size: 0.87rem;
-  line-height: 1.5;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
   color: var(--muted);
 
   a, a:visited { color: inherit; text-decoration: none; }
@@ -910,10 +915,10 @@ table {
 
 .news-item {
   display: grid;
-  grid-template-columns: minmax(0, 8.5rem) 1fr;
-  gap: 0.2rem var(--space-4);
+  grid-template-columns: minmax(0, 6.6rem) 1fr;
+  gap: 0.1rem var(--space-3);
   align-items: baseline;
-  padding: var(--space-3) 0;
+  padding: 0.38rem 0;
   border-top: 1px solid var(--rule-soft);
 
   &:first-child { border-top: 0; }
@@ -922,8 +927,8 @@ table {
   // register from the body copy above it rather than as more prose.
   p {
     margin: 0;
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: 0.76rem;
+    line-height: 1.42;
     color: var(--muted);
   }
 
@@ -932,9 +937,9 @@ table {
 
 .news-date {
   font-family: $sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.67rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--faint);
   font-variant-numeric: tabular-nums;
@@ -1234,7 +1239,8 @@ mjx-container[display="true"] mjx-math {
 // `!important`.
 // ===========================================================================
 
-.page__content {
+.page__content,
+.archive {
   .section-heading,
   .content-section-heading {
     margin: var(--space-6) 0 var(--space-3);
@@ -1255,8 +1261,8 @@ mjx-container[display="true"] mjx-math {
 
   .news-item p {
     margin: 0;
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: 0.76rem;
+    line-height: 1.42;
     color: var(--muted);
   }
 
@@ -1264,6 +1270,19 @@ mjx-container[display="true"] mjx-math {
   .pub__tldr { margin: var(--space-2) 0 0; }
   .supervision-meta { margin: 0.1rem 0 0; }
   .link-row { margin: var(--space-2) 0 0; }
+
+  // Sizes too: `.page__content p` is element+class and outranks a lone
+  // component class, which silently reset all of these to body size.
+  .pub__authors { font-size: 0.78rem; line-height: 1.45; }
+  .pub__venue { font-size: 0.84rem; }
+  .pub__also { font-size: 0.79rem; }
+  .pub__tldr { font-size: 0.9rem; }
+  .featured-pub__venue { font-size: 0.76rem; }
+  .featured-pub__tldr { font-size: 0.88rem; }
+  .teaching-meta { font-size: 0.84rem; }
+  .supervision-name { font-size: 0.97rem; }
+  .supervision-meta { font-size: 0.84rem; }
+  .pub-status__count { font-size: 0.82rem; }
 
   .featured-pub__title { margin: 0 0 0.2rem; font-size: 1.08rem; }
   .teaching-title { margin: 0 0 0.1rem; font-size: 1rem; }
@@ -1319,6 +1338,10 @@ mjx-container[display="true"] mjx-math {
   .section-heading,
   .content-section-heading { font-size: 1.36rem; }
 }
+
+// Running text gets a wider measure once the viewport can carry it.
+@media (min-width: 1200px) { :root { --measure: 76ch; } }
+@media (min-width: 1440px) { :root { --measure: 82ch; } }
 
 @media (max-width: 900px) {
   .pub {

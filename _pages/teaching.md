@@ -12,6 +12,13 @@ header:
   image_description: "Baños de Agua Santa, Tungurahua, Ecuador"
 ---
 
+A record of the teaching I have done and the students I have had the pleasure of
+supervising: conference tutorials on concept-based interpretability, lecturing and
+supervising at Cambridge and Oxford, and a few years as a teaching assistant at
+Cornell before that. If you are a student looking for a project in interpretable
+AI, feel free to [get in touch]({{ site.baseurl }}/contact/).
+{: .text-justify}
+
 {% if site.data.teaching.conference_tutorials and site.data.teaching.conference_tutorials.size > 0 %}
 <h2 class="section-heading">{{ site.data.teaching.conference_tutorials_heading | default: "Conference Tutorials" }}</h2>
 

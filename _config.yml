@@ -70,6 +70,7 @@ social:
     - https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en
     - https://github.com/mateoespinosa
     - https://linkedin.com/in/mateoespinosa
+    - https://x.com/mateoespinosaz
 
 # Analytics
 analytics:
@@ -96,6 +97,9 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/mateoespinosa"
+    - label: "X"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://x.com/mateoespinosaz"
 
 #Site header
 header:
@@ -113,6 +117,9 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/mateoespinosa"
+    - label: "X"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://x.com/mateoespinosaz"
 
 
 # Reading Files

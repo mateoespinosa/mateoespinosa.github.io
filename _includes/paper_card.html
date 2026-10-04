@@ -15,8 +15,35 @@
 {% capture paper_tags %}{% if paper.tags %}{{ paper.tags | join: "|" }}{% endif %}{% endcapture %}
 {% capture paper_authors_plain %}{% for author in paper.authors %}{{ author.name }} {% endfor %}{% endcapture %}
 
-{% assign first_author = paper.authors[0].name | default: "unknown" %}
-{% capture bib_key %}{{ first_author | split: " " | last | downcase | replace: "'", "" }}{{ paper.year }}{{ paper.title | split: " " | first | downcase | replace: ":", "" | replace: ",", "" | replace: "'", "" }}{% endcapture %}
+{%- comment -%}
+  BibTeX. `ob`/`cb` stand in for literal braces, which Liquid cannot emit
+  directly. Titles are double-braced so styles that lowercase titles still
+  preserve acronyms (CB-SLICE, ICML, TabCBM), and the LaTeX-special characters
+  that occur in these fields are escaped.
+{%- endcomment -%}
+{%- assign ob = '{' -%}
+{%- assign cb = '}' -%}
+
+{%- comment -%}
+  Liquid's `replace` is Ruby's gsub, where `\&` in the replacement means "the
+  whole match" - so '\&' silently yields a bare &. Two backslashes emit one.
+{%- endcomment -%}
+{%- assign bib_title = paper.title | replace: '&', '\\&' | replace: '%', '\\%' | replace: '#', '\\#' | replace: '_', '\\_' -%}
+{%- capture bib_authors %}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endcapture -%}
+{%- assign bib_venue = paper.venue_display | default: paper.venue_short -%}
+
+{%- comment -%} key = first author's surname + year + first meaningful title word {%- endcomment -%}
+{%- assign stopwords = 'a,an,the,in,on,of,do,does,is,are,to,for,and,with,from' | split: ',' -%}
+{%- assign title_words = paper.title | downcase | replace: ':', '' | replace: ',', '' | replace: '?', '' | replace: "'", '' | replace: '(', '' | replace: ')', '' | split: ' ' -%}
+{%- assign key_word = '' -%}
+{%- for w in title_words -%}
+  {%- unless stopwords contains w -%}
+    {%- if key_word == '' -%}{%- assign key_word = w -%}{%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- if key_word == '' -%}{%- assign key_word = 'paper' -%}{%- endif -%}
+{%- assign bib_surname = paper.authors[0].name | default: 'unknown' | split: ' ' | last | downcase | replace: "'", '' -%}
+{%- capture bib_key -%}{{ bib_surname }}{{ paper.year }}{{ key_word }}{%- endcapture -%}
 
 <article
   class="pub"
@@ -92,27 +119,30 @@
 
     <details class="pub__cite">
       <summary>BibTeX</summary>
-      <pre><code>{% case paper.publication_type %}{% when 'journal' %}@article{{ '{' }}{{ bib_key }},
-  title   = {{ '{' }}{{ paper.title }}},
-  author  = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
-  journal = {{ '{' }}{{ paper.venue_short }}},
-  year    = {{ '{' }}{{ paper.year }}}
-}{% when 'preprint' %}@article{{ '{' }}{{ bib_key }},
-  title   = {{ '{' }}{{ paper.title }}},
-  author  = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
-  journal = {arXiv preprint},
-  year    = {{ '{' }}{{ paper.year }}}
-}{% when 'thesis' %}@phdthesis{{ '{' }}{{ bib_key }},
-  title  = {{ '{' }}{{ paper.title }}},
-  author = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
-  school = {{ '{' }}{{ paper.venue }}},
-  year   = {{ '{' }}{{ paper.year }}}
-}{% else %}@inproceedings{{ '{' }}{{ bib_key }},
-  title     = {{ '{' }}{{ paper.title }}},
-  author    = {{ '{' }}{% for author in paper.authors %}{{ author.name }}{% unless forloop.last %} and {% endunless %}{% endfor %}},
-  booktitle = {{ '{' }}{{ paper.venue_short }}},
-  year      = {{ '{' }}{{ paper.year }}}
+      <div class="pub__cite-box">
+<pre><code>{% case paper.publication_type %}{% when 'journal' %}@article{{ ob }}{{ bib_key }},
+  title   = {{ ob }}{{ ob }}{{ bib_title }}{{ cb }}{{ cb }},
+  author  = {{ ob }}{{ bib_authors }}{{ cb }},
+  journal = {{ ob }}{{ bib_venue }}{{ cb }},
+  year    = {{ ob }}{{ paper.year }}{{ cb }}
+}{% when 'preprint' %}@article{{ ob }}{{ bib_key }},
+  title   = {{ ob }}{{ ob }}{{ bib_title }}{{ cb }}{{ cb }},
+  author  = {{ ob }}{{ bib_authors }}{{ cb }},
+  journal = {{ ob }}arXiv preprint{{ cb }},
+  year    = {{ ob }}{{ paper.year }}{{ cb }}
+}{% when 'thesis' %}@phdthesis{{ ob }}{{ bib_key }},
+  title  = {{ ob }}{{ ob }}{{ bib_title }}{{ cb }}{{ cb }},
+  author = {{ ob }}{{ bib_authors }}{{ cb }},
+  school = {{ ob }}{{ paper.venue }}{{ cb }},
+  year   = {{ ob }}{{ paper.year }}{{ cb }}
+}{% else %}@inproceedings{{ ob }}{{ bib_key }},
+  title     = {{ ob }}{{ ob }}{{ bib_title }}{{ cb }}{{ cb }},
+  author    = {{ ob }}{{ bib_authors }}{{ cb }},
+  booktitle = {{ ob }}{{ bib_venue }}{{ cb }},
+  year      = {{ ob }}{{ paper.year }}{{ cb }}
 }{% endcase %}</code></pre>
+        <button type="button" class="pub__cite-copy" data-copy-bibtex>Copy</button>
+      </div>
     </details>
   </div>
 </article>

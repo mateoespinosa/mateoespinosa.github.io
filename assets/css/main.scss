@@ -55,6 +55,7 @@ $type-size-8 : 0.694em !default;
   --accent-wash: #eaf0f7;
 
   --honor: #8a4228; // spotlights, orals, best-paper candidates
+  --good: #2f6b55;  // confirmation states (e.g. "Copied")
 
   --ground: #ffffff;
   --surface: #ffffff;
@@ -64,7 +65,10 @@ $type-size-8 : 0.694em !default;
   --rule-soft: #e7ecf2;
 
   --radius: 3px;
-  --measure: 70ch;
+  // Text column. Deliberately rem, not ch: `ch` resolves against each
+  // element's own font, so equations and code blocks would land on a
+  // different width from the prose they sit between.
+  --measure: 34.8rem;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -88,6 +92,7 @@ $type-size-8 : 0.694em !default;
   --accent-wash: #1c2b3d;
 
   --honor: #dc9a80;
+  --good: #85c4a8;
 
   --ground: #11161d;
   --surface: #1a212b;
@@ -331,6 +336,13 @@ hr {
 
 .layout--home .page__hero--overlay .page__title {
   margin-top: 4.5rem;
+}
+
+// On the home page every block - headings, featured publications, news, recent
+// posts - sits inside the same column as the running text, so nothing reaches
+// past the paragraph above it.
+.layout--home .archive {
+  max-width: var(--measure);
 }
 
 .page__title,
@@ -686,8 +698,9 @@ table {
   &[open] summary::before { content: "– "; }
 
   pre {
-    margin: var(--space-2) 0 0;
+    margin: 0;
     padding: var(--space-3);
+    padding-right: 4.5rem; // room for the copy button
     background: var(--surface-sunk);
     border: 1px solid var(--rule-soft);
     border-radius: var(--radius);
@@ -695,6 +708,42 @@ table {
     line-height: 1.55;
     color: var(--muted);
     overflow-x: auto;
+  }
+}
+
+.pub__cite-box {
+  position: relative;
+  margin-top: var(--space-2);
+  max-width: var(--measure);
+}
+
+.pub__cite-copy {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: $sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  cursor: pointer;
+
+  &:hover { color: var(--accent); border-color: var(--accent); }
+
+  &.is-copied {
+    color: var(--good, #2f6b55);
+    border-color: currentColor;
+  }
+
+  &.is-failed {
+    color: var(--honor);
+    border-color: currentColor;
   }
 }
 
@@ -1195,11 +1244,13 @@ table {
 
 mjx-container[display="true"] {
   display: block;
+  // Same column as the running text, so a display equation is centred against
+  // the paragraph above it rather than against the whole content box.
+  max-width: var(--measure);
   margin: 1.4em 0 !important;
   text-align: center;
   overflow-x: auto;
   overflow-y: hidden;
-  max-width: 100%;
 }
 
 mjx-container[display="true"] mjx-math {
@@ -1209,6 +1260,25 @@ mjx-container[display="true"] mjx-math {
 
 // Pre-typeset fallback: the raw \[ ... \] kramdown emits sits on its own line.
 .page__content p > mjx-container:only-child { margin: 1.4em 0 !important; }
+
+// ===========================================================================
+// Code blocks
+//
+// Fenced code and highlighted blocks end on the same margins as the prose
+// around them; long lines scroll inside the block rather than widening it.
+// ===========================================================================
+
+.page__content,
+.archive {
+  pre,
+  .highlight,
+  .highlighter-rouge,
+  figure.highlight,
+  div[class^="language-"] {
+    max-width: var(--measure);
+    overflow-x: auto;
+  }
+}
 
 // ===========================================================================
 // Sidenotes (long-form posts)
@@ -1376,8 +1446,8 @@ mjx-container[display="true"] mjx-math {
 }
 
 // Running text gets a wider measure once the viewport can carry it.
-@media (min-width: 1200px) { :root { --measure: 76ch; } }
-@media (min-width: 1440px) { :root { --measure: 82ch; } }
+@media (min-width: 1200px) { :root { --measure: 37.8rem; } }
+@media (min-width: 1440px) { :root { --measure: 40.8rem; } }
 
 @media (max-width: 900px) {
   .pub {

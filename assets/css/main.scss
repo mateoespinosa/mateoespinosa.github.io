@@ -182,14 +182,14 @@ select:focus-visible,
 }
 
 // /research/ only (the `research-page` class comes from that page's front
-// matter). Its publication list runs the full width of the content column, so
-// the intro text above it is widened to match - otherwise the prose stops
-// ~210px short of the list and the two left edges agree while the right ones
-// do not.
-.research-page .page__content {
-  p, ul, ol, dl {
-    max-width: none;
-  }
+// matter). Elsewhere the publication list is let out to the full content
+// column; here it is pulled back to the text measure instead, so the intro
+// prose keeps the same width it has on every other page and the list lines up
+// underneath it. Carries `.research-page` for specificity: the block below
+// releases `.pub-browser` at (0,2,0), which would otherwise win on source
+// order.
+.research-page .page__content .pub-browser {
+  max-width: var(--measure);
 }
 
 // Component text sits on short lines, where justification looks broken.

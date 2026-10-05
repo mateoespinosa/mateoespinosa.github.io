@@ -31,6 +31,9 @@ sections:
     - label: Code
       url: https://github.com/mateoespinosa/cem
       kind: code
+    - label: Proceedings
+      url: https://proceedings.mlr.press/v306/espinosa-zarlenga26a.html
+      kind: proceedings
     authors:
     - name: Mateo Espinosa Zarlenga
       me: true
@@ -64,6 +67,9 @@ sections:
     - label: Code
       url: https://github.com/francescoTheSantis/Mixture-of-CB-Experts
       kind: code
+    - label: Proceedings
+      url: https://proceedings.mlr.press/v306/de-santis26a.html
+      kind: proceedings
     authors:
     - name: Francesco De Santis
       url: https://scholar.google.com/citations?user=psiXFqIAAAAJ&hl=it
@@ -113,6 +119,9 @@ sections:
     - label: Code
       url: https://github.com/yaelkon/CB-SLICE
       kind: code
+    - label: Proceedings
+      url: https://proceedings.mlr.press/v306/konforti26a.html
+      kind: proceedings
     authors:
     - name: Yael Konforti
       url: https://scholar.google.com/citations?user=w6Oa5fgAAAAJ&hl=en
@@ -980,6 +989,9 @@ sections:
     - label: Paper
       url: https://arxiv.org/abs/2605.06342
       kind: paper
+    - label: Code
+      url: https://github.com/clarenceluo78/skop-steering
+      kind: code
     authors:
     - name: Haoyan Luo
       url: https://clarenceluo78.github.io/
@@ -1136,6 +1148,9 @@ sections:
     - label: Paper
       url: https://arxiv.org/abs/2508.00545
       kind: paper
+    - label: Code
+      url: https://github.com/pyc-team/pytorch_concepts
+      kind: code
     authors:
     - name: Pietro Barbiero
       url: https://www.pietrobarbiero.eu

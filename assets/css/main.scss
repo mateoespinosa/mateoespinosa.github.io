@@ -341,8 +341,23 @@ hr {
 // On the home page every block - headings, featured publications, news, recent
 // posts - sits inside the same column as the running text, so nothing reaches
 // past the paragraph above it.
+//
+// The cap goes on the children, not on `.archive` itself: the theme floats
+// `.archive` right, so capping its own width pulls the whole column over to
+// the right edge and opens a gap after the profile sidebar. Interior pages cap
+// the children of a full-width `.page` instead, and this keeps the home column
+// starting at the same gutter as every other page.
 .layout--home .archive {
-  max-width: var(--measure);
+  max-width: none;
+
+  > *,
+  > section > *,
+  .featured-pubs,
+  .news-panel,
+  .entries-list,
+  .archive__subtitle {
+    max-width: var(--measure);
+  }
 }
 
 .page__title,
@@ -1484,9 +1499,14 @@ mjx-container[display="true"] mjx-math {
   // On one column there is no rail to align to, so every year is shown.
   .pub--year-repeat .pub__year > span { visibility: visible; }
 
-  .pub__fig {
-    max-width: 13rem;
-    aspect-ratio: 16 / 9;
+  // Teaser figures are dropped on phones. A first-page scan shrunk to a
+  // phone column is unreadable, and at ~25 lines of height apiece they put
+  // most of the publication list below the fold for no information gained.
+  // They are decorative here - `aria-hidden`, `tabindex="-1"` - so nothing
+  // is lost to assistive tech either.
+  .pub__fig,
+  .featured-pub__fig {
+    display: none;
   }
 
   .featured-pub {
@@ -1494,15 +1514,76 @@ mjx-container[display="true"] mjx-math {
     gap: var(--space-2) 0;
   }
 
-  .featured-pub__fig,
   .featured-pub__body {
     grid-column: 1;
   }
 
-  .featured-pub__fig { max-width: 14rem; }
-
   .news-item {
     grid-template-columns: 1fr;
     gap: 0.1rem 0;
+  }
+}
+
+// Justification needs room. On a phone column the lines are short enough that
+// `text-align: justify` opens visible rivers between words - worst on lines
+// carrying a long link - and `hyphens: auto` breaks several words per
+// paragraph. Below tablet width the prose reads ragged-right instead.
+@media (max-width: 700px) {
+  .page__content,
+  .archive {
+    p {
+      text-align: left;
+      hyphens: manual;
+    }
+  }
+}
+
+// Touch targets. On a mouse-driven screen a 23x15px icon button is fine; on a
+// finger it is not. `hover: none` + `pointer: coarse` matches touch devices
+// specifically, so none of this changes the desktop metrics. The masthead
+// controls go to the full 44px recommendation since they are the site's
+// primary navigation; the inline disclosures settle at a smaller figure that
+// does not stretch a 26-entry publication list out of shape.
+@media (hover: none) and (pointer: coarse) {
+  .theme__toggle,
+  .search__toggle,
+  .greedy-nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 44px;
+  }
+
+  .pub__summary > summary,
+  .pub__cite > summary,
+  .older-news > summary,
+  .pub-filters-more > summary {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+  }
+
+  .pub-chip {
+    min-height: 36px;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .pub__cite-copy {
+    min-width: 56px;
+    min-height: 32px;
+  }
+}
+
+// The masthead controls are flex siblings of the site title, so growing them
+// for touch squeezes the title until it wraps onto a second line. From 360px
+// up there is still room to keep it on one; below that (iPhone SE and
+// narrower) let it wrap, which is tidier than running it under the icons.
+@media (hover: none) and (pointer: coarse) and (min-width: 360px) {
+  .greedy-nav .site-title {
+    white-space: nowrap;
+    flex: 0 1 auto;
+    min-width: 0;
   }
 }

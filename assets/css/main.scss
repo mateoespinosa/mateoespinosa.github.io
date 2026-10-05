@@ -305,9 +305,41 @@ hr {
 .author__bio,
 .author__urls li { color: var(--muted); }
 
-// Interior pages get a thin band instead of a 240px photographic hero, which
-// used to push the actual content below the fold. The home page keeps a
-// taller one.
+// `author.home` in _config.yml makes the theme wrap the avatar and the name in
+// links back to the home page. Neither should pick up the global link palette
+// - they are the same text as before, just clickable - so they carry the ink
+// colour and lean on a hover tint for the affordance.
+.author__avatar a,
+.author__content a {
+  color: inherit;
+  text-decoration: none;
+
+  &:visited { color: inherit; }
+}
+
+.author__content a:hover .author__name,
+.author__content a:focus-visible .author__name {
+  color: var(--accent);
+}
+
+// The link wraps a block image, so give it a block box rather than leaving an
+// inline one around it.
+.author__avatar a { display: block; }
+
+// The dark-theme block further down sets `.author__avatar img { border-color:
+// var(--rule) }`, and it compiles to `:root[data-theme="dark"] body
+// .author__avatar img` - (0,3,2), since `:root` counts as a class. That ties
+// with `.sidebar .author__avatar a:hover img` and wins on source order, so the
+// dark case has to be spelled out rather than inherited from the token.
+.sidebar .author__avatar a:hover img,
+.sidebar .author__avatar a:focus-visible img,
+:root[data-theme="dark"] .sidebar .author__avatar a:hover img,
+:root[data-theme="dark"] .sidebar .author__avatar a:focus-visible img {
+  border-color: var(--accent);
+}
+
+// Every page gets a thin band instead of a 240px photographic hero, which used
+// to push the actual content below the fold.
 .page__hero--overlay {
   min-height: 150px;
   padding: 2.5em 0;

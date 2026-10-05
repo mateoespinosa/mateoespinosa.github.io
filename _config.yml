@@ -85,6 +85,9 @@ author:
   name             : "Mateo Espinosa Zarlenga"
   avatar           : "assets/images/me.png"
   bio              : "JRF @ Oxford &#124; PhD @ Cambridge"
+  # Makes the sidebar avatar and name link somewhere; the theme's
+  # author-profile.html wraps both in an <a> whenever this is set.
+  home             : "/"
   location         : "Oxford, UK"
   email            : "mateoespinosaz2@gmail.com"
   links:

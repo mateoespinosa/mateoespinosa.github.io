@@ -3,7 +3,9 @@ title: "Research"
 permalink: /research/
 layout: single
 author_profile: true
-classes: wide
+classes:
+  - wide
+  - research-page
 comments: false
 description: "Research publications on interpretable AI, concept-based models, representation learning, and human-in-the-loop systems."
 excerpt: "Browse publications by venue, year, type, and topics."

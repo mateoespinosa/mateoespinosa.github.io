@@ -97,7 +97,7 @@
     <p class="pub__venue">
       <span class="pub__venue-name" title="{{ paper.venue | escape }}">{{ venue_label | strip }}</span>
       {%- if paper.note and paper.note != '' %} · {{ paper.note }}{% endif -%}
-      {%- if paper.honor and paper.honor != '' %} <span class="pub__honor">{{ paper.honor }}</span>{% endif -%}
+      {%- if paper.honor and paper.honor != '' %} · <span class="pub__honor">{{ paper.honor }}</span>{% endif -%}
     </p>
 
     {% if paper.also and paper.also != '' %}

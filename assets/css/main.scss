@@ -316,7 +316,8 @@ hr {
   .page__lead { font-size: $type-size-5; }
 }
 
-.layout--home .page__hero--overlay,
+// Opt-in only, via `page__hero--tall`. The home page used to take this too,
+// which made its banner more than twice the height of every other page's.
 .page__hero--overlay.page__hero--tall {
   min-height: 340px;
   padding: 4em 0 2.5em;
@@ -332,10 +333,6 @@ hr {
     color: #fff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
   }
-}
-
-.layout--home .page__hero--overlay .page__title {
-  margin-top: 4.5rem;
 }
 
 // On the home page every block - headings, featured publications, news, recent
@@ -948,10 +945,19 @@ table {
 
 .featured-pub__fig {
   grid-column: 1;
-  align-self: center;
+  // `stretch`, not `center`: the box then spans the row and the image is
+  // centred inside it, so the thumbnail sits on the row's midline whichever
+  // of the two columns is taller.
+  align-self: stretch;
   display: flex;
   align-items: center;
   justify-content: center;
+  // Reserve the slot. The <img> carries no width/height attributes, so until
+  // it decodes the box has no height at all - the row collapses and then
+  // jumps when the image lands, which is what makes an otherwise centred
+  // thumbnail look misplaced on first paint. (The home card also loads
+  // eagerly now; this still covers a slow or failed image.)
+  min-height: 6.5rem;
 
   img {
     display: block;

@@ -5,10 +5,15 @@
   {% capture venue_label %}{{ paper.venue_short }} {{ paper.year }}{% endcapture %}
 {% endunless %}
 
+{%- comment -%}
+  The three teasers here are small and sit near the top of the home page, so
+  they load eagerly: lazy-loading them only means the row resizes as the
+  reader scrolls onto it. The 26 on /research/ stay lazy.
+{%- endcomment -%}
 <li class="featured-pub">
   {% if paper.image %}
   <a class="featured-pub__fig" href="{{ paper.url }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img loading="lazy" decoding="async" src="{{ paper.image }}" alt="{{ paper.image_alt | default: 'Publication teaser figure' }}">
+    <img decoding="async" src="{{ paper.image }}" alt="{{ paper.image_alt | default: 'Publication teaser figure' }}">
   </a>
   {% else %}
   <div class="featured-pub__fig featured-pub__fig--empty" aria-hidden="true"></div>

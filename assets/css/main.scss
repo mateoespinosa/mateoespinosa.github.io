@@ -1303,7 +1303,108 @@ mjx-container[display="true"] mjx-math {
 // ===========================================================================
 
 .page__content {
-  counter-reset: sidenote sidenote-note;
+  counter-reset: sidenote sidenote-note footnote;
+}
+
+// ---------------------------------------------------------------------------
+// Hover footnote (_includes/footnote.html)
+//
+// Marker is a real <button>, so the note opens on hover for a mouse, on focus
+// for a keyboard, and on tap for a touch screen - `:focus-within` covers the
+// last two with no JavaScript. The body is hidden with `opacity`, not
+// `visibility` or `display`, so it stays in the accessibility tree and the
+// marker's `aria-describedby` keeps working whether or not it is on screen.
+// ---------------------------------------------------------------------------
+
+// The theme runs an `intro` animation on both `#main` and `.page__footer`, and
+// a filled animation creates a stacking context. That makes the popover's
+// `z-index: 20` local to `#main`, so the footer - a later sibling at the same
+// level - painted straight over a note opened near the bottom of the page.
+// Lifting `#main` one step fixes it for every popover inside it. The masthead
+// sits at z-index 20 and stays above.
+#main {
+  position: relative;
+  z-index: 1;
+}
+
+.footnote {
+  position: relative;
+  display: inline;
+}
+
+.footnote__marker {
+  counter-increment: footnote;
+  -webkit-appearance: none;
+  appearance: none;
+  // A real box, not a zero-height one: this is a button, and `line-height: 0`
+  // plus `vertical-align: super` (what the non-interactive sidenote marker
+  // uses) leaves nothing to click. It is raised with relative positioning
+  // instead, which paints it as a superscript without growing the line box.
+  display: inline-block;
+  position: relative;
+  top: -0.45em;
+  padding: 0.1em 0.15em;
+  border: 0;
+  background: transparent;
+  cursor: help;
+  font-family: $sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+
+  &::after { content: counter(footnote); }
+  &:hover { color: var(--accent-strong); }
+}
+
+.footnote__body {
+  position: absolute;
+  top: 1.7em;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 20rem;
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(16, 28, 44, 0.14);
+  font-family: $sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.5;
+  // The surrounding prose is justified; a 20rem popover is not wide enough
+  // for that to look like anything but a mistake.
+  text-align: left;
+  hyphens: manual;
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.footnote:hover .footnote__body,
+.footnote:focus-within .footnote__body {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// On a phone the text column is the viewport, so a popover centred on the
+// marker runs off whichever edge the marker happens to be near. Dock it to
+// the bottom of the screen instead, where it always fits.
+@media (max-width: 700px) {
+  .footnote__body {
+    position: fixed;
+    top: auto;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+    transform: none;
+    width: auto;
+    max-width: none;
+    box-shadow: 0 -2px 24px rgba(16, 28, 44, 0.18);
+  }
 }
 
 .sidenote__marker {
@@ -1573,6 +1674,18 @@ mjx-container[display="true"] mjx-math {
   .pub__cite-copy {
     min-width: 56px;
     min-height: 32px;
+  }
+
+  // A footnote marker cannot grow to 44px without wrecking the line it sits
+  // in, so grow an invisible hit area around it instead.
+  .footnote__marker::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
   }
 }
 

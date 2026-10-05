@@ -1,0 +1,25 @@
+{%- comment -%}
+  Hover footnote: a numbered superscript marker that reveals its note in a
+  small popover. Use it inline, with no space before it, so the marker sits
+  tight against the word it annotates:
+
+      ... a machine learning hardware accelerator startup{% raw %}{% include footnote.html
+        text="Wafer-scale, in their case: one chip the size of a dinner plate." %}{% endraw %} in
+      the Silicon Valley.
+
+  Revealed on hover for a mouse, on focus for a keyboard, and on tap for a
+  touch screen - the marker is a real <button>, so `:focus-within` covers the
+  last two without any JavaScript. On a phone the popover docks to the bottom
+  of the screen rather than trying to centre itself on the marker, where it
+  would run off the edge.
+
+  The number comes from a CSS counter, so notes renumber themselves when you
+  add or move one. `id` is optional and only needed if two notes on the same
+  page carry identical text.
+
+  For a note that should always be visible rather than hidden behind a hover,
+  use sidenote.html instead. For one that belongs at the foot of the page,
+  kramdown's own `[^1]` syntax is already enabled in _config.yml.
+{%- endcomment -%}
+{%- assign fid = include.id | default: include.text | slugify | truncate: 48, '' | split: '-' | join: '-' -%}
+<span class="footnote"><button type="button" class="footnote__marker" aria-describedby="fn-{{ fid }}"><span class="visually-hidden">Footnote</span></button><span class="footnote__body" role="note" id="fn-{{ fid }}">{{ include.text }}</span></span>

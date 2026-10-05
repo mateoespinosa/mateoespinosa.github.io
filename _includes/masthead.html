@@ -23,10 +23,12 @@
             </li>
           {%- endfor -%}
         </ul>
+        {% if site.dark_mode %}
         <button class="theme__toggle" type="button" aria-pressed="false" title="Switch to dark theme">
           <span class="visually-hidden">Switch to dark theme</span>
           <i class="fas fa-moon" aria-hidden="true"></i>
         </button>
+        {% endif %}
         {% if site.search == true %}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>

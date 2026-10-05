@@ -16,11 +16,13 @@
 {% capture paper_authors_plain %}{% for author in paper.authors %}{{ author.name }} {% endfor %}{% endcapture %}
 
 {%- comment -%}
-  BibTeX. `ob`/`cb` stand in for literal braces, which Liquid cannot emit
+  BibTeX, rendered only when `show_bibtex` is on in _config.yml (off by
+  default). `ob`/`cb` stand in for literal braces, which Liquid cannot emit
   directly. Titles are double-braced so styles that lowercase titles still
   preserve acronyms (CB-SLICE, ICML, TabCBM), and the LaTeX-special characters
   that occur in these fields are escaped.
 {%- endcomment -%}
+{%- if site.show_bibtex -%}
 {%- assign ob = '{' -%}
 {%- assign cb = '}' -%}
 
@@ -44,6 +46,7 @@
 {%- if key_word == '' -%}{%- assign key_word = 'paper' -%}{%- endif -%}
 {%- assign bib_surname = paper.authors[0].name | default: 'unknown' | split: ' ' | last | downcase | replace: "'", '' -%}
 {%- capture bib_key -%}{{ bib_surname }}{{ paper.year }}{{ key_word }}{%- endcapture -%}
+{%- endif -%}
 
 <article
   class="pub"
@@ -117,6 +120,7 @@
     </p>
     {% endif %}
 
+    {% if site.show_bibtex %}
     <details class="pub__cite">
       <summary>BibTeX</summary>
       <div class="pub__cite-box">
@@ -144,5 +148,6 @@
         <button type="button" class="pub__cite-copy" data-copy-bibtex>Copy</button>
       </div>
     </details>
+    {% endif %}
   </div>
 </article>

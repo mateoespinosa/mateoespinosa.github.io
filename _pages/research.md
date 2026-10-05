@@ -16,26 +16,18 @@ header:
 
 <div id="research-top"></div>
 
-My current research interests roughly lie on the intersection of **interpretable/explainable AI**,
+My current research interests roughly lie on the general field of AI Safety, with a particular focus the intersection of **interpretable/explainable AI**,
 **representation learning**, and **human-in-the-loop AI**. More specifically, I am interested in
-(1) the design of powerful models that can construct explanations for their predictions in terms
-of high-level *"concepts"* and (2) the broad applications that these architectures may have in
-scenarios where experts can interact with the models at test time (e.g., model steering,
+(1) the design of methods that can construct explanations for a model's predictions in terms
+of high-level *"concepts"* and (2) the broad applications that these methods may have in
+scenarios where experts can interact with the models at test time (e.g., model steering, monitoring,
 test-time feedback, concept interventions).
 
 Below you can find a list of some of my publications, including their respective venues, papers,
 code, and presentations (when applicable). For a possibly more up-to-date list, however, please
 refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en).
 
-{% comment %}
-  One reverse-chronological run rather than four venue sections: a reader's first
-  question is what is recent, not what was a workshop. `publication_type` is kept
-  in the data and exposed as a filter chip instead of as a heading.
 
-  Years are walked newest-first and, within each year, sections and papers in
-  their authored order. Liquid's `sort` is not stable, so sorting the merged list
-  by year alone scrambled papers within a year; this is deterministic.
-{% endcomment %}
 {% assign all_papers = "" | split: "" %}
 {% for section in site.data.research.sections %}
   {% assign all_papers = all_papers | concat: section.papers %}
@@ -88,12 +80,42 @@ refer to my [Google Scholar profile](https://scholar.google.com/citations?user=4
     <button id="clear-publication-filters" class="pub-reset" type="button" hidden>Reset filters</button>
   </div>
 
+  {%- comment -%}
+    Ordering: newest year first, then month descending, then the authored
+    order within _data/research.yml. The list is walked explicitly rather than
+    sorted because Liquid's `sort` is not stable here - it scrambled papers
+    within a year when this page used it.
+
+    `month` is optional and never rendered; it exists only to break ties
+    inside a year. Papers without one keep their authored order at the end of
+    their year. The second pass tests the range rather than just presence, so
+    an out-of-range typo still renders somewhere instead of vanishing from the
+    page (validate_data.rb rejects it too).
+  {%- endcomment -%}
+  {% assign month_order = "12,11,10,9,8,7,6,5,4,3,2,1" | split: "," %}
   <div class="pub-list" id="publication-list">
     {% for y in years %}
+      {% for m in month_order %}
+        {% assign month_number = m | plus: 0 %}
+        {% for section in site.data.research.sections %}
+          {% for paper in section.papers %}
+            {% if paper.year == y and paper.month == month_number %}
+              {% include paper_card.html paper=paper %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+
       {% for section in site.data.research.sections %}
         {% for paper in section.papers %}
           {% if paper.year == y %}
-            {% include paper_card.html paper=paper %}
+            {% assign dated = false %}
+            {% if paper.month and paper.month >= 1 and paper.month <= 12 %}
+              {% assign dated = true %}
+            {% endif %}
+            {% unless dated %}
+              {% include paper_card.html paper=paper %}
+            {% endunless %}
           {% endif %}
         {% endfor %}
       {% endfor %}

@@ -196,7 +196,7 @@ else
 
         required = %w[title url venue venue_short year main_tag tags links authors publication_type]
         optional = %w[authors_html featured_home tldr honor note also venue_display image
-                      image_alt image_side]
+                      image_alt image_side month]
         require_keys!(errors, paper, required, paper_context)
         reject_unknown_keys!(errors, paper, required + optional, paper_context)
 
@@ -219,6 +219,16 @@ else
 
         unless paper["year"].is_a?(Integer) || paper["year"].to_s.match?(/\A\d{4}\z/)
           errors << "#{paper_context}: `year` must be a 4-digit year"
+        end
+
+        # Optional, never displayed: it only orders papers inside a year on
+        # /research/. Out of range would drop the paper out of the month pass,
+        # so the range is enforced here rather than left to the template.
+        if paper.key?("month") && !paper["month"].nil?
+          month = paper["month"]
+          unless month.is_a?(Integer) && month >= 1 && month <= 12
+            errors << "#{paper_context}: `month` must be an integer from 1 to 12 when provided"
+          end
         end
 
         if paper.key?("image_side") && !paper["image_side"].nil? && !%w[left right].include?(paper["image_side"])

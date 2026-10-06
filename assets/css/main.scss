@@ -312,14 +312,14 @@ hr {
   border-color: var(--rule);
 }
 
-// The theme caps the portrait at 110px while the name, bio and link list below
-// it fill the whole sidebar column, so the photo floated left of its own text
-// block - obvious now the avatar is a photograph with a background rather than
-// a tight headshot. Letting it fill the column lines its edges up with the
-// text underneath. On narrow screens `.author__avatar` is a 36px table-cell
-// beside the name, so this changes nothing there.
-.sidebar .author__avatar img {
-  max-width: 100%;
+// The portrait keeps the theme's 110px size, but the name, bio and link list
+// below it fill the whole sidebar column, so left-aligning it left the photo
+// sitting 43px off that block's centre. Centre it instead. The image is inline
+// so `margin: auto` would not move it; the alignment has to come from the
+// parent. On narrow screens `.author__avatar` is a 36px table-cell holding a
+// 36px image beside the name, where this is a no-op.
+.sidebar .author__avatar {
+  text-align: center;
 }
 
 .author__name { font-family: $serif; }

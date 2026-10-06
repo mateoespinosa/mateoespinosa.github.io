@@ -312,6 +312,16 @@ hr {
   border-color: var(--rule);
 }
 
+// The theme caps the portrait at 110px while the name, bio and link list below
+// it fill the whole sidebar column, so the photo floated left of its own text
+// block - obvious now the avatar is a photograph with a background rather than
+// a tight headshot. Letting it fill the column lines its edges up with the
+// text underneath. On narrow screens `.author__avatar` is a 36px table-cell
+// beside the name, so this changes nothing there.
+.sidebar .author__avatar img {
+  max-width: 100%;
+}
+
 .author__name { font-family: $serif; }
 .author__bio,
 .author__urls li { color: var(--muted); }

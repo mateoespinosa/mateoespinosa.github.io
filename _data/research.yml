@@ -45,7 +45,7 @@ sections:
       me: true
     - name: Mateja Jamnik
       url: https://www.cl.cam.ac.uk/~mj201
-    publication_type: workshop
+    publication_type: conference
     tldr: >-
       Steering an LLM drags its attention off task-relevant tokens it needs, affecting its performance on long horizon tasks. SKOP steers an LLM
       while maintaining its attention patterns on a set of key task-relevant tokens.

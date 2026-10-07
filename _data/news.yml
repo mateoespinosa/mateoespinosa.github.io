@@ -27,6 +27,11 @@ items:
   featured: true
   content_html: We started a <a href="https://interpretabledeeplearning.github.io/seminars/">new seminar series</a> on interpretable
     AI</a>. Everyone is more than welcome to join!
+- date: '2026-02-01'
+  label: February 2026
+  featured: true
+  content_html: Co-presented a tutorial on <a href="https://interpretabledeeplearning.github.io/tutorials/tutorial_aaai2026/">Foundations of Interpretable Deep
+    Learning</a> at <a href="https://aaai.org/conference/aaai/aaai-26/">AAAI 2026</a> 🇸🇬.
 - date: '2026-01-01'
   label: January 2026
   featured: true

@@ -261,8 +261,10 @@ else
           errors << "#{paper_context}: `tldr` must be a non-empty one-line summary"
         end
 
-        if present_string?(paper["tldr"]) && paper["tldr"].strip.length > 260
-          errors << "#{paper_context}: `tldr` should stay under 260 characters (currently #{paper['tldr'].strip.length})"
+        # A guard against runaway summaries, not a style rule. Raised from 260
+        # once two hand-written TL;DRs legitimately ran past it.
+        if present_string?(paper["tldr"]) && paper["tldr"].strip.length > 320
+          errors << "#{paper_context}: `tldr` should stay under 320 characters (currently #{paper['tldr'].strip.length})"
         end
 
         %w[honor note also venue_display].each do |key|

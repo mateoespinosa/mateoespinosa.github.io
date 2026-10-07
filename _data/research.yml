@@ -1001,6 +1001,40 @@ sections:
   title: Workshop Publications
   papers:
 
+  - title: "Persistent Sparse Autoencoders: Learning Feature-Specific Timescales in Language Model Representations"
+    url: https://arxiv.org/abs/2607.17117
+    venue: "Workshop on Interpretability as a Science at NeurIPS 2026"
+    venue_short: NeurIPS Workshop
+    month: 12
+    year: 2026
+    venue_display: "InterpScience, NeurIPS 2026"
+    main_tag: Mechanistic Interpretability
+    tags:
+    - Mechanistic Interpretability
+    - Temporal
+    - Sparse Autoencoders
+    - Interpretability
+    - Explainability
+    image: "/assets/images/thumbnails/persistent_sae.png"
+    image_alt: Persistent SAE architecture
+    image_side: right
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2607.17117
+      kind: paper
+    authors:
+    - name: Haoyan Luo
+      url: https://clarenceluo78.github.io/
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: workshop
+    tldr: >-
+      We introduce an sparse autoencoder that learns feature-specific timescales
+      in language model representations, enabling the discovery of persistent
+      features.
+
   - title: "Actionable Interpretability Must Be Defined in Terms of Symmetries: A Compositional Probabilistic Approach"
     url: https://openreview.net/forum?id=H4fV9zy3eh
     venue: "2nd Workshop on Compositional Learning: Safety, Interpretability, and Agents at ICML 2026"

@@ -66,7 +66,7 @@ Without the loss of generality, we will consider only as objects of interest bin
 
 Given some "description" function $$ d(p): \{0, 1\}^* \rightarrow \{0, 1\}^* $$ which maps a binary *description* $$ p $$ of an object $$ x $$ into the corresponding object we are describing (i.e. $$ d(p) = x $$), we define the *Kolmogorov Complexity* $$ C_d(x) $$ of object $$ x $$ with respect to description mechanism $$ d $$ as:
 
-**Definition (Kolmogorov Complexity):** $$ C_d(x) = \min\{\|p\| : d(p) = x \} $$
+**Definition (Kolmogorov Complexity):**  $$C_d(x) = \min\{\|p\| : d(p) = x \} $$
 
 where $$ \| p \| $$ is used to indicate the length of binary string $$ p $$. If for a given object $$ x $$ no such description $$ p $$ exists, then we will say that the complexity of $$ x $$ is infinite.
 
@@ -119,7 +119,7 @@ By noticing that the size of $$ \| I_{P \leftarrow O} \| $$ is completely indepe
 
 ### All Those Random Strings
 
-Finally, I want to introduce a very quick result on the existence of infinitely many strings whose own description is their shortest description (i.e. they are random). Intuitively this means that we will always find strings which cannot be compressed, no matter how clever and which programming language we use. This result will be very useful when trying to use Kolmogorov complexity to actually show some results. 
+Finally, I want to introduce a very quick result on the existence of infinitely many strings whose own description is their shortest description (i.e. they are random). Intuitively this means that we will always find strings which cannot be compressed, no matter how clever and which programming language we use. This result will be very useful when trying to use Kolmogorov complexity to actually show some results.
 
 ---
 
@@ -212,7 +212,7 @@ l(n) &:= 1 + \log_2 \log_2 n + T \log_2 \log_2 n \\
 \end{align*}
 $$
 
-So why would this generate any issues? Well let's take a look at how this description mechanism will handle large positive natural numbers which are Kolmogorov random. From the result discussed above, we know that for all $$ k \in 
+So why would this generate any issues? Well let's take a look at how this description mechanism will handle large positive natural numbers which are Kolmogorov random. From the result discussed above, we know that for all $$ k \in
 \mathbb{N}^+ $$ there must exist some positive natural number $$ m $$ with binary length $$ \|m\| = k $$ which is Kolmogorov random. That means that its Kolmogorov complexity, $$ C(m) $$, is at least as large as the number's own length in bits.
 
 From the invariance theorem, we know that $$ C(m) $$ must be less than or equal to the Kolmogorov complexity of $$ m $$ using the description method defined above, call this complexity $$ C_E(m) $$, plus some constant $$ c_E $$ which is independent of $$ m $$. Furthermore, from the definition of Kolmogorov complexity, it must then be the case that $$ C_E(m) \leq l(m) $$. Putting all of this together, we get:

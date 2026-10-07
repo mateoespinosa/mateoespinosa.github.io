@@ -8,7 +8,7 @@ classes:
   - research-page
 comments: false
 description: "Research publications on interpretable AI, concept-based models, representation learning, and human-in-the-loop systems."
-excerpt: "Browse publications by venue, year, type, and topics."
+# excerpt: "Browse publications by venue, year, type, and topics."
 image: /assets/images/panoramas/yellowstone_hero.jpg
 header:
   overlay_image: /assets/images/panoramas/yellowstone_hero.jpg

@@ -2,39 +2,44 @@
 # `featured: true` appears in the main visible list.
 # `featured: false` appears under "View earlier highlights".
 items:
+- date: '2026-10-01'
+  label: October 2026
+  featured: true
+  content_html: <a href="https://arxiv.org/abs/2607.17117">Persistent SAEs paper</a> accepted at the NeurIPS workshop on <a href="https://interpscience.github.io/">Interpretability as a Science</a>.
+- date: '2026-09-25'
+  label: September 2026
+  featured: true
+  content_html: Our <a href="https://arxiv.org/abs/2605.06342">paper on steering</a> (led by the amazing <a href="https://clarenceluo78.github.io/">Haoyan Luo</a>) was accepted at NeurIPS 2026 🇦🇺 as a <b>spotlight</b> (top ~1% of submissions)!
 - date: '2026-06-01'
   label: June 2026
   featured: true
-  content_html: Two workshop papers accepted at ICML 2026! [<a href="https://arxiv.org/abs/2605.06342">1</a>, <a href="https://openreview.net/forum?id=H4fV9zy3eh">2</a>]
+  content_html: Two workshop papers [<a href="https://arxiv.org/abs/2605.06342">1</a>, <a href="https://openreview.net/forum?id=H4fV9zy3eh">2</a>] accepted at ICML 2026 🇰🇷!
 - date: '2026-05-01'
   label: May 2026
   featured: true
-  content_html: Lucky to have three accepted papers at <a href="https://icml.cc/virtual/2026/papers.html">ICML 2026</a>! <b>One position
-    paper</b> challenging a common characterization of information leakage [<a href="https://arxiv.org/abs/2606.10669">1</a>], and
-    <b>two main track papers</b> led by an amazing set of colaborators (one of
-    which was accepted as an <b>spotlight</b>) [<a href="https://arxiv.org/abs/2602.02886">2</a>, <a href="https://arxiv.org/abs/2605.29836">3</a>].
+  content_html: Lucky to have three accepted papers [<a href="https://arxiv.org/abs/2606.10669">1</a>, <a href="https://arxiv.org/abs/2602.02886">2</a>, <a href="https://arxiv.org/abs/2605.29836">3</a>], including one <b>spotlight paper</b>, at <a href="https://icml.cc/virtual/2026/papers.html">ICML 2026</a> 🇰🇷!
 - date: '2026-04-26'
   label: April 2026
   featured: true
-  content_html: I will be giving an invited talk at ICLR 2026's <a href="https://ucrl-iclr26.github.io/">Unifying Concept Representation Learning Workshop</a>!
+  content_html: Gave an invited talk at ICLR 2026's <a href="https://ucrl-iclr26.github.io/">Unifying Concept Representation Learning Workshop</a>!
 - date: '2026-03-01'
   label: March 2026
   featured: true
-  content_html: We started a <a href="https://interpretabledeeplearning.github.io/reading_group/">new journal club on interpretable
-    AI</a>. Everyone is more than welcomed to join!
+  content_html: We started a <a href="https://interpretabledeeplearning.github.io/seminars/">new seminar series</a> on interpretable
+    AI</a>. Everyone is more than welcome to join!
 - date: '2026-01-01'
   label: January 2026
   featured: true
   content_html: Our paper on <a href="https://openreview.net/forum?id=h61OIERd38">hierarchical concept discovery</a> was accepted
-    at ICLR 2026!
+    at ICLR 2026 🇧🇷!
 - date: '2025-12-01'
   label: December 2025
   featured: true
-  content_html: I passed my PhD defense (viva voce) without corrections.
+  content_html: Passed my PhD defense (viva voce) without corrections.
 - date: '2025-11-01'
   label: November 2025
   featured: true
-  content_html: I started a Junior Research Fellowship (JRF) in Computer Science at Trinity College, Oxford.
+  content_html: Started a Junior Research Fellowship (JRF) in Computer Science at Trinity College, Oxford.
 - date: '2025-08-01'
   label: August 2025
   featured: true
@@ -43,36 +48,36 @@ items:
 - date: '2025-07-01'
   label: July 2025
   featured: true
-  content_html: I presented two papers at ICML 2025 in Vancouver [<a href="https://arxiv.org/abs/2504.17921">1</a>, <a href="https://arxiv.org/abs/2504.18026">2</a>].
+  content_html: Presented two papers [<a href="https://arxiv.org/abs/2504.17921">1</a>, <a href="https://arxiv.org/abs/2504.18026">2</a>] at ICML 2025 🇨🇦.
 - date: '2025-02-01'
   label: February 2025
   featured: true
-  content_html: I co-presented a tutorial on <a href="https://conceptlearning.github.io/">Concept-based Interpretable Deep
-    Learning</a> at <a href="https://aaai.org/conference/aaai/aaai-25/">AAAI 2025</a>.
+  content_html: Co-presented a tutorial on <a href="https://conceptlearning.github.io/">Concept-based Interpretable Deep
+    Learning</a> at <a href="https://aaai.org/conference/aaai/aaai-25/">AAAI 2025</a> 🇺🇸.
 - date: '2025-01-01'
   label: January 2025
   featured: false
   content_html: Our <a href="https://openreview.net/pdf?id=lmKJ1b6PaL">Causal Concept Graph Models</a> work was accepted at
-    ICLR 2025.
+    ICLR 2025 🇸🇬.
 - date: '2024-10-01'
   label: October 2024
   featured: false
   content_html: Our work on <a href="https://arxiv.org/abs/2409.17691">unsupervised bias mitigation</a> was accepted at ECCV
-    2024 as an oral and nominated for Best Paper.
+    2024 🇮🇹 as an oral and nominated for Best Paper.
 - date: '2024-07-01'
   label: July 2024
   featured: false
-  content_html: One paper was accepted at ICML 2024 where I also co-organized the <a href="https://www.latinxinai.org/icml-2024">LatinX
+  content_html: One paper was accepted at ICML 2024 🇦🇹 where I also co-organized the <a href="https://www.latinxinai.org/icml-2024">LatinX
     in AI workshop</a>.
 - date: '2023-09-01'
   label: September 2023
   featured: false
-  content_html: Our IntCEM paper was accepted at NeurIPS 2023 as a spotlight.
+  content_html: Our IntCEM paper was accepted at NeurIPS 2023 🇺🇸 as a spotlight.
 - date: '2022-09-01'
   label: September 2022
   featured: false
-  content_html: Our Concept Embedding Model paper was accepted at NeurIPS 2022.
+  content_html: Our Concept Embedding Model paper was accepted at NeurIPS 2022 🇺🇸.
 - date: '2017-06-01'
   label: June 2017
   featured: false
-  content_html: I completed my MEng in Computer Science from Cornell University with the highest GPA in my cohort.
+  content_html: Completed my MEng in Computer Science at Cornell University with the highest GPA in my cohort.

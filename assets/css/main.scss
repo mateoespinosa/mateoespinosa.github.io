@@ -312,14 +312,28 @@ hr {
   border-color: var(--rule);
 }
 
-// The portrait keeps the theme's 110px size, but the name, bio and link list
-// below it fill the whole sidebar column, so left-aligning it left the photo
-// sitting 43px off that block's centre. Centre it instead. The image is inline
-// so `margin: auto` would not move it; the alignment has to come from the
-// parent. On narrow screens `.author__avatar` is a 36px table-cell holding a
-// 36px image beside the name, where this is a no-op.
-.sidebar .author__avatar {
-  text-align: center;
+// Centre the portrait on the text beneath it, at the theme's own 110px size.
+//
+// The catch is that the sidebar column is 282px while the name and bio only
+// ink out to ~199px, so centring the image in the *column* still leaves it
+// sitting ~42px right of the text it belongs to. Shrink-wrapping the author
+// profile to its content gives the image and the text the same box to centre
+// within, without hard-coding a width that would break the moment the name or
+// the bio changes length.
+//
+// Scoped to >=1024px, which is where the theme stacks the portrait above the
+// text. Below that it is a 36px table-cell sitting beside the name, with no
+// vertical axis to share.
+@media (min-width: 1024px) {
+  .sidebar > div[itemscope] {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  // The image is inline, so `margin: auto` would not move it.
+  .sidebar .author__avatar {
+    text-align: center;
+  }
 }
 
 .author__name { font-family: $serif; }

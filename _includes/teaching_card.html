@@ -1,26 +1,30 @@
 {% assign item = include.item %}
-<article class="teaching-card">
-  <h4 class="teaching-title">
+
+{% comment %}
+  Institution / venue / role used to be three separate labelled lines. They read
+  as one middot-separated line, which is shorter and far less busy down a list.
+{% endcomment %}
+
+{% assign meta = '' %}
+{% if item.role and item.role != '' %}{% assign meta = meta | append: ' · ' | append: item.role %}{% endif %}
+{% if item.institution and item.institution != '' %}{% assign meta = meta | append: ' · ' | append: item.institution %}{% endif %}
+{% if item.venue and item.venue != '' %}{% assign meta = meta | append: ' · ' | append: item.venue %}{% endif %}
+{% assign meta = meta | remove_first: ' · ' | strip %}
+
+<li class="teaching-card">
+  <h3 class="teaching-title">
     {% if item.url and item.url != '' %}
     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
     {% else %}
     {{ item.title }}
     {% endif %}
-  </h4>
+  </h3>
 
-  <div class="teaching-meta-stack">
-    {% if item.institution and item.institution != '' %}
-    <p class="teaching-meta"><span class="teaching-label">Institution:</span> {{ item.institution }}</p>
-    {% endif %}
-    {% if item.venue and item.venue != '' %}
-    <p class="teaching-meta"><span class="teaching-label">Venue:</span> {{ item.venue }}</p>
-    {% endif %}
-    {% if item.role and item.role != '' %}
-    <p class="teaching-meta"><span class="teaching-label">Role:</span> {{ item.role }}</p>
-    {% endif %}
-  </div>
+  {% if meta != '' %}
+  <p class="teaching-meta">{{ meta }}</p>
+  {% endif %}
 
   {% if item.years and item.years != '' %}
   <span class="teaching-years">{{ item.years }}</span>
   {% endif %}
-</article>
+</li>

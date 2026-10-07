@@ -9,32 +9,36 @@ excerpt:
 image: /assets/images/panoramas/banos_hero.jpg
 header:
   overlay_image: /assets/images/panoramas/banos_hero.jpg
+  overlay_filter: 0.25
   image_description: "Baños de Agua Santa, Tungurahua, Ecuador"
 ---
 
+A likely out-of-date record of some of the teaching I have done and the students I have had the pleasure of supervising. If you are a student looking for supervision on a project in AI safety and/or interpretability, feel free to [get in touch]({{ site.baseurl }}/contact/)!
+{: .text-justify}
+
 {% if site.data.teaching.conference_tutorials and site.data.teaching.conference_tutorials.size > 0 %}
-<h2 class="content-section-heading">{{ site.data.teaching.conference_tutorials_heading | default: "Conference Tutorials" }}</h2>
+<h2 class="section-heading">{{ site.data.teaching.conference_tutorials_heading | default: "Conference Tutorials" }}</h2>
 
 <div class="teaching-section">
-  <div class="teaching-grid">
+  <ul class="teaching-grid">
     {% for item in site.data.teaching.conference_tutorials %}
     {% include teaching_card.html item=item %}
     {% endfor %}
-  </div>
+  </ul>
 </div>
 
 <hr class="content-divider">
 {% endif %}
 
 {% for section in site.data.teaching.sections %}
-<h2 class="content-section-heading">{{ section.heading }}</h2>
+<h2 class="section-heading">{{ section.heading }}</h2>
 
 <div class="teaching-section">
-  <div class="teaching-grid">
+  <ul class="teaching-grid">
     {% for item in section.items %}
     {% include teaching_card.html item=item %}
     {% endfor %}
-  </div>
+  </ul>
 </div>
 
 {% unless forloop.last %}
@@ -44,7 +48,7 @@ header:
 
 
 
-<h2 class="content-section-heading">{{ site.data.teaching.supervision_heading }}</h2>
+<h2 class="section-heading">{{ site.data.teaching.supervision_heading }}</h2>
 
 <div class="teaching-section">
   <ul class="supervision-list">

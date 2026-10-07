@@ -56,13 +56,13 @@ conference_tutorials:
   url: https://interpretabledeeplearning.github.io/tutorials/tutorial_aaai2026/
   institution: ''
   venue: AAAI 2026
-  role: Co-presenter and organiser
+  role: Co-presenter and organizer
   years: '2026'
 - title: 'AAAI 2025 Tutorial: Concept-based Interpretable Deep Learning'
   url: https://conceptlearning.github.io/
   institution: ''
   venue: AAAI 2025
-  role: Co-presenter and organiser
+  role: Co-presenter and organizer
   years: '2025'
 
 supervision_heading: Research Supervisor
@@ -72,34 +72,40 @@ supervision:
   years: 2025 - Present
   details: 'University of Cambridge | PhD co-supervisor (main supervisor: Professor Mateja Jamnik)'
 - name: Yael Konforti
-  url: https://scholar.google.com/citations?user=w6Oa5fgAAAAJ&hl=en
+  url: https://yaelkon.github.io/
   years: 2024 - Present
   details: 'University of Cambridge | PhD co-supervisor (main supervisor: Professor Mateja Jamnik)'
 - name: Oscar Hill
-  url: https://www.cst.cam.ac.uk/people/ogh22
+  url: https://oscars.page/
   years: 2023 - Present
   details: 'University of Cambridge | MPhil and PhD co-supervisor (main supervisor: Professor Mateja Jamnik)'
+- name: Kaushik Karthikeyan
+  years: 2026 - Present
+  details: ETH Zurich | Master's thesis co-supervisor
+- name: Stephen Marcou
+  years: 2026
+  details: ETH Zurich | Master's thesis co-supervisor
 - name: Muhammad Ayain Fida Rana
   url: https://ayainfida.github.io/
-  years: 2025 - Present
+  years: 2025 - 2026
   details: University of Cambridge | MPhil thesis co-supervisor
 - name: Eve Sherratt-Cross
   url: ''
-  years: 2025 - Present
+  years: 2025 - 2026
   details: Durham University | MEng project co-supervisor
-- name: Jessy Sodimu
-  url: ''
-  years: 2025 - Present
-  details: University of Bath | Master's thesis co-supervisor
+# - name: Jessy Sodimu
+#   url: ''
+#   years: 2025 - 2026
+#   details: University of Bath | Master's thesis co-supervisor
 - name: Evan Rex
   url: ''
   years: 2023 - 2024
-  details: 'University of Cambridge | MPhil thesis co-supervisor (now: McKinsey)'
+  details: 'University of Cambridge | MPhil thesis co-supervisor'
 - name: Thomas Yuan
   url: ''
   years: 2023 - 2024
-  details: 'University of Cambridge | Part III thesis co-supervisor (now: Squarepoint Capital)'
+  details: 'University of Cambridge | Part III thesis co-supervisor'
 - name: Naveen Raman
   url: https://naveenraman.com/
   years: 2022 - 2023
-  details: 'University of Cambridge | MPhil thesis supervisor (now: PhD at CMU)'
+  details: 'University of Cambridge | MPhil thesis supervisor'

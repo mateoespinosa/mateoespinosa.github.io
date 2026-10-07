@@ -11,11 +11,29 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-<!-- Special fonts  -->
+<!-- Special fonts: Spectral for display/headings, Source Sans 3 for body and UI -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
+
+{% if site.dark_mode %}
+<!--
+  Optional dark theme, enabled by `dark_mode` in _config.yml. Runs before first
+  paint so a viewer who has opted in never sees a flash of the light theme. No
+  prefers-color-scheme check: the OS setting does not switch the site on its
+  own. This is the only thing that reads the stored choice before the toggle
+  script loads, so it has to stay inline and ahead of the stylesheet.
+-->
+<script>
+  (function () {
+    try {
+      var choice = localStorage.getItem('hbt-theme');
+      if (choice === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    } catch (e) {}
+  })();
+</script>
+{% endif %}
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118912776-1"></script>

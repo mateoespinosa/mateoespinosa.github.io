@@ -3,269 +3,1080 @@
 ---
 
 @charset "utf-8";
-$global-font-family : "Spectral", sans-serif !default;
-$header-font-family : 'Spectral', serif !default;
-$masthead-font-family : 'Spectral', serif !default;
 
-$type-size-1 : 3em !default;  // ~39.056px
-$type-size-2 : 1.953em !default;  // ~31.248px
-$type-size-3 : 2.5em !default;  // ~25.008px
-$type-size-4 : 1.25em !default;   // ~20px
-$type-size-5 : 1em !default;      // ~16px
-$type-size-6 : 0.75em !default;   // ~12px
-$type-size-7 : 0.6875em !default; // ~11px
-$type-size-8 : 0.625em !default;  // ~10px
+// ---------------------------------------------------------------------------
+// Typefaces (must be set before the theme import so `!default` picks them up)
+//
+// Spectral keeps the display roles it has always had: titles, headings, the
+// masthead. Source Sans 3 takes the utility layer — body copy, metadata,
+// labels, buttons, nav — because a serif stops being legible around 11px and
+// that is where most of this site's text actually lives.
+// ---------------------------------------------------------------------------
+$serif                : "Spectral", Georgia, "Times New Roman", serif !default;
+$sans-serif           : "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                        Helvetica, Arial, sans-serif !default;
+
+$global-font-family   : $sans-serif !default;
+$header-font-family   : $serif !default;
+$masthead-font-family : $serif !default;
+
+// Monotonic scale on a 1.25 ratio. (The previous scale had size-3 > size-2,
+// so heading levels did not descend in size.)
+$type-size-1 : 2.441em !default;
+$type-size-2 : 1.953em !default;
+$type-size-3 : 1.563em !default;
+$type-size-4 : 1.25em !default;
+$type-size-5 : 1em !default;
+$type-size-6 : 0.8em !default;
+$type-size-7 : 0.75em !default;
+$type-size-8 : 0.694em !default;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+// ===========================================================================
+// Tokens
+//
+// One blue-biased ink ramp plus a single accent. Every colour below this point
+// is taken from these tokens so that the dark theme is a token swap rather
+// than a rewrite.
+// ===========================================================================
+
 :root {
-  --brand-ink: #1a2332;
-  --brand-blue: #3f5f99;
-  --brand-blue-deep: #2d4a7a;
-  --brand-blue-soft: #e8f0fb;
-  --brand-blue-lighter: #f2f7fe;
-  --accent-teal: #1b9b8f;
-  --accent-cyan: #0ea5e9;
-  --surface-raised: rgba(255, 255, 255, 0.96);
-  --surface-muted: #f8fafb;
-  --text-muted: #556882;
-  --text-subtle: #7a8699;
-  --card-border: rgba(20, 35, 60, 0.11);
-  --line-subtle: rgba(18, 35, 62, 0.08);
-  --shadow-soft: 0 4px 12px rgba(12, 24, 42, 0.05);
-  --shadow-medium: 0 8px 20px rgba(12, 24, 42, 0.08);
-  --shadow-lg: 0 12px 32px rgba(12, 24, 42, 0.12);
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --space-1: 0.3rem;
+  color-scheme: light;
+
+  --ink: #18222e;
+  --ink-soft: #35445a;
+  --muted: #52637c;
+  --faint: #677484; // 4.8:1 on white
+
+  --accent: #2d5c8c; // 7.0:1 on white
+  --accent-strong: #22486e;
+  --accent-wash: #eaf0f7;
+
+  --honor: #8a4228; // spotlights, orals, best-paper candidates
+  --good: #2f6b55;  // confirmation states (e.g. "Copied")
+
+  --ground: #ffffff;
+  --surface: #ffffff;
+  --surface-sunk: #f4f6f9;
+
+  --rule: #d7dee7;
+  --rule-soft: #e7ecf2;
+
+  --radius: 3px;
+  // Text column. Deliberately rem, not ch: `ch` resolves against each
+  // element's own font, so equations and code blocks would land on a
+  // different width from the prose they sit between.
+  --measure: 34.8rem;
+
+  --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
-  --space-5: 1.35rem;
-  --space-6: 1.75rem;
-  --space-7: 2.25rem;
-  --content-line-length: 72ch;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.75rem;
 }
 
-/* Explicit override in case theme variable wiring changes */
-.greedy-nav .site-title {
-  font-family: 'Spectral', serif;
+@mixin dark-tokens {
+  color-scheme: dark;
+
+  --ink: #e4e9f0;
+  --ink-soft: #c3cdd9;
+  --muted: #9aa7b7;
+  --faint: #7d8a99;
+
+  --accent: #85aede;
+  --accent-strong: #a6c6ea;
+  --accent-wash: #1c2b3d;
+
+  --honor: #dc9a80;
+  --good: #85c4a8;
+
+  --ground: #11161d;
+  --surface: #1a212b;
+  --surface-sunk: #151b23;
+
+  --rule: #2d3743;
+  --rule-soft: #232b35;
 }
 
-.masthead__inner-wrap {
-  font-family: 'Spectral', serif;
-}
+// Dark is opt-in only. There is deliberately no `prefers-color-scheme` rule
+// here, so a viewer whose OS is dark still gets the light site until they ask
+// for dark with the masthead toggle, which stamps data-theme on <html> and
+// remembers the choice in localStorage.
+:root[data-theme="dark"] { @include dark-tokens; }
 
+// ===========================================================================
+// Base
+// ===========================================================================
+
+// The theme ships 16 / 18 / 20 / 22px across its breakpoints, which runs large
+// on wide screens. One notch down at every step.
 html {
+  font-size: 15px;
   scroll-behavior: smooth;
+
+  @media (min-width: 768px)  { font-size: 16px; }
+  @media (min-width: 1024px) { font-size: 17px; }
+  @media (min-width: 1280px) { font-size: 18px; }
 }
 
 body {
+  background: var(--ground);
+  color: var(--ink);
+  font-weight: 400; // was 300 — too thin for sustained reading
+  line-height: 1.6;
+  letter-spacing: normal; // was +0.3px, which loosened an already-wide face
   text-rendering: optimizeLegibility;
-  line-height: 1.68;
-  font-weight: 300;
-  color: var(--brand-ink);
-  letter-spacing: 0.3px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+p, li {
+  color: var(--ink);
 }
 
 a {
-  color: #4c78b4;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.18s ease;
+
+  &:visited { color: var(--accent); }
+  &:hover { color: var(--accent-strong); text-decoration-thickness: 2px; }
 }
 
-a:visited {
-  color: #6e87b5;
-}
-
-a:hover {
-  color: #3f6ea9;
-  text-decoration-thickness: 2px;
-}
-
+// One visible focus style for every interactive thing on the site.
 a:focus-visible,
-.custom-button:focus-visible,
-.research-quick-nav a:focus-visible,
-.older-news summary:focus-visible,
-.research-filters__clear:focus-visible {
-  outline: 2px solid var(--brand-blue);
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
+  border-radius: var(--radius);
 }
 
-.archive__subtitle {
-  margin-top: var(--space-6);
+// The home layout puts its content in `.archive` rather than `.page__content`,
+// so both containers need the measure.
+.page__content,
+.archive {
+  p, ul, ol, dl {
+    max-width: var(--measure);
+  }
+
+  // Running prose is justified across the site; hyphenation keeps the word
+  // spacing even rather than letting rivers open up.
+  p {
+    text-align: justify;
+    hyphens: auto;
+  }
 }
 
-/* Keep nav colors controlled by the theme (not global link palette) */
-.masthead a,
-.greedy-nav a,
-.masthead__menu-item a {
-  color: inherit;
+// /research/ only (the `research-page` class comes from that page's front
+// matter). Elsewhere the publication list is let out to the full content
+// column; here it is pulled back to the text measure instead, so the intro
+// prose keeps the same width it has on every other page and the list lines up
+// underneath it. Carries `.research-page` for specificity: the block below
+// releases `.pub-browser` at (0,2,0), which would otherwise win on source
+// order.
+.research-page .page__content .pub-browser {
+  max-width: var(--measure);
 }
 
-.masthead a:visited,
-.greedy-nav a:visited,
-.masthead__menu-item a:visited {
-  color: inherit;
+// Component text sits on short lines, where justification looks broken.
+.pub-list p,
+.pub-browser p,
+.featured-pubs p,
+.news-panel p,
+.teaching-grid p,
+.supervision-list p,
+.link-row,
+.pub__tldr,
+.pub-status__count,
+.archive__item-excerpt {
+  text-align: left;
+  hyphens: manual;
 }
 
-.masthead a:hover,
-.greedy-nav a:hover,
-.masthead__menu-item a:hover {
-  color: inherit;
-  text-decoration-thickness: initial;
+// Let the publication list and other full-width blocks out of the text measure.
+.page__content,
+.archive {
+  .pub-list,
+  .pub-browser,
+  .featured-pubs,
+  .news-panel,
+  .teaching-grid,
+  .supervision-list,
+  .pub-toolbar {
+    max-width: none;
+  }
+
+  .pub-list p,
+  .pub-browser p,
+  .featured-pubs p,
+  .news-panel p,
+  .teaching-grid p,
+  .supervision-list p {
+    max-width: none;
+  }
 }
 
-/* Keep profile/user-info links the same color as surrounding text */
-.author__urls a,
-.author__urls a:visited,
-.author__urls a:hover,
-.author__urls a:active,
-.sidebar .author__urls-wrapper a,
-.sidebar .author__urls-wrapper a:visited,
-.sidebar .author__urls-wrapper a:hover,
-.sidebar .author__urls-wrapper a:active {
-  color: inherit;
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: var(--space-6) 0;
 }
+
+// ===========================================================================
+// Theme component harmonisation
+// ===========================================================================
 
 .masthead {
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
   backdrop-filter: blur(4px);
 }
 
-.greedy-nav .site-title {
-  font-weight: 300;
-  letter-spacing: 0.02em;
+.greedy-nav {
+  background: transparent;
+
+  .site-title {
+    font-family: $serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  a { color: var(--ink); }
+  a:visited { color: var(--ink); }
+  a:hover { color: var(--accent); }
+
+  .visible-links a::before { background: var(--accent); }
+
+  button { color: var(--ink); }
+
+  .hidden-links {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    box-shadow: 0 6px 18px rgba(16, 28, 44, 0.1);
+
+    a { color: var(--ink); }
+    a:hover { color: var(--accent); background: var(--surface-sunk); }
+    &::before { border-bottom-color: var(--rule); }
+    &::after { border-bottom-color: var(--surface); }
+  }
 }
 
-.page__hero--overlay {
-  min-height: 240px;
+.masthead__inner-wrap {
+  font-family: $serif;
 }
 
-.page__content p {
-  max-width: var(--content-line-length);
+// Sits beside the theme's own search button and borrows its metrics.
+.theme__toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-left: 0.5rem;
+  padding: 0 0.3rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover { color: var(--accent); }
+
+  i { font-size: 0.95rem; }
 }
 
-.home-note {
-  margin: 0 0 var(--space-5);
-  color: var(--text-muted);
+// Keep nav and profile links inheriting their surrounding colour rather than
+// the global link palette.
+.author__urls a,
+.sidebar .author__urls-wrapper a {
+  color: inherit;
+
+  &:visited, &:hover, &:active { color: inherit; }
 }
 
-.featured-publications-grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  max-width: 980px;
-  margin-bottom: var(--space-6);
+.author__urls {
+  background: var(--surface);
+  border-color: var(--rule);
 }
 
-.featured-paper-card {
-  display: grid;
-  grid-template-columns: minmax(210px, 260px) 1fr;
-  align-items: stretch;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
+// Centre the portrait on the text beneath it, at the theme's own 110px size.
+//
+// The catch is that the sidebar column is 282px while the name and bio only
+// ink out to ~199px, so centring the image in the *column* still leaves it
+// sitting ~42px right of the text it belongs to. Shrink-wrapping the author
+// profile to its content gives the image and the text the same box to centre
+// within, without hard-coding a width that would break the moment the name or
+// the bio changes length.
+//
+// Scoped to >=1024px, which is where the theme stacks the portrait above the
+// text. Below that it is a 36px table-cell sitting beside the name, with no
+// vertical axis to share.
+@media (min-width: 1024px) {
+  .sidebar > div[itemscope] {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  // The image is inline, so `margin: auto` would not move it.
+  .sidebar .author__avatar {
+    text-align: center;
+  }
 }
 
-.featured-paper-card__thumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
-  padding: 0.35rem;
-  background: var(--surface-muted);
-}
+.author__name { font-family: $serif; }
+.author__bio,
+.author__urls li { color: var(--muted); }
 
-.featured-paper-card__thumb img {
-  width: 100%;
-  height: 100%;
-  max-height: 240px;
-  object-fit: contain;
-  object-position: center;
-}
-
-.featured-paper-card__body {
-  padding: var(--space-3) var(--space-4);
-}
-
-.featured-paper-card__meta {
-  margin: 0 0 0.35rem;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  flex-wrap: wrap;
-  font-size: 0.74rem;
-  color: #5f6f85;
-}
-
-.featured-paper-card__tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
-  background: #e5eefb;
-  color: #34557f;
-  font-weight: 600;
-}
-
-.featured-paper-card__title {
-  margin: 0 0 0.3rem;
-  font-size: 1.02rem;
-  line-height: 1.3;
-}
-
-.featured-paper-card__title a {
-  color: #1f3f6f;
+// `author.home` in _config.yml makes the theme wrap the avatar and the name in
+// links back to the home page. Neither should pick up the global link palette
+// - they are the same text as before, just clickable - so they carry the ink
+// colour and lean on a hover tint for the affordance.
+.author__avatar a,
+.author__content a {
+  color: inherit;
   text-decoration: none;
+
+  &:visited { color: inherit; }
 }
 
-.featured-paper-card__title a:hover {
-  text-decoration: underline;
+.author__content a:hover .author__name,
+.author__content a:focus-visible .author__name {
+  color: var(--accent);
 }
 
-.featured-paper-card__summary {
-  margin: 0 0 0.4rem;
-  font-size: 0.83rem;
-  line-height: 1.45;
-  color: #51647f;
+// The link wraps a block image, so give it a block box rather than leaving an
+// inline one around it.
+.author__avatar a { display: block; }
+
+// The dark-theme block further down sets `.author__avatar img { border-color:
+// var(--rule) }`, and it compiles to `:root[data-theme="dark"] body
+// .author__avatar img` - (0,3,2), since `:root` counts as a class. That ties
+// with `.sidebar .author__avatar a:hover img` and wins on source order, so the
+// dark case has to be spelled out rather than inherited from the token.
+.sidebar .author__avatar a:hover img,
+.sidebar .author__avatar a:focus-visible img,
+:root[data-theme="dark"] .sidebar .author__avatar a:hover img,
+:root[data-theme="dark"] .sidebar .author__avatar a:focus-visible img {
+  border-color: var(--accent);
 }
 
-.featured-paper-card__links {
-  margin: 0;
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  font-size: 0.8rem;
-  font-weight: 600;
+// Every page gets a thin band instead of a 240px photographic hero, which used
+// to push the actual content below the fold.
+.page__hero--overlay {
+  min-height: 150px;
+  padding: 2.5em 0;
+
+  .page__title { font-size: $type-size-2; }
+  .page__lead { font-size: $type-size-5; }
 }
 
+// Opt-in only, via `page__hero--tall`. The home page used to take this too,
+// which made its banner more than twice the height of every other page's.
+.page__hero--overlay.page__hero--tall {
+  min-height: 340px;
+  padding: 4em 0 2.5em;
+}
+
+// Page titles over a hero image are always white. Each hero carries a light
+// overlay_filter scrim (set per page in front matter) and the type a crisp
+// shadow, so white reads over the panoramas without washing them out.
+.page__hero--overlay {
+  .page__title,
+  .page__lead,
+  .page__meta {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// On the home page every block - headings, featured publications, news, recent
+// posts - sits inside the same column as the running text, so nothing reaches
+// past the paragraph above it.
+//
+// The cap goes on the children, not on `.archive` itself: the theme floats
+// `.archive` right, so capping its own width pulls the whole column over to
+// the right edge and opens a gap after the profile sidebar. Interior pages cap
+// the children of a full-width `.page` instead, and this keeps the home column
+// starting at the same gutter as every other page.
+.layout--home .archive {
+  max-width: none;
+
+  > *,
+  > section > *,
+  .featured-pubs,
+  .news-panel,
+  .entries-list,
+  .archive__subtitle {
+    max-width: var(--measure);
+  }
+}
+
+.page__title,
+.archive__item-title {
+  font-family: $serif;
+  font-weight: 500;
+}
+
+.page__meta,
+.page__date,
+.archive__item-excerpt {
+  color: var(--muted);
+}
+
+.page__footer {
+  background: var(--surface-sunk);
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+
+  footer { color: var(--muted); }
+  a { color: var(--accent); }
+}
+
+.page__footer-follow,
+.page__footer-copyright { color: var(--muted); }
+
+blockquote {
+  border-left: 3px solid var(--rule);
+  color: var(--muted);
+  font-family: $serif;
+  font-style: normal;
+}
+
+code, kbd, samp, pre {
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:not(pre) > code {
+  background: var(--surface-sunk);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+}
+
+table {
+  th { background: var(--surface-sunk); color: var(--ink); }
+  td, th { border-color: var(--rule-soft); }
+}
+
+.toc {
+  border: 1px solid var(--rule);
+  box-shadow: none;
+  border-radius: var(--radius);
+
+  .nav__title { background: var(--accent); font-family: $sans-serif; }
+  .toc__menu a { color: var(--muted); border-bottom-color: var(--rule-soft); }
+  .toc__menu a:hover { color: var(--accent); background: var(--surface-sunk); }
+}
+
+.notice, .notice--primary, .notice--info, .notice--warning, .notice--success, .notice--danger {
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.search-content {
+  background: var(--ground);
+
+  .search-input { color: var(--ink); background: transparent; }
+  .archive__item-title { color: var(--ink); }
+}
+
+.pagination {
+  a { color: var(--accent); border-color: var(--rule); }
+  a:hover { background: var(--surface-sunk); }
+}
+
+// ===========================================================================
+// Shared primitives
+// ===========================================================================
+
+.section-heading,
 .content-section-heading {
   margin: var(--space-6) 0 var(--space-3);
-  padding-bottom: var(--space-1);
-  border-bottom: 1px solid var(--line-subtle);
-  color: #283d59;
-  font-size: 1.18rem;
-  line-height: 1.28;
-  letter-spacing: 0.01em;
-  scroll-margin-top: 6rem;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: $serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  scroll-margin-top: 5rem;
 }
 
 .content-divider {
   margin: var(--space-5) 0;
   border: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(40, 63, 95, 0), rgba(40, 63, 95, 0.24), rgba(40, 63, 95, 0));
+  background: var(--rule);
 }
 
-.recent-news-container {
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-4) var(--space-4);
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-soft);
+// Visually hidden but available to screen readers.
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  font-family: $sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.home-note {
+  margin: 0 0 var(--space-5);
+  color: var(--muted);
+}
+
+// A single quiet link-row style, replacing the six pastel pill fills.
+.link-row {
+  margin: var(--space-2) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-2);
+
+  a {
+    font-family: $sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; text-underline-offset: 2px; }
+  }
+
+  .link-row__sep {
+    color: var(--rule);
+    font-size: 0.78rem;
+    user-select: none;
+  }
+}
+
+// ===========================================================================
+// Publication list (shared by /research/ and the home page)
+//
+// A hairline-ruled row with a year rail, rather than a bordered, rounded,
+// shadowed card that lifts on hover.
+// ===========================================================================
+
+.pub-list {
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 3.25rem 9rem 1fr;
+  gap: 0 var(--space-4);
+  align-items: start;
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--rule-soft);
+
+  &:first-child { border-top: 0; }
+  &[hidden] { display: none !important; }
+}
+
+.pub__year {
+  grid-column: 1;
+  padding-top: 0.1rem;
+  font-family: $sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+// JS marks repeated years in a run so each year is announced once.
+.pub--year-repeat .pub__year > span { visibility: hidden; }
+
+// No painted box: a figure on a white ground should look like it is sitting on
+// the page, not inside a tile. Centred against the whole entry rather than
+// pinned to its top.
+.pub__fig {
+  grid-column: 2;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 9.5rem;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+// Papers with no teaser of their own fall back to a render of their first page.
+// That one does want an edge, so it reads as a sheet of paper.
+.pub__fig--page img {
+  border: 1px solid var(--rule);
+}
+
+// The render is dark ink on a transparent page, which vanishes against a dark
+// ground. Inverting restores it; hue-rotate keeps embedded figures close to
+// their original colours.
+:root[data-theme="dark"] .pub__fig--page img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+// A paper with no teaser yet drops the slot entirely rather than showing an
+// empty box that reads as a broken image. Because every cell is placed by
+// explicit column, removing it cannot shift the text column out of alignment.
+.pub__fig--empty { display: none; }
+
+.pub__body {
+  grid-column: 3;
+  min-width: 0;
+}
+
+.pub__title {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-family: $serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.006em;
+  color: var(--ink);
+  text-decoration: none;
+
+  &:visited { color: var(--ink); }
+
+  &:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+.pub__authors {
+  margin: 0 0 0.15rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+  color: var(--faint);
+
+  a, a:visited { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  .author-self {
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+}
+
+.pub__venue {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.pub__venue-name {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.pub__honor {
+  color: var(--honor);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pub__also {
+  margin: 0.15rem 0 0;
+  font-size: 0.79rem;
+  line-height: 1.45;
+  color: var(--faint);
+}
+
+.pub__summary {
+  margin-top: var(--space-2);
+
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    font-family: $sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--faint);
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "+ "; }
+    &:hover { color: var(--accent); }
+  }
+
+  &[open] summary::before { content: "– "; }
+}
+
+.pub__tldr {
+  margin: var(--space-2) 0 0;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--rule);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.pub__cite {
+  margin-top: var(--space-2);
+
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    font-family: $sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--faint);
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "+ "; }
+    &:hover { color: var(--accent); }
+  }
+
+  &[open] summary::before { content: "– "; }
+
+  pre {
+    margin: 0;
+    padding: var(--space-3);
+    padding-right: 4.5rem; // room for the copy button
+    background: var(--surface-sunk);
+    border: 1px solid var(--rule-soft);
+    border-radius: var(--radius);
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: var(--muted);
+    overflow-x: auto;
+  }
+}
+
+.pub__cite-box {
+  position: relative;
+  margin-top: var(--space-2);
+  max-width: var(--measure);
+}
+
+.pub__cite-copy {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: $sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  cursor: pointer;
+
+  &:hover { color: var(--accent); border-color: var(--accent); }
+
+  &.is-copied {
+    color: var(--good, #2f6b55);
+    border-color: currentColor;
+  }
+
+  &.is-failed {
+    color: var(--honor);
+    border-color: currentColor;
+  }
+}
+
+.pub-empty {
+  margin: var(--space-5) 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+// ===========================================================================
+// Publication browser (/research/)
+// ===========================================================================
+
+.pub-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: var(--space-5) 0 var(--space-2);
+  padding: var(--space-3) 0;
+  background: var(--ground);
+  border-bottom: 1px solid var(--rule);
+}
+
+.pub-toolbar__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.pub-search {
+  flex: 1 1 15rem;
+  min-width: 0;
+
+  input {
+    width: 100%;
+    min-height: 2.2rem;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: $sans-serif;
+    font-size: 0.88rem;
+
+    &::placeholder { color: var(--faint); }
+    &:focus { border-color: var(--accent); outline-offset: 0; }
+  }
+}
+
+.pub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub-chip {
+  padding: 0.22rem 0.62rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-family: $sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+
+  &:hover { color: var(--accent); border-color: var(--accent); }
+
+  &[aria-pressed="true"] {
+    background: var(--accent-wash);
+    border-color: var(--accent);
+    color: var(--accent-strong);
+    font-weight: 600;
+  }
+}
+
+.pub-filters-more {
+  margin: var(--space-2) 0 0;
+
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    font-family: $sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "+ "; }
+    &:hover { color: var(--accent); }
+  }
+
+  &[open] summary::before { content: "– "; }
+}
+
+.pub-filters-more__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.pub-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  label {
+    font-family: $sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+
+  select {
+    min-height: 2.1rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: $sans-serif;
+    font-size: 0.84rem;
+
+    &:focus { border-color: var(--accent); outline-offset: 0; }
+  }
+}
+
+.pub-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.pub-status__count {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: 0.82rem;
+  color: var(--faint);
+}
+
+.pub-reset {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--accent);
+  font-family: $sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover { text-decoration: underline; text-underline-offset: 2px; }
+  &[hidden] { display: none; }
+}
+
+// ===========================================================================
+// Home page
+// ===========================================================================
+
+.featured-pubs {
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.featured-pub {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0 var(--space-4);
+  align-items: start;
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--rule-soft);
+
+  &:first-child { border-top: 0; }
+}
+
+.featured-pub__fig {
+  grid-column: 1;
+  // `stretch`, not `center`: the box then spans the row and the image is
+  // centred inside it, so the thumbnail sits on the row's midline whichever
+  // of the two columns is taller.
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Reserve the slot. The <img> carries no width/height attributes, so until
+  // it decodes the box has no height at all - the row collapses and then
+  // jumps when the image lands, which is what makes an otherwise centred
+  // thumbnail look misplaced on first paint. (The home card also loads
+  // eagerly now; this still covers a slow or failed image.)
+  min-height: 6.5rem;
+
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 10rem;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.featured-pub__fig--empty { display: none; }
+
+.featured-pub__body {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.featured-pub__venue {
+  margin: 0 0 0.1rem;
+  font-family: $sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.featured-pub__title {
+  margin: 0 0 0.2rem;
+  font-family: $serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.3;
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+
+    &:visited { color: var(--ink); }
+    &:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  }
+}
+
+.featured-pub__tldr {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.news-panel {
+  margin: 0 0 var(--space-5);
 }
 
 .news-timeline {
@@ -276,671 +1087,688 @@ a:focus-visible,
 
 .news-item {
   display: grid;
-  grid-template-columns: minmax(130px, 165px) 1fr;
-  gap: 0.35rem var(--space-4);
-  align-items: start;
-  padding: 0.62rem 0;
-  border-bottom: 1px solid var(--line-subtle);
-}
+  grid-template-columns: minmax(0, 6.6rem) 1fr;
+  gap: 0.1rem var(--space-3);
+  align-items: baseline;
+  padding: 0.38rem 0;
+  border-top: 1px solid var(--rule-soft);
 
-.news-item:last-child {
-  border-bottom: none;
+  &:first-child { border-top: 0; }
+
+  // Smaller and set in the muted tone so the news block reads as a distinct
+  // register from the body copy above it rather than as more prose.
+  p {
+    margin: 0;
+    font-size: 0.76rem;
+    line-height: 1.42;
+    color: var(--muted);
+  }
+
+  a { color: var(--accent); }
 }
 
 .news-date {
-  font-size: 0.8rem;
-  line-height: 1.55;
+  font-family: $sans-serif;
+  font-size: 0.67rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #557095;
-}
-
-.news-item p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
 }
 
 .older-news {
-  margin-top: var(--space-2);
-  padding-top: var(--space-2);
-  border-top: 1px dashed rgba(35, 57, 85, 0.22);
-}
-
-.older-news summary {
-  cursor: pointer;
-  font-size: 0.86rem;
-  font-weight: 500;
-  color: #496890;
-}
-
-.news-timeline--compact .news-item p {
-  font-size: 0.9rem;
-}
-
-.research-filters {
-  margin: var(--space-4) 0 var(--space-5);
-  padding: var(--space-2) var(--space-4) var(--space-4);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-soft);
-}
-
-.research-filters .content-section-heading {
-  margin-top: var(--space-2);
-}
-
-.research-filters__lead {
-  margin: 0 0 var(--space-3);
-  color: #536983;
-  font-size: 0.92rem;
-}
-
-.research-filters__form {
-  display: grid;
-  grid-template-columns: 2fr repeat(4, minmax(120px, 1fr));
-  gap: var(--space-3) var(--space-3);
-  margin: 0;
-}
-
-.research-filter-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.research-filter-field label {
-  font-size: 0.73rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #556884;
-}
-
-.research-filter-field input,
-.research-filter-field select {
-  min-height: 2.1rem;
-  border: 1px solid #cfd8e6;
-  border-radius: 8px;
-  padding: 0.35rem 0.55rem;
-  font-size: 0.84rem;
-  background: #fff;
-  color: #2d425f;
-}
-
-.research-filter-field input:focus-visible,
-.research-filter-field select:focus-visible {
-  border-color: var(--brand-blue);
-  box-shadow: 0 0 0 2px rgba(63, 110, 169, 0.15);
-  outline: none;
-}
-
-.research-filters__actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
   margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule);
+
+  summary {
+    display: inline-block;
+    cursor: pointer;
+    font-family: $sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "+ "; }
+    &:hover { text-decoration: underline; text-underline-offset: 2px; }
+  }
+
+  &[open] summary::before { content: "– "; }
 }
 
-.research-filters__results {
-  margin: 0;
-  font-size: 0.84rem;
-  color: #4f6380;
-}
+// ===========================================================================
+// Teaching
+// ===========================================================================
 
-.research-filters__clear {
-  border: 1px solid #cfdae9;
-  border-radius: 999px;
-  padding: 0.28rem 0.72rem;
-  background: #fff;
-  color: #3a567f;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.research-filters__clear:hover {
-  background: #f2f6fc;
-}
-
-.research-quick-nav {
-  position: sticky;
-  top: 0.85rem;
-  z-index: 5;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2);
-  margin: var(--space-1) 0 var(--space-5);
-  padding: var(--space-3);
-  border-radius: var(--radius-sm);
-  background: rgba(248, 250, 251, 0.96);
-  border: 1px solid #d0d8e6;
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(8px);
-  transition: box-shadow 0.3s ease;
-}
-
-.research-quick-nav:hover {
-  box-shadow: var(--shadow-medium);
-}
-
-.research-quick-nav__label {
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--text-subtle);
-}
-
-.research-quick-nav a {
-  display: inline-block;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 0.2rem 0.72rem;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 0.86rem;
-  color: #36557f;
-  background: rgba(255, 255, 255, 0.88);
-}
-
-.research-quick-nav a:hover {
-  transform: translateY(-1px);
-}
-
-.research-quick-nav__top {
-  margin-left: auto;
-}
-
-.paper-container {
-  display: flex;
-  align-items: stretch;
-  gap: clamp(0.9rem, 2vw, 1.6rem);
-}
-
-.paper-image-col,
-.image-col-left,
-.image-col-right {
-  flex: 0 0 min(32%, 270px);
-  margin: 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.paper-content-col,
-.authors-col-left,
-.authors-col-right {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.paper-content-col {
-  order: 0;
-}
-
-.paper-image-col {
-  order: 1;
-}
-
-.paper-row[data-image-position="left"] .paper-image-col {
-  order: 0;
-}
-
-.paper-row[data-image-position="left"] .paper-content-col {
-  order: 1;
-}
-
-.paper-row {
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  margin: 1rem 0;
-  padding: clamp(1rem, 1.8vw, 1.35rem);
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.paper-row[hidden],
-.research-section[hidden],
-.research-section-divider[hidden] {
-  display: none !important;
-}
-
-.paper-row:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(63, 95, 153, 0.15);
-}
-
-.paper-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.45rem;
-  margin-top: 0.65rem;
-}
-
-.paper-title-link {
-  color: #1a3a5f;
-  font-weight: 600;
-  font-size: 1.1rem;
-  line-height: 1.32;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.paper-title-link:hover {
-  color: var(--brand-blue-deep);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
-}
-
-.paper-main-tag {
-  margin: 0.18rem 0 0.28rem;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 10px;
-  padding: 0.08rem 0.5rem;
-  background: #e5eefb;
-  color: #35557d;
-  font-family: "Spectral", serif;
-  font-size: 0.78rem;
-  font-weight: 200;
-  letter-spacing: 0.01em;
-  text-transform: none;
-}
-
-.paper-venue-meta {
-  margin: 0.12rem 0 0;
-  font-size: 0.75rem;
-  line-height: 1.3;
-  color: #60708a;
-  text-transform: capitalize;
-}
-
-.paper-thumbnail {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  max-height: 220px;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-  margin: 0 auto;
-  border-radius: 8px;
-}
-
-.paper-venue {
-  margin: 0.08rem 0 0.14rem;
-  font-size: 0.81rem;
-  line-height: 1.45;
-  color: #495d78;
-}
-
-.paper-authors {
-  margin: 0;
-  font-size: 0.84rem;
-  line-height: 1.5;
-  color: #506177;
-}
-
-.paper-authors a,
-.paper-authors a:visited {
-  color: inherit;
-}
-
-.paper-authors a:hover {
-  color: var(--brand-blue-deep);
-}
-
-.paper-authors .author-self {
-  font-weight: 600;
-  color: #3f5470;
-}
-
-.paper-venue b,
-.paper-authors .author-self {
-  font-size: inherit;
-  font-weight: 600;
-  color: #445369;
-}
-
-.custom-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 88px;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  border: 1.5px solid rgba(31, 49, 77, 0.22);
-  background: #f5f8fc;
-  color: #1f2f46;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 1.2;
-  opacity: 0.92;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-.custom-button:visited {
-  color: #1f2f46;
-}
-
-.custom-button:hover {
-  transform: translateY(-2px);
-  opacity: 1;
-  box-shadow: 0 8px 16px rgba(16, 34, 58, 0.15);
-  border-color: rgba(31, 49, 77, 0.35);
-}
-
-.custom-button:active {
-  transform: translateY(0);
-}
-
-.button-paper {
-  background-color: #fde4e1;
-  border-color: rgba(217, 67, 47, 0.15);
-}
-
-.button-code {
-  background-color: #fff1da;
-  border-color: rgba(234, 137, 20, 0.15);
-}
-
-.button-slides {
-  background-color: #ddf2ff;
-  border-color: rgba(14, 165, 233, 0.15);
-}
-
-.button-video {
-  background-color: #d7fbe8;
-  border-color: rgba(16, 185, 129, 0.15);
-}
-
-.button-poster {
-  background-color: #f9dff2;
-  border-color: rgba(236, 72, 153, 0.15);
-}
-
-.button-blog {
-  background-color: #fef3c7;
-  border-color: rgba(251, 191, 36, 0.15);
-}
-
-/* Teaching page layout */
 .teaching-section {
-  margin: var(--space-2) 0 var(--space-3);
+  margin: 0 0 var(--space-5);
 }
 
 .teaching-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.18rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .teaching-card {
-  border: 1px solid #d7deea;
-  border-left: 4px solid #6d8fbe;
-  border-radius: var(--radius-sm);
-  background: #fbfcff;
-  padding: 0.28rem 0.5rem;
-  box-shadow: 0 8px 16px rgba(12, 25, 42, 0.05);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
-}
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--rule-soft);
 
-.teaching-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(12, 25, 42, 0.08);
+  &:first-child { border-top: 0; }
 }
 
 .teaching-title {
-  margin: 0;
-  font-size: 0.89rem;
-  line-height: 1.2;
-}
+  margin: 0 0 0.1rem;
+  font-family: $serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
 
-.teaching-title a {
-  text-decoration: none;
-}
+  a {
+    color: var(--ink);
+    text-decoration: none;
 
-.teaching-title a:hover {
-  text-decoration: underline;
-}
-
-.teaching-meta-stack {
-  margin-top: 0.02rem;
+    &:visited { color: var(--ink); }
+    &:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  }
 }
 
 .teaching-meta {
   margin: 0;
-  color: #697893;
-  font-size: 0.73rem;
-  line-height: 1.22;
-  font-weight: 400;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 .teaching-label {
-  color: #5f6d84;
-  font-weight: 500;
+  color: var(--faint);
 }
 
 .teaching-years {
   display: inline-block;
-  margin-top: 0.02rem;
-  padding: 0.04rem 0.38rem;
-  border-radius: 999px;
-  background: #eef3fb;
-  color: #60708a;
-  font-size: 0.62rem;
-  font-weight: 500;
+  margin-top: 0.15rem;
+  font-family: $sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
 }
 
 .supervision-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid #dde4ef;
 }
 
 .supervision-item {
-  padding: 0.24rem 0.04rem;
-  border-bottom: 1px solid #e8edf5;
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--rule-soft);
+
+  &:first-child { border-top: 0; }
 }
 
 .supervision-name {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: 0.97rem;
   font-weight: 600;
-  color: #2a3f5d;
-  line-height: 1.22;
-}
+  line-height: 1.3;
+  color: var(--ink);
 
-.supervision-meta {
-  margin: 0.02rem 0 0;
-  font-size: 0.72rem;
-  line-height: 1.2;
-  color: #6b7890;
+  a { color: var(--ink); }
+  a:hover { color: var(--accent); }
 }
 
 .supervision-year {
-  display: inline-block;
-  margin-left: 0.2rem;
-  padding: 0.02rem 0.34rem;
-  border-radius: 999px;
-  background: #eef3fb;
-  color: #60708a;
-  font-size: 0.6rem;
-  font-weight: 500;
-  vertical-align: middle;
-}
-
-/* Thesis styles */
-.thesis-card {
-  border: 1.5px solid var(--card-border);
-  border-left: 4px solid var(--brand-blue-deep);
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--brand-blue-lighter) 0%, var(--surface-raised) 100%);
-  padding: var(--space-4) var(--space-5);
-  margin: 1rem 0;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.thesis-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
-  border-color: rgba(63, 95, 153, 0.3);
-}
-
-.thesis-degree {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: #e8f0fb;
-  color: #34557f;
-  font-size: 0.75rem;
+  margin-left: 0.4rem;
+  font-family: $sans-serif;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  margin-bottom: var(--space-2);
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
 }
 
-.thesis-title {
-  margin: var(--space-2) 0 var(--space-1);
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: var(--brand-ink);
-  line-height: 1.35;
+.supervision-meta {
+  margin: 0.1rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
-.thesis-title a {
-  color: var(--brand-blue-deep);
-  text-decoration: none;
-  transition: color 0.2s ease;
+// ===========================================================================
+// Dark theme: minimal-mistakes compiles its own colours in, so the components
+// the theme owns need explicit token-based overrides.
+// ===========================================================================
+
+@mixin dark-theme-overrides {
+  background: var(--ground);
+  color: var(--ink);
+
+  .masthead,
+  .greedy-nav,
+  .greedy-nav__toggle,
+  .initial-content,
+  .page__content,
+  .archive,
+  .sidebar {
+    background-color: transparent;
+    color: var(--ink);
+  }
+
+  .masthead { background: var(--surface); }
+
+  h1, h2, h3, h4, h5, h6,
+  .page__title,
+  .archive__item-title,
+  .page__content p,
+  .page__content li,
+  .page__content dd,
+  strong, b {
+    color: var(--ink);
+  }
+
+  .page__meta,
+  .page__date,
+  .page__taxonomy,
+  .archive__item-excerpt,
+  .author__bio,
+  .author__urls li,
+  .page__footer,
+  .page__footer footer,
+  .page__footer-copyright,
+  .page__footer-follow,
+  .page__footer-follow li,
+  figcaption {
+    color: var(--muted);
+  }
+
+  .page__footer { background: var(--surface-sunk); }
+
+  .author__avatar img { border-color: var(--rule); }
+
+  .page__content {
+    pre, pre code, .highlight, .highlight pre {
+      background: var(--surface-sunk);
+      color: var(--ink-soft);
+    }
+  }
+
+  table { color: var(--ink); }
+  thead { border-bottom-color: var(--rule); }
+
+  .search-content,
+  .search-content .search-input {
+    background: var(--ground);
+    color: var(--ink);
+  }
+
+  .notice, .notice--primary, .notice--info,
+  .notice--warning, .notice--success, .notice--danger {
+    background: var(--surface-sunk);
+    color: var(--ink-soft);
+  }
+
+  .pagination a { color: var(--accent); }
+  .pagination a.disabled { color: var(--faint); }
+
+  .toc .toc__menu a { background: var(--surface); }
 }
 
-.thesis-title a:hover {
-  color: var(--accent-teal);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+:root[data-theme="dark"] body { @include dark-theme-overrides; }
+
+// ===========================================================================
+// Mathematics
+//
+// MathJax centres display math itself, but only once it has typeset; these
+// rules also hold the layout before that and keep a wide equation inside its
+// own scroll box rather than widening the page.
+// ===========================================================================
+
+mjx-container[display="true"] {
+  display: block;
+  // Same column as the running text, so a display equation is centred against
+  // the paragraph above it rather than against the whole content box.
+  max-width: var(--measure);
+  margin: 1.4em 0 !important;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
-.thesis-meta {
-  margin: var(--space-2) 0 var(--space-3);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.thesis-institution {
-  font-weight: 500;
-  color: var(--brand-ink);
-}
-
-.thesis-year {
+mjx-container[display="true"] mjx-math {
   display: inline-block;
-  margin-left: 0.8rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: rgba(63, 95, 153, 0.08);
-  font-weight: 500;
-  color: var(--brand-blue-deep);
+  text-align: left;
+}
+
+// Pre-typeset fallback: the raw \[ ... \] kramdown emits sits on its own line.
+.page__content p > mjx-container:only-child { margin: 1.4em 0 !important; }
+
+// ===========================================================================
+// Code blocks
+//
+// Fenced code and highlighted blocks end on the same margins as the prose
+// around them; long lines scroll inside the block rather than widening it.
+// ===========================================================================
+
+.page__content,
+.archive {
+  pre,
+  .highlight,
+  .highlighter-rouge,
+  figure.highlight,
+  div[class^="language-"] {
+    max-width: var(--measure);
+    overflow-x: auto;
+  }
+}
+
+// ===========================================================================
+// Sidenotes (long-form posts)
+//
+// Floated inside the content box rather than into a negative margin, so a
+// narrow viewport can never be pushed into horizontal scroll.
+// ===========================================================================
+
+.page__content {
+  counter-reset: sidenote sidenote-note footnote;
+}
+
+// ---------------------------------------------------------------------------
+// Hover footnote (_includes/footnote.html)
+//
+// Marker is a real <button>, so the note opens on hover for a mouse, on focus
+// for a keyboard, and on tap for a touch screen - `:focus-within` covers the
+// last two with no JavaScript. The body is hidden with `opacity`, not
+// `visibility` or `display`, so it stays in the accessibility tree and the
+// marker's `aria-describedby` keeps working whether or not it is on screen.
+// ---------------------------------------------------------------------------
+
+// The theme runs an `intro` animation on both `#main` and `.page__footer`, and
+// a filled animation creates a stacking context. That makes the popover's
+// `z-index: 20` local to `#main`, so the footer - a later sibling at the same
+// level - painted straight over a note opened near the bottom of the page.
+// Lifting `#main` one step fixes it for every popover inside it. The masthead
+// sits at z-index 20 and stays above.
+#main {
+  position: relative;
+  z-index: 1;
+}
+
+.footnote {
+  position: relative;
+  display: inline;
+}
+
+.footnote__marker {
+  counter-increment: footnote;
+  -webkit-appearance: none;
+  appearance: none;
+  // A real box, not a zero-height one: this is a button, and `line-height: 0`
+  // plus `vertical-align: super` (what the non-interactive sidenote marker
+  // uses) leaves nothing to click. It is raised with relative positioning
+  // instead, which paints it as a superscript without growing the line box.
+  display: inline-block;
+  position: relative;
+  top: -0.45em;
+  padding: 0.1em 0.15em;
+  border: 0;
+  background: transparent;
+  cursor: help;
+  font-family: $sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+
+  &::after { content: counter(footnote); }
+  &:hover { color: var(--accent-strong); }
+}
+
+.footnote__body {
+  position: absolute;
+  top: 1.7em;
+  left: 50%;
+  z-index: 20;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 20rem;
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(16, 28, 44, 0.14);
+  font-family: $sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.5;
+  // The surrounding prose is justified; a 20rem popover is not wide enough
+  // for that to look like anything but a mistake.
+  text-align: left;
+  hyphens: manual;
+  color: var(--muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.footnote:hover .footnote__body,
+.footnote:focus-within .footnote__body {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// On a phone the text column is the viewport, so a popover centred on the
+// marker runs off whichever edge the marker happens to be near. Dock it to
+// the bottom of the screen instead, where it always fits.
+@media (max-width: 700px) {
+  .footnote__body {
+    position: fixed;
+    top: auto;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+    transform: none;
+    width: auto;
+    max-width: none;
+    box-shadow: 0 -2px 24px rgba(16, 28, 44, 0.18);
+  }
+}
+
+.sidenote__marker {
+  counter-increment: sidenote;
+  vertical-align: super;
+  font-family: $sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  line-height: 0;
+  color: var(--accent);
+
+  &::after { content: counter(sidenote); }
+}
+
+.sidenote {
+  counter-increment: sidenote-note;
+  display: block;
+  margin: var(--space-2) 0 var(--space-3) var(--space-5);
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--rule);
+  font-family: $sans-serif;
   font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 38ch;
+
+  &::before {
+    content: counter(sidenote-note);
+    margin-right: 0.4em;
+    font-size: 0.78em;
+    font-weight: 700;
+    vertical-align: super;
+    line-height: 0;
+    color: var(--accent);
+  }
 }
 
 @media (min-width: 1200px) {
-  .page__content p {
-    max-width: 70ch;
-  }
-
-  .content-section-heading {
-    font-size: 1.24rem;
+  .sidenote {
+    float: right;
+    clear: right;
+    width: 15rem;
+    max-width: 40%;
+    margin: 0.3rem 0 var(--space-3) var(--space-5);
   }
 }
 
+// ===========================================================================
+// Specificity corrections
+//
+// minimal-mistakes styles `.page__content p|h2|h3|ul` with element+class
+// selectors, which outrank a single component class. These restate the
+// component spacing at matching specificity rather than reaching for
+// `!important`.
+// ===========================================================================
+
+.page__content,
+.archive {
+  .section-heading,
+  .content-section-heading {
+    margin: var(--space-6) 0 var(--space-3);
+    padding-bottom: var(--space-2);
+    font-size: 1.3rem;
+  }
+
+  .pub__authors,
+  .pub__venue,
+  .featured-pub__venue,
+  .featured-pub__tldr,
+  .teaching-meta,
+  .supervision-name,
+  .pub-status__count,
+  .pub-empty {
+    margin: 0;
+  }
+
+  .news-item p {
+    margin: 0;
+    font-size: 0.76rem;
+    line-height: 1.42;
+    color: var(--muted);
+  }
+
+  .pub__also { margin: 0.15rem 0 0; }
+  .pub__tldr { margin: var(--space-2) 0 0; }
+  .supervision-meta { margin: 0.1rem 0 0; }
+  .link-row { margin: var(--space-2) 0 0; }
+
+  // Sizes too: `.page__content p` is element+class and outranks a lone
+  // component class, which silently reset all of these to body size.
+  .pub__authors { font-size: 0.78rem; line-height: 1.45; }
+  .pub__venue { font-size: 0.84rem; }
+  .pub__also { font-size: 0.79rem; }
+  .pub__tldr { font-size: 0.9rem; }
+  .featured-pub__venue { font-size: 0.76rem; }
+  .featured-pub__tldr { font-size: 0.88rem; }
+  .teaching-meta { font-size: 0.84rem; }
+  .supervision-name { font-size: 0.97rem; }
+  .supervision-meta { font-size: 0.84rem; }
+  .pub-status__count { font-size: 0.82rem; }
+
+  .featured-pub__title { margin: 0 0 0.2rem; font-size: 1.08rem; }
+  .teaching-title { margin: 0 0 0.1rem; font-size: 1rem; }
+
+  .featured-pubs,
+  .pub-chips,
+  .teaching-grid,
+  .supervision-list,
+  .news-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .featured-pub,
+  .teaching-card,
+  .supervision-item,
+  .news-item,
+  .pub-chips li {
+    margin: 0;
+  }
+}
+
+// Social icons in the sidebar carry hardcoded brand colours from the theme
+// (GitHub's is near-black), which disappear against a dark ground.
+@mixin dark-social-icons {
+  .author__urls {
+    .fab, .fas, .far, .ai, .svg-inline--fa { color: var(--muted); }
+  }
+}
+
+:root[data-theme="dark"] body { @include dark-social-icons; }
+
+// ===========================================================================
+// Motion
+// ===========================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+// ===========================================================================
+// Responsive
+// ===========================================================================
+
+@media (min-width: 1200px) {
+  .section-heading,
+  .content-section-heading { font-size: 1.36rem; }
+}
+
+// Running text gets a wider measure once the viewport can carry it.
+@media (min-width: 1200px) { :root { --measure: 37.8rem; } }
+@media (min-width: 1440px) { :root { --measure: 40.8rem; } }
+
 @media (max-width: 900px) {
-  .featured-publications-grid {
-    gap: var(--space-3);
+  .pub {
+    grid-template-columns: 3rem 7rem 1fr;
+    gap: 0 var(--space-3);
+    padding: var(--space-4) 0;
   }
 
-  .featured-paper-card {
+  .featured-pub {
+    grid-template-columns: 8rem 1fr;
+    gap: 0 var(--space-3);
+  }
+
+  .pub-toolbar { position: static; }
+}
+
+@media (max-width: 600px) {
+  .pub {
     grid-template-columns: 1fr;
+    gap: var(--space-2) 0;
   }
 
-  .featured-paper-card__thumb {
-    aspect-ratio: 16/9;
-    min-height: 0;
-    padding: 0.25rem;
+  .pub__year,
+  .pub__fig,
+  .pub__body {
+    grid-column: 1;
   }
 
-  .research-filters {
-    padding: var(--space-2) var(--space-3) var(--space-3);
+  .pub__year {
+    padding-top: 0;
+    font-size: 0.78rem;
   }
 
-  .research-filters__form {
+  // On one column there is no rail to align to, so every year is shown.
+  .pub--year-repeat .pub__year > span { visibility: visible; }
+
+  // Teaser figures are dropped on phones. A first-page scan shrunk to a
+  // phone column is unreadable, and at ~25 lines of height apiece they put
+  // most of the publication list below the fold for no information gained.
+  // They are decorative here - `aria-hidden`, `tabindex="-1"` - so nothing
+  // is lost to assistive tech either.
+  .pub__fig,
+  .featured-pub__fig {
+    display: none;
+  }
+
+  .featured-pub {
     grid-template-columns: 1fr;
-    gap: var(--space-2);
+    gap: var(--space-2) 0;
   }
 
-  .research-filters__actions {
-    flex-direction: column;
-    align-items: flex-start;
+  .featured-pub__body {
+    grid-column: 1;
   }
 
   .news-item {
     grid-template-columns: 1fr;
-    gap: 0.12rem;
+    gap: 0.1rem 0;
+  }
+}
+
+// Justification needs room. On a phone column the lines are short enough that
+// `text-align: justify` opens visible rivers between words - worst on lines
+// carrying a long link - and `hyphens: auto` breaks several words per
+// paragraph. Below tablet width the prose reads ragged-right instead.
+@media (max-width: 700px) {
+  .page__content,
+  .archive {
+    p {
+      text-align: left;
+      hyphens: manual;
+    }
+  }
+}
+
+// Touch targets. On a mouse-driven screen a 23x15px icon button is fine; on a
+// finger it is not. `hover: none` + `pointer: coarse` matches touch devices
+// specifically, so none of this changes the desktop metrics. The masthead
+// controls go to the full 44px recommendation since they are the site's
+// primary navigation; the inline disclosures settle at a smaller figure that
+// does not stretch a 26-entry publication list out of shape.
+@media (hover: none) and (pointer: coarse) {
+  .theme__toggle,
+  .search__toggle,
+  .greedy-nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 44px;
   }
 
-  .news-date {
-    font-size: 0.78rem;
+  .pub__summary > summary,
+  .pub__cite > summary,
+  .older-news > summary,
+  .pub-filters-more > summary {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
   }
 
-  .research-quick-nav {
-    top: 0.5rem;
+  .pub-chip {
+    min-height: 36px;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
   }
 
-  .research-quick-nav__label {
-    width: 100%;
+  .pub__cite-copy {
+    min-width: 56px;
+    min-height: 32px;
   }
 
-  .research-quick-nav__top {
-    margin-left: 0;
+  // A footnote marker cannot grow to 44px without wrecking the line it sits
+  // in, so grow an invisible hit area around it instead.
+  .footnote__marker::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
   }
+}
 
-  .paper-container {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .paper-image-col,
-  .image-col-left,
-  .image-col-right {
+// The masthead controls are flex siblings of the site title, so growing them
+// for touch squeezes the title until it wraps onto a second line. From 360px
+// up there is still room to keep it on one; below that (iPhone SE and
+// narrower) let it wrap, which is tidier than running it under the icons.
+@media (hover: none) and (pointer: coarse) and (min-width: 360px) {
+  .greedy-nav .site-title {
+    white-space: nowrap;
     flex: 0 1 auto;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .paper-links {
-    justify-content: flex-start;
-  }
-
-  .paper-thumbnail {
-    max-width: min(100%, 420px);
-    max-height: 240px;
-  }
-
-  .teaching-card {
-    padding: 0.3rem 0.42rem;
-  }
-
-  .teaching-title {
-    font-size: 0.86rem;
+    min-width: 0;
   }
 }

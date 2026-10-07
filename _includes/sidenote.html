@@ -1,0 +1,12 @@
+{%- comment -%}
+  Margin note for long-form posts.
+
+      Batch normalisation is a good example of this{% raw %}{% include sidenote.html
+        text="The original internal-covariate-shift story has not held up." %}{% endraw %}.
+
+  On screens wide enough to carry it, the note floats into the right of the
+  content column beside the sentence that raised it. Below that width it falls
+  back to an indented aside in the flow, so nothing is hidden on a phone. The
+  marker is numbered by CSS, so posts need no bookkeeping.
+{%- endcomment -%}
+<span class="sidenote__marker" aria-hidden="true"></span><small class="sidenote" role="note">{{ include.text }}</small>

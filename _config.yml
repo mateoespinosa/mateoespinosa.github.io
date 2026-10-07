@@ -43,6 +43,18 @@ atom_feed:
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
 search_provider          : lunr # lunr (default), algolia, google
+
+# Publication list (/research/)
+# Adds a collapsible, copyable BibTeX entry under every publication. Entries
+# are generated from the fields already in _data/research.yml - there is no
+# stored BibTeX to maintain - so this is purely a display switch.
+show_bibtex              : false # true, false (default)
+
+# Optional dark theme
+# Adds a moon/sun toggle to the masthead. The site is always light unless a
+# visitor opts in there; the OS setting never switches it on its own. With this
+# off there is no toggle, no JavaScript, and nothing read from localStorage.
+dark_mode                : false # true, false (default)
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
@@ -70,6 +82,7 @@ social:
     - https://scholar.google.com/citations?user=4ikoEiMAAAAJ&hl=en
     - https://github.com/mateoespinosa
     - https://linkedin.com/in/mateoespinosa
+    - https://x.com/mateoespinosaz
 
 # Analytics
 analytics:
@@ -82,8 +95,11 @@ analytics:
 # Site Author
 author:
   name             : "Mateo Espinosa Zarlenga"
-  avatar           : "assets/images/me.png"
+  avatar           : "assets/images/me4.jpeg"
   bio              : "JRF @ Oxford &#124; PhD @ Cambridge"
+  # Makes the sidebar avatar and name link somewhere; the theme's
+  # author-profile.html wraps both in an <a> whenever this is set.
+  home             : "/"
   location         : "Oxford, UK"
   email            : "mateoespinosaz2@gmail.com"
   links:
@@ -96,6 +112,9 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/mateoespinosa"
+    - label: "X"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://x.com/mateoespinosaz"
 
 #Site header
 header:
@@ -113,6 +132,9 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/mateoespinosa"
+    - label: "X"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://x.com/mateoespinosaz"
 
 
 # Reading Files

@@ -1772,3 +1772,290 @@ mjx-container[display="true"] mjx-math {
     min-width: 0;
   }
 }
+
+// ===========================================================================
+// Concept bottleneck portrait (assets/js/cbm_avatar.js)
+//
+// Hovering the sidebar portrait opens a panel beside it with the concepts
+// "predicted" from the photo; clicking one intervenes on it. The panel is
+// built by the script only at >=1024px with a hovering pointer, so none of
+// this applies to the 36px thumbnail the theme uses below that.
+// ===========================================================================
+
+$mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+.cbm-avatar {
+  position: relative;
+
+  img { cursor: help; }
+}
+
+.cbm-avatar--off img { cursor: auto; }
+
+// Placed on <body> with fixed coordinates by the script; the sticky sidebar
+// scrolls its own overflow and would clip it otherwise.
+.cbm-avatar__panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 19rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 6px 24px rgba(16, 24, 36, 0.12);
+  color: var(--ink);
+  font-family: $sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: left;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+
+  // Pointer arrow towards the portrait.
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--cbm-arrow-y, 41px);
+    left: -6px;
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+    transform: rotate(45deg);
+  }
+}
+
+.cbm-avatar__panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s;
+}
+
+.cbm-avatar__head,
+.cbm-avatar__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cbm-avatar__arch {
+  font-family: $mono;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.cbm-avatar__concepts {
+  margin: var(--space-2) 0;
+  padding: 0;
+  list-style: none;
+
+  li { margin: 0; }
+}
+
+.cbm-avatar__concept {
+  display: grid;
+  grid-template-columns: 6.6rem 1fr 2.3rem;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin: 0;
+  padding: 0.22rem 0.3rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover { background: var(--surface-sunk); }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+}
+
+.cbm-avatar__bar {
+  position: relative;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--rule-soft);
+  overflow: hidden;
+}
+
+.cbm-avatar__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  opacity: 0.75;
+  transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cbm-avatar__val {
+  font-family: $mono;
+  font-size: 0.72rem;
+  text-align: right;
+  color: var(--muted);
+}
+
+// An intervened concept reads as set by hand: warm colour, solid bar and
+// an "intervened" marker on the name.
+.cbm-avatar__concept.is-forced {
+  .cbm-avatar__name { color: var(--honor); }
+  .cbm-avatar__name::after {
+    // Too long to share the 6.6rem name column, so it always takes its own
+    // line rather than wrapping only for the longer concept names.
+    content: "\2190 intervened";
+    display: block;
+    font-family: $mono;
+    font-size: 0.66rem;
+  }
+  .cbm-avatar__fill { background: var(--honor); opacity: 1; }
+  .cbm-avatar__val { color: var(--honor); }
+}
+
+.cbm-avatar__out {
+  padding: var(--space-2) 0.3rem;
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+  border-radius: var(--radius);
+}
+
+.cbm-avatar__line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.cbm-avatar__yhat {
+  font-family: $serif;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.cbm-avatar__label {
+  flex: 1;
+  font-family: $serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cbm-avatar__prob {
+  font-family: $mono;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.cbm-avatar__out.is-flipped { animation: cbm-flip 0.6s ease; }
+
+@keyframes cbm-flip {
+  from { background: var(--accent-wash); }
+  to   { background: transparent; }
+}
+
+.cbm-avatar__foot { margin-top: var(--space-2); }
+
+.cbm-avatar__reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+
+  &:hover { text-decoration: underline; }
+}
+
+// ===========================================================================
+// Hairy ball (_includes/hairy_ball.html, assets/js/hairy_ball.js)
+// ===========================================================================
+
+.hairy-ball {
+  margin: var(--space-6) auto;
+  max-width: 26rem;
+  text-align: center;
+
+  canvas {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    cursor: grab;
+    // Horizontal drags turn the ball; vertical ones still scroll the page.
+    touch-action: pan-y;
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: var(--radius);
+    }
+  }
+
+  &.is-dragging canvas { cursor: grabbing; }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: calc(-1 * var(--space-2));
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+}
+
+.hairy-ball__recomb {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+
+  &:hover { border-color: var(--accent); }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+// ===========================================================================
+// Footer training log (_includes/footer/custom.html)
+// ===========================================================================
+
+// The theme's footer prints the follow links and then the copyright; the log
+// is included before them but belongs last, so the footer becomes a column
+// and the log is moved to the end.
+.page__footer footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.train-log {
+  order: 1;
+  margin-top: var(--space-1);
+  color: var(--faint);
+  font-family: $mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.01em;
+}

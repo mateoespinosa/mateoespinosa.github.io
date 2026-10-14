@@ -43,6 +43,15 @@ contact me or share some ideas with me (I am always open to collaborations!),
 please do not hesitate to [do so]({{site.baseurl}}/contact).
 {: .text-justify}
 
+In case you were wondering about the name of this site: the
+[hairy ball theorem](https://en.wikipedia.org/wiki/Hairy_ball_theorem) says
+that you cannot comb a hairy ball flat. However you comb it, at least one
+cowlick is left over, a point where the hair has nowhere to go but straight up.
+You are welcome to check this yourself below.
+{: .text-justify}
+
+{% include hairy_ball.html caption="Drag to turn it, or comb it again. The cowlick never goes away." %}
+
 ---
 ---
 

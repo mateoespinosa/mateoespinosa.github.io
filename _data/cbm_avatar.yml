@@ -1,0 +1,42 @@
+# Concept bottleneck model behind the sidebar portrait (assets/js/cbm_avatar.js).
+#
+# Hovering the portrait shows the "predicted" concepts below and the label the
+# head assigns from them. Clicking a concept intervenes on it (flips it to 0 or
+# 1), and the label is recomputed as softmax(bias + sum_c weight_c * c), so the
+# head below is a real linear layer, not a lookup table.
+#
+# The weights were fit so that each single intervention lands somewhere
+# different (and so that the un-intervened photo comes out as the first
+# label). If you change a concept or a weight, check that this still holds by
+# clicking through each concept once.
+
+concepts:
+  - { key: smiling,       label: "smiling",          p: 0.96 }
+  - { key: striped_shirt, label: "striped shirt",    p: 0.93 }
+  - { key: outdoors,      label: "outdoors",         p: 0.89 }
+  - { key: caffeinated,   label: "caffeinated",      p: 0.84 }
+  - { key: deadline_near, label: "deadline nearby",  p: 0.07 }
+  - { key: on_vacation,   label: "on vacation",      p: 0.05 }
+
+labels:
+  - label: "me when ice cream is around"
+    bias: -2.0
+    weights: { smiling: 2.0, striped_shirt: -0.2, outdoors: 2.3, caffeinated: 2.0, deadline_near: -1.9, on_vacation: -2.6 }
+  - label: "me after reading reviewer #2's comments"
+    bias: 1.2
+    weights: { smiling: -3.5, striped_shirt: 0.3, outdoors: 0.5, caffeinated: 1.1, deadline_near: 0.6, on_vacation: -0.6 }
+  - label: "asleep"
+    bias: 5.3
+    weights: { smiling: -0.6, striped_shirt: -1.3, outdoors: -0.4, caffeinated: -4.0, deadline_near: -0.5, on_vacation: -1.3 }
+  - label: "me, during a hell week"
+    bias: -2.2
+    weights: { smiling: 1.2, striped_shirt: 0.3, outdoors: -0.3, caffeinated: 0.5, deadline_near: 3.8, on_vacation: 0.2 }
+  - label: "typing furiously"
+    bias: 0.9
+    weights: { smiling: 0.4, striped_shirt: 0.3, outdoors: -2.9, caffeinated: 0.9, deadline_near: -0.9, on_vacation: -0.6 }
+  - label: "having an existential crisis"
+    bias: -2.1
+    weights: { smiling: 0.3, striped_shirt: -0.5, outdoors: 0.4, caffeinated: 1.7, deadline_near: -0.9, on_vacation: 2.9 }
+  - label: "Breton sailor"
+    bias: -1.1
+    weights: { smiling: 0.3, striped_shirt: 1.0, outdoors: 0.3, caffeinated: -2.2, deadline_near: -0.3, on_vacation: 2.0 }

@@ -1,0 +1,19 @@
+{%- comment -%}
+  An interactive hairy ball (assets/js/hairy_ball.js).
+
+  Parameters:
+    mode     "spin" (default): turns slowly on its own.
+             "cowlick": starts with the cowlick facing the viewer and keeps it
+             in view - used on the 404 page.
+    caption  Optional text under the ball. Markdown is not processed.
+    hairs    Optional number of hairs (default 1100).
+{%- endcomment -%}
+<figure class="hairy-ball" data-mode="{{ include.mode | default: 'spin' }}"{% if include.hairs %} data-hairs="{{ include.hairs }}"{% endif %}>
+  <canvas tabindex="0" role="img"
+          aria-label="A sphere covered in hair, combed as flat as it will go. One cowlick, where the hair stands straight up, is always left over. Drag or use the arrow keys to turn it; press Enter to comb it again."></canvas>
+  <figcaption>
+    {% if include.caption %}<span>{{ include.caption }}</span>{% endif %}
+    <button type="button" class="hairy-ball__recomb" data-recomb>Comb it again</button>
+  </figcaption>
+</figure>
+<script src="{{ '/assets/js/hairy_ball.js' | relative_url }}" defer></script>

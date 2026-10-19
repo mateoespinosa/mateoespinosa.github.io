@@ -18,7 +18,7 @@ header:
 
 <div id="research-top"></div>
 
-My current research interests roughly lie on the general field of AI Safety, with a particular focus the intersection of **interpretable/explainable AI**,
+My current research interests roughly lie in the general field of AI Safety, with a particular focus on the intersection of **interpretable/explainable AI**,
 **representation learning**, and **human-in-the-loop AI**. More specifically, I am interested in
 (1) the design of methods that can construct explanations for a model's predictions in terms
 of high-level *"concepts"* and (2) the broad applications that these methods may have in

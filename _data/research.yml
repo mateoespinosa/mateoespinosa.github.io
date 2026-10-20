@@ -1203,6 +1203,88 @@ sections:
   #   publication_type: preprint
   #   home_summary:
 
+  - title: 'Harmful Partial Interventions and Benign Leakage in Concept-based Models'
+    url: https://arxiv.org/abs/2610.21750
+    venue: Preprint
+    venue_short: arXiv
+    month: 10
+    year: 2026
+    venue_display: "Preprint"
+    main_tag: Interpretabiliy Theory
+    tags:
+    - Interpretabiliy Theory
+    - Human-Centric AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Interventions
+    image: "/assets/images/thumbnails/intervention_harm_thumbnail.png"
+    image_alt: First page of paper
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2610.21750
+      kind: paper
+    authors:
+    - name: Gregory Verghese
+      url: https://www.kcl.ac.uk/people/gregory-verghese
+    - name: Christopher J Soelistyo
+      url: https://scholar.google.com/citations?user=zEH_ofwAAAAJ&hl=en
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Alessandro Barp
+      url: https://alebarp.github.io/
+    - name: Christopher RS Banerji
+      url: https://www.kcl.ac.uk/people/christopher-banerji
+    publication_type: preprint
+    tldr: >-
+      We show that even when concept-based models improve their performance
+      after all concepts are intervened on, they may still be harmed by partial
+      interventions and this harm may be arbitrarily large.
+
+  - title: 'Residual Stochastic Concept Bottleneck Models'
+    url: https://arxiv.org/abs/2610.23421
+    venue: Preprint
+    venue_short: arXiv
+    month: 10
+    year: 2026
+    venue_display: "Preprint"
+    main_tag: Concept-based Interpretability
+    tags:
+    - Human-Centric AI
+    - Concept-based Interpretability
+    - Interpretability
+    - Explainability
+    - Interventions
+    image: "/assets/images/thumbnails/res_scbm_thumbnail.png"
+    image_alt: Res-SCBM Architecture
+    image_side: left
+    links:
+    - label: Paper
+      url: https://arxiv.org/abs/2610.23421
+      kind: paper
+    - label: Code
+      url: https://github.com/stephenmarcou/residual_scbm
+      kind: code
+    authors:
+    - name: Stephen Marcou
+      url: https://ch.linkedin.com/in/stephen-marcou-9467b9216
+    - name: Mateo Espinosa Zarlenga
+      me: true
+    - name: Sonia Laguna
+      url: https://sonialagunac.github.io/
+    - name: Moritz Vandenhirtz
+      url: https://mvandenhi.github.io/
+    - name: Julia E. Vogt
+      url: https://mds.inf.ethz.ch/team/detail/julia-vogt/
+    - name: Mateja Jamnik
+      url: https://www.cl.cam.ac.uk/~mj201
+    publication_type: preprint
+    tldr: >-
+      We propose a variation of Stochastic Concept Bottleneck Models that
+      remain accurate and intervenable even when the concept supervision is
+      incomplete.
+
   - title: 'Foundations of Interpretable Models'
     url: https://arxiv.org/abs/2508.00545
     venue: Preprint
